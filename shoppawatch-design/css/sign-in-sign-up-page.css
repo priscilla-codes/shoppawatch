@@ -1,0 +1,126 @@
+/** SIGN-IN & SIGN-UP PAGES **/
+.main-wrapper.sign-in-page, .main-wrapper.sign-up-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+}
+
+.main-wrapper.sign-in-page .sign-up-page-content form .input-container:nth-child(2), .main-wrapper.sign-up-page .sign-up-page-content form .input-container:nth-child(2) {
+  margin-bottom: 1rem;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content,
+.main-wrapper.sign-in-page .sign-up-page-content, .main-wrapper.sign-up-page .sign-in-page-content,
+.main-wrapper.sign-up-page .sign-up-page-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.3rem;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 50rem;
+  min-height: 30rem;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content .brand,
+.main-wrapper.sign-in-page .sign-up-page-content .brand, .main-wrapper.sign-up-page .sign-in-page-content .brand,
+.main-wrapper.sign-up-page .sign-up-page-content .brand {
+  margin-bottom: 3rem;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content h2,
+.main-wrapper.sign-in-page .sign-up-page-content h2, .main-wrapper.sign-up-page .sign-in-page-content h2,
+.main-wrapper.sign-up-page .sign-up-page-content h2 {
+  margin-bottom: 4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form,
+.main-wrapper.sign-in-page .sign-up-page-content form, .main-wrapper.sign-up-page .sign-in-page-content form,
+.main-wrapper.sign-up-page .sign-up-page-content form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .text-input,
+.main-wrapper.sign-in-page .sign-in-page-content form .password-input,
+.main-wrapper.sign-in-page .sign-in-page-content form .email-input,
+.main-wrapper.sign-in-page .sign-up-page-content form .text-input,
+.main-wrapper.sign-in-page .sign-up-page-content form .password-input,
+.main-wrapper.sign-in-page .sign-up-page-content form .email-input, .main-wrapper.sign-up-page .sign-in-page-content form .text-input,
+.main-wrapper.sign-up-page .sign-in-page-content form .password-input,
+.main-wrapper.sign-up-page .sign-in-page-content form .email-input,
+.main-wrapper.sign-up-page .sign-up-page-content form .text-input,
+.main-wrapper.sign-up-page .sign-up-page-content form .password-input,
+.main-wrapper.sign-up-page .sign-up-page-content form .email-input {
+  width: 25rem;
+  height: 3.1rem;
+  border: none;
+  border-width: 0px;
+  background-color: #f2f2f2;
+  padding-left: 1rem;
+  color: #555b63;
+  outline: none;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .input-container,
+.main-wrapper.sign-in-page .sign-up-page-content form .input-container, .main-wrapper.sign-up-page .sign-in-page-content form .input-container,
+.main-wrapper.sign-up-page .sign-up-page-content form .input-container {
+  border-radius: 0.3rem;
+  padding: 0.4rem;
+  background-color: #f2f2f2;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .input-container:first-child,
+.main-wrapper.sign-in-page .sign-up-page-content form .input-container:first-child, .main-wrapper.sign-up-page .sign-in-page-content form .input-container:first-child,
+.main-wrapper.sign-up-page .sign-up-page-content form .input-container:first-child {
+  margin-bottom: 1rem;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .sign-in-button,
+.main-wrapper.sign-in-page .sign-in-page-content form .sign-up-button,
+.main-wrapper.sign-in-page .sign-up-page-content form .sign-in-button,
+.main-wrapper.sign-in-page .sign-up-page-content form .sign-up-button, .main-wrapper.sign-up-page .sign-in-page-content form .sign-in-button,
+.main-wrapper.sign-up-page .sign-in-page-content form .sign-up-button,
+.main-wrapper.sign-up-page .sign-up-page-content form .sign-in-button,
+.main-wrapper.sign-up-page .sign-up-page-content form .sign-up-button {
+  font-family: 'Montserrat', sans-serif;
+  height: 3rem;
+  width: 11rem;
+  border: none;
+  background: none;
+  padding: 0;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  background-color: #ff2d3b;
+  border-radius: 4rem;
+  margin-top: 2rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+/*# sourceMappingURL=sign-in-sign-up-page.css.map */

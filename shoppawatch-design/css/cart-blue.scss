@@ -1,0 +1,386 @@
+/** RESET **/
+html,
+body,
+div,
+span,
+h1,
+h2,
+p,
+a,
+em,
+img,
+small,
+strike,
+strong,
+b,
+u,
+i,
+center,
+ul,
+li,
+fieldset,
+form,
+label {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body,
+p,
+h1,
+ul,
+nav,
+input,
+form {
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+}
+
+.main-wrapper {
+  background-color: rgb(249, 249, 249);
+}
+
+.selected {
+  color: #ff2d3b;
+}
+
+/** NAV **/
+.nav {
+  display: flex;
+  border-bottom: 1px solid #edeff3;
+  min-height: 4.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.centered-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 84rem;
+}
+
+input {
+  padding: 8px 12px;
+  border: 2px solid #edeff3;
+  font-size: 14px;
+  border-radius: 0.3rem;
+  color: darken(#edeff3, 1%);
+  width: 30rem;
+}
+
+.left-nav {
+  display: flex;
+  min-height: inherit;
+}
+
+.right-nav {
+  display: flex;
+  min-width: 10rem;
+}
+
+.cart-icon {
+  padding-right: 2.5rem;
+}
+
+/** HEADING **/
+.cart-heading,
+.page-heading {
+  margin-top: 4rem;
+  margin-bottom: 4.5rem;
+  width: 84rem;
+  display: flex;
+  justify-content: center;
+  h2 {
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+  }
+}
+
+/** BRAND#LOGO **/
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-name {
+  font-weight: 400;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.3rem;
+}
+
+.brand-end-period {
+  font-size: 3.1rem;
+  display: block;
+  background-color: #ff2d3b;
+  font-family: 'Archivo Black', sans-serif;
+  border-radius: 3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: 0.1rem;
+  margin-top: 0.4rem;
+}
+
+/** MAIN-CONTENT **/
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 85rem;
+  background-color: rgb(249, 249, 249);
+}
+
+/** WATCHES **/
+.watches-container {
+  width: 84rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: rgb(249, 249, 249);
+  margin-bottom: 6rem;
+}
+.watch-block {
+  display: flex;
+  padding: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  flex-direction: column;
+  width: 320px;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(181, 181, 181, 0.2);
+  border-radius: 0.5rem;
+}
+
+.watch-name {
+  color: darken(#404040, 5%);
+  font-size: 0.875rem;
+}
+
+.watch-details {
+  .name {
+    margin-bottom: 0.3rem;
+    padding: 0.5rem 0;
+  }
+}
+
+.price {
+  height: 0.9rem;
+  font-size: 0.875rem;
+  color: darken(#1f1f1f, 50%);
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+
+  .full-price {
+    height: 1rem;
+    align-self: flex-end;
+  }
+  .watch-price {
+    height: 100%;
+    display: flex;
+  }
+}
+
+img {
+  width: 150px;
+  height: 320px;
+  object-fit: contain;
+}
+
+.add-to-cart {
+  color: #ff2d3b;
+  font-weight: 600;
+  margin-top: 1.1rem;
+  padding: 0.6rem;
+  cursor: pointer;
+}
+
+/** CART **/
+.watches-container__cart {
+  width: 84rem;
+  display: flex;
+  flex-direction: column;
+
+  .watch-block__cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+
+    img {
+      width: 180px;
+      height: 180px;
+    }
+
+    .watch-details__cart {
+      display: flex;
+      align-items: center;
+      width: 25rem;
+    }
+
+    .quantity__cart {
+      display: flex;
+      border-radius: 0.2rem;
+      justify-content: space-around;
+      width: 5rem;
+      align-items: center;
+    }
+
+    .price__cart {
+      width: 5rem;
+    }
+
+    .quantity-count {
+      font-size: 1rem;
+      align-items: center;
+      display: flex;
+      height: 1.4rem;
+      width: 1.4rem;
+      justify-content: center;
+      background-color: #4784ff;
+      color: white;
+      font-weight: 500;
+      border-radius: 0.5rem;
+      padding: 1rem;
+    }
+
+    .delete-watch {
+      padding-right: 5rem;
+    }
+
+    .increment,
+    .decrement {
+      display: flex;
+      height: 1.4rem;
+      align-items: center;
+      width: 1.4rem;
+      justify-content: center;
+      font-weight: 700;
+      color: #4784ff;
+      cursor: pointer;
+    }
+  }
+}
+
+/** CHECKOUT BUTTON **/
+.checkout-wrapper {
+  width: 84rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 3rem;
+
+  .delivery-amount {
+    border-bottom: 2px solid lighten(#e6e7e8, 1%);
+    padding: 1rem 0;
+  }
+
+  .subtotal-text,
+  .delivery-text {
+    color: #bdc2cb;
+  }
+
+  .total-amount {
+    margin-bottom: 4rem;
+    padding-top: 1.5rem;
+    .total-price {
+      font-weight: 700;
+    }
+  }
+
+  .delivery-amount,
+  .subtotal-amount,
+  .total-amount {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0.5rem;
+  }
+
+  .checkout {
+    width: 22rem;
+    min-height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .checkout-button {
+    display: flex;
+    justify-content: center;
+    padding: 1.3rem 6rem;
+    color: #fff;
+    background-color: lighten(#ff2d3b, 3%);
+    border-radius: 10rem;
+    font-weight: 700;
+    width: 20rem;
+    height: 3.8rem;
+    cursor: pointer;
+  }
+}
+
+/** FOOTER **/
+.footer-wrapper {
+  min-height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 84rem;
+    border-top: 1px solid lighten(#e6e7e8, 1%);
+    font-size: 12px;
+    min-height: inherit;
+
+    .copyright {
+      color: #9098a5;
+    }
+  }
+}

@@ -1,0 +1,138 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShoppAwatch: Cart</title>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-IIED/eyOkM6ihtOiQsX2zizxFBphgnv1zbe1bKA+njdFzkr6cDNy16jfIKWu4FNH"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="nav">
+        <div class="centered-nav">
+          <div class="left-nav">
+            <div class="brand">
+              <span class="brand-name">ShoppAWatch</span
+              ><span class="brand-end-period"></span>
+            </div>
+          </div>
+          <div class="search">
+            <input type="text" placeholder="Search" />
+          </div>
+          <div class="right-nav">
+            <div class="cart-icon">
+              Cart<i class="fal fa-shopping-cart"></i>
+            </div>
+            <div class="username-text">
+              Priscilla<i class="far fa-angle-down"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-content cart">
+        <div class="cart-heading">
+          <h2>Cart</h2>
+        </div>
+        <div class="watches-container__cart">
+          <div class="watch-block__cart">
+            <div class="watch-details__cart">
+              <img src="./images/watch0.jpg" alt="" />
+              <div class="name__cart">
+                <span class="watch-name__cart">First Watch</span>
+              </div>
+            </div>
+            <div class="quantity__cart">
+              <span class="increment"><i class="far fa-minus"></i></span>
+              <input class="quantity-count-input" value="1" size="4" />
+              <span class="decrement"><i class="far fa-plus"></i></span>
+            </div>
+            <div class="price__cart">
+              <span class="watch-price__cart"> $90.00 </span>
+            </div>
+            <div class="delete-watch">
+              <span><i class="fal fa-trash-alt"></i></span>
+            </div>
+          </div>
+          <div class="watch-block__cart">
+            <div class="watch-details__cart">
+              <img src="./images/watch1.jpg" alt="" />
+              <div class="name__cart">
+                <span class="watch-name__cart">Second Watch</span>
+              </div>
+            </div>
+            <div class="quantity__cart">
+              <span class="increment"><i class="far fa-minus"></i></span>
+              <input class="quantity-count-input" value="1" size="4" />
+              <span class="decrement"><i class="far fa-plus"></i></span>
+            </div>
+            <div class="price__cart">
+              <span class="watch-price__cart"> $499.00 </span>
+            </div>
+            <div class="delete-watch selected">
+              <span><i class="fal fa-trash-alt"></i></span>
+            </div>
+          </div>
+          <div class="watch-block__cart">
+            <div class="watch-details__cart">
+              <img src="./images/watch2.jpg" alt="" />
+              <div class="name__cart">
+                <span class="watch-name__cart">Third Watch</span>
+              </div>
+            </div>
+            <div class="quantity__cart">
+              <span class="increment"><i class="far fa-minus"></i></span>
+              <input class="quantity-count-input" value="1" size="4" />
+              <span class="decrement"><i class="far fa-plus"></i></span>
+            </div>
+            <div class="price__cart">
+              <span class="watch-price__cart"> $100.00 </span>
+            </div>
+            <div class="delete-watch">
+              <span><i class="fal fa-trash-alt"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-wrapper">
+          <div class="checkout">
+            <div class="subtotal-amount">
+              <span class="subtotal-text">Subtotal</span>
+              <span class="subtotal-price">$689.00</span>
+            </div>
+            <div class="delivery-amount">
+              <span class="delivery-text">Delivery</span>
+              <span class="delivery-price">$5.00</span>
+            </div>
+            <div class="total-amount">
+              <span class="total-text">Total</span>
+              <span class="total-price">$694.00</span>
+            </div>
+            <div class="checkout-button">
+              <span>Checkout</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-wrapper">
+        <div class="footer-content">
+          <span class="copyright">Copyright 2021 &#169; ShoppAWatch</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,248 @@
+@import url("/css/cart.css");
+@import url("/css/product-page.css");
+@import url("/css/sign-in-sign-up-page.css");
+@import url("/css/index.css");
+/** RESET **/
+html,
+body,
+div,
+span,
+h1,
+h2,
+p,
+a,
+em,
+img,
+small,
+strike,
+strong,
+b,
+u,
+i,
+center,
+ul,
+li,
+fieldset,
+form,
+label {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body,
+p,
+h1,
+ul,
+nav,
+input,
+form {
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+}
+
+.main-wrapper {
+  background-color: #f9f9f9;
+}
+
+.selected {
+  color: #ff2d3b;
+}
+
+hr {
+  background-color: #eee;
+  border: 0 none;
+  color: #eee;
+  height: 1px;
+}
+
+/** NAV **/
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #edeff3;
+  min-height: 4.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fff;
+}
+
+.nav input {
+  padding: 8px 12px;
+  border: 2px solid #edeff3;
+  font-size: 14px;
+  border-radius: 0.3rem;
+  color: #eaecf1;
+  width: 30rem;
+}
+
+.centered-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 84rem;
+}
+
+.left-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: inherit;
+}
+
+.right-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 10rem;
+}
+
+.cart-icon {
+  padding-right: 2.5rem;
+}
+
+/** HEADING **/
+.cart-heading,
+.page-heading {
+  margin-top: 4rem;
+  margin-bottom: 4.5rem;
+  width: 84rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cart-heading h2,
+.page-heading h2 {
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+}
+
+/** BRAND#LOGO **/
+.brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.brand-name {
+  font-weight: 400;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.3rem;
+}
+
+.brand-end-period {
+  font-size: 3.1rem;
+  display: block;
+  background-color: #ff2d3b;
+  font-family: 'Archivo Black', sans-serif;
+  border-radius: 3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: 0.1rem;
+  margin-top: 0.4rem;
+}
+
+/** MAIN-CONTENT **/
+.main-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 85rem;
+  background-color: #f9f9f9;
+}
+
+/** FOOTER **/
+.footer-wrapper {
+  min-height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 5rem;
+}
+
+.footer-wrapper .footer-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 84rem;
+  border-top: 1px solid #e9eaea;
+  font-size: 12px;
+  min-height: inherit;
+}
+
+.footer-wrapper .footer-content .copyright {
+  color: #9098a5;
+}
+/*# sourceMappingURL=styles.css.map */

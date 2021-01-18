@@ -1,0 +1,204 @@
+/** CART **/
+.watches-container__cart {
+  width: 84rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.watches-container__cart .watch-block__cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.watches-container__cart .watch-block__cart img {
+  width: 180px;
+  height: 180px;
+}
+
+.watches-container__cart .watch-block__cart .watch-details__cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 25rem;
+}
+
+.watches-container__cart .watch-block__cart .quantity__cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 0.2rem;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  min-width: 5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.watches-container__cart .watch-block__cart .price__cart {
+  width: 5rem;
+}
+
+.watches-container__cart .watch-block__cart .quantity-count {
+  font-size: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 1.4rem;
+  width: 1.4rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #4784ff;
+  color: white;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.watches-container__cart .watch-block__cart .delete-watch {
+  padding-right: 5rem;
+}
+
+.watches-container__cart .watch-block__cart .quantity-count-input {
+  border: 1px solid #ddd;
+  text-align: center;
+  margin: 3px;
+  width: 55px;
+  height: 36px;
+  line-height: 25px;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.watches-container__cart .watch-block__cart .increment,
+.watches-container__cart .watch-block__cart .decrement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 36px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 36px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 700;
+  color: #000;
+  margin: 3px;
+  line-height: 34px;
+  background-color: #eee;
+  border-radius: 20rem;
+  font-size: 0.8rem;
+}
+
+/** CHECKOUT BUTTON **/
+.checkout-wrapper {
+  width: 84rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 3rem;
+}
+
+.checkout-wrapper .delivery-amount {
+  border-bottom: 2px solid #e9eaea;
+  padding: 1rem 0;
+}
+
+.checkout-wrapper .subtotal-text,
+.checkout-wrapper .delivery-text {
+  color: #bdc2cb;
+}
+
+.checkout-wrapper .total-amount {
+  margin-bottom: 4rem;
+  padding-top: 1.5rem;
+}
+
+.checkout-wrapper .total-amount .total-price {
+  font-weight: 700;
+}
+
+.checkout-wrapper .delivery-amount,
+.checkout-wrapper .subtotal-amount,
+.checkout-wrapper .total-amount {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-right: 0.5rem;
+}
+
+.checkout-wrapper .checkout {
+  width: 22rem;
+  min-height: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkout-wrapper .checkout-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1.3rem 6rem;
+  color: #fff;
+  background-color: #ff3c49;
+  border-radius: 0.3rem;
+  width: 100%;
+  height: 3.8rem;
+  cursor: pointer;
+}
+/*# sourceMappingURL=cart.css.map */
