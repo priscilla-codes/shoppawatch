@@ -19,7 +19,6 @@
 .single-product-layout {
   min-height: 40rem;
   background-color: #fff;
-  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,7 +29,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 4rem;
+  padding: 4rem 8rem 0 8rem;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -49,22 +48,7 @@
 }
 
 .single-product-layout .top-watch-block__single .leftside-single-block {
-  height: 25rem;
-  min-height: 40rem;
-  width: 30rem;
-  padding: 2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 0.3rem;
-  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+  width: 26rem;
 }
 
 .single-product-layout .top-watch-block__single .leftside-single-block img {
@@ -75,9 +59,7 @@
 .single-product-layout .top-watch-block__single .rightside-single-block {
   height: 25rem;
   width: 40rem;
-  padding-left: 2rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
+  padding: 1.8rem 1rem 0 2rem;
 }
 
 .single-product-layout .top-watch-block__single .rightside-single-block .name {
