@@ -10,6 +10,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   min-height: 100vh;
+  background-color: #fcfcfc;
 }
 
 .main-wrapper.sign-in-page .sign-up-page-content form .input-container:nth-child(2), .main-wrapper.sign-up-page .sign-up-page-content form .input-container:nth-child(2) {
@@ -82,8 +83,73 @@
   border-width: 0px;
   background-color: #f2f2f2;
   padding-left: 1rem;
-  color: #555b63;
   outline: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .text-input::-webkit-input-placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .password-input::-webkit-input-placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .email-input::-webkit-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .text-input::-webkit-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .password-input::-webkit-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .email-input::-webkit-input-placeholder, .main-wrapper.sign-up-page .sign-in-page-content form .text-input::-webkit-input-placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .password-input::-webkit-input-placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .email-input::-webkit-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .text-input::-webkit-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .password-input::-webkit-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .email-input::-webkit-input-placeholder {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .text-input:-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .password-input:-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .email-input:-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .text-input:-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .password-input:-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .email-input:-ms-input-placeholder, .main-wrapper.sign-up-page .sign-in-page-content form .text-input:-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .password-input:-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .email-input:-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .text-input:-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .password-input:-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .email-input:-ms-input-placeholder {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .text-input::-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .password-input::-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .email-input::-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .text-input::-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .password-input::-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .email-input::-ms-input-placeholder, .main-wrapper.sign-up-page .sign-in-page-content form .text-input::-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .password-input::-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .email-input::-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .text-input::-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .password-input::-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .email-input::-ms-input-placeholder {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .text-input::placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .password-input::placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .email-input::placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .text-input::placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .password-input::placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .email-input::placeholder, .main-wrapper.sign-up-page .sign-in-page-content form .text-input::placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .password-input::placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .email-input::placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .text-input::placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .password-input::placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .email-input::placeholder {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
 }
 
 .main-wrapper.sign-in-page .sign-in-page-content form .input-container,
