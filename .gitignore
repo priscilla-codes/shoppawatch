@@ -1,0 +1,3 @@
+# Ignore macOS DS_Store.
+.DS_Store
+./shoppawatch-design/.DS_Store
