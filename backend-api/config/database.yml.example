@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  timeout: 5000
+# username: ADD DATABASE USERNAME
+# password: ADD DATABASE PASSWORD
+# host: localhost
+
+development:
+  <<: *default
+  database: shoppawatch_development
+
+test:
+  <<: *default
+  database: shoppawatch_test
+
+production:
+  database: shoppawatch_production
+# username: ADD DATABASE USERNAME
+# password: ADD DATABASE PASSWORD
