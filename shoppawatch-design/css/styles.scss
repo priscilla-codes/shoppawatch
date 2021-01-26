@@ -1,7 +1,8 @@
-@import url('cart.css');
-@import url('product-page.css');
-@import url('sign-in-sign-up-page.css');
-@import url('index.css');
+@import 'mixins.scss';
+@import 'cart.scss';
+@import 'product-page.scss';
+@import 'sign-in-sign-up-page.scss';
+@import 'index.scss';
 /** RESET **/
 html,
 body,
