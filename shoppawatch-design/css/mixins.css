@@ -1,16 +1,14 @@
 /*
-0 - 600px:        Phone
-601 - 900px:      Tablet landscape
-901 - 1200px:     Tablet landscape
-[1201 - 1800]:    Normal styles
-1801px +:         Big desktop
-
 $breakpoint argument choices:
-- phone
-- tab-port
-- tab-land
-- desktop
-- big-desktop
+- phone              [280-600]
+- mini-phone         [280-320]
+- tab-port           [601-900]
+- tab-port2          [667-900]
+- max-tab-port       [280-900]
+- tab-land           [901-1200]
+- hybrid             [901-1400]
+- hybrid-min-land    [601-1400]
+- desktop            [1201 - 1800]
 
 1em = 16px
 
