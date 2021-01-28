@@ -1,0 +1,16 @@
+/*
+$breakpoint argument choices:
+- phone              [280-600]
+- mini-phone         [280-320]
+- tab-port           [601-900]
+- tab-port2          [667-900]
+- max-tab-port       [280-900]
+- tab-land           [901-1200]
+- hybrid             [901-1400]
+- hybrid-min-land    [601-1400]
+- desktop            [1201 - 1800]
+
+1em = 16px
+
+*/
+/*# sourceMappingURL=mixins.css.map */

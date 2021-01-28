@@ -1,7 +1,738 @@
-@import url("cart.css");
-@import url("product-page.css");
-@import url("sign-in-sign-up-page.css");
-@import url("index.css");
+/*
+$breakpoint argument choices:
+- phone              [280-600]
+- mini-phone         [280-320]
+- tab-port           [601-900]
+- tab-port2          [667-900]
+- max-tab-port       [280-900]
+- tab-land           [901-1200]
+- hybrid             [901-1400]
+- hybrid-min-land    [601-1400]
+- desktop            [1201 - 1800]
+
+1em = 16px
+
+*/
+/** CART **/
+.watches-container__cart {
+  width: 84rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.watches-container__cart .watch-block__cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.watches-container__cart .watch-block__cart img {
+  width: 180px;
+  height: 180px;
+}
+
+.watches-container__cart .watch-block__cart .watch-details__cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 25rem;
+}
+
+.watches-container__cart .watch-block__cart .quantity__cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 0.2rem;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  min-width: 5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.watches-container__cart .watch-block__cart .price__cart {
+  width: 5rem;
+}
+
+.watches-container__cart .watch-block__cart .quantity-count {
+  font-size: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 1.4rem;
+  width: 1.4rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #4784ff;
+  color: white;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.watches-container__cart .watch-block__cart .delete-watch {
+  padding-right: 5rem;
+}
+
+.watches-container__cart .watch-block__cart .quantity-count-input {
+  border: 1px solid #ddd;
+  text-align: center;
+  margin: 3px;
+  width: 55px;
+  height: 36px;
+  line-height: 25px;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.watches-container__cart .watch-block__cart .increment,
+.watches-container__cart .watch-block__cart .decrement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 36px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 36px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 700;
+  color: #000;
+  margin: 3px;
+  line-height: 34px;
+  background-color: #eee;
+  border-radius: 20rem;
+  font-size: 0.8rem;
+}
+
+/** CHECKOUT BUTTON **/
+.checkout-wrapper {
+  width: 84rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 3rem;
+}
+
+.checkout-wrapper .delivery-amount {
+  border-bottom: 2px solid #e9eaea;
+  padding: 1rem 0;
+}
+
+.checkout-wrapper .subtotal-text,
+.checkout-wrapper .delivery-text {
+  color: #bdc2cb;
+}
+
+.checkout-wrapper .total-amount {
+  margin-bottom: 4rem;
+  padding-top: 1.5rem;
+}
+
+.checkout-wrapper .total-amount .total-price {
+  font-weight: 700;
+}
+
+.checkout-wrapper .delivery-amount,
+.checkout-wrapper .subtotal-amount,
+.checkout-wrapper .total-amount {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-right: 0.5rem;
+}
+
+.checkout-wrapper .checkout {
+  width: 22rem;
+  min-height: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkout-wrapper .checkout-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1.3rem 6rem;
+  color: #fff;
+  background-color: #ff3c49;
+  border-radius: 0.3rem;
+  width: 100%;
+  height: 3.8rem;
+  cursor: pointer;
+}
+
+/** SINGLE PRODUCT PAGE **/
+.related-link {
+  font-size: 1.4rem;
+  height: 4rem;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3rem;
+}
+
+.main-content.product-page {
+  margin-top: 5rem;
+}
+
+.single-product-layout {
+  min-height: 40rem;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4rem 8rem 0 8rem;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.single-product-layout .divider {
+  height: 10rem;
+  background-color: red;
+}
+
+.single-product-layout .top-watch-block__single {
+  width: 70rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.single-product-layout .top-watch-block__single .leftside-single-block {
+  width: 26rem;
+}
+
+.single-product-layout .top-watch-block__single .leftside-single-block img {
+  width: 320px;
+  height: 500px;
+}
+
+.single-product-layout .top-watch-block__single .rightside-single-block {
+  height: 25rem;
+  width: 40rem;
+  padding: 1.8rem 1rem 0 2rem;
+}
+
+.single-product-layout .top-watch-block__single .rightside-single-block .name {
+  margin-bottom: 0.6rem;
+}
+
+.single-product-layout .top-watch-block__single .rightside-single-block .description p {
+  line-height: 28px;
+  color: #687188;
+  padding-bottom: 2rem;
+}
+
+.single-product-layout .top-watch-block__single .rightside-single-block .price {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 0;
+}
+
+.single-product-layout .top-watch-block__single .rightside-single-block .price .full-price {
+  font-size: 1.1rem;
+  color: #ff2d3b;
+}
+
+.single-product-layout .top-watch-block__single .rightside-single-block .price .watch-price {
+  height: auto;
+}
+
+.single-product-layout .top-watch-block__single .rightside-single-block .watch-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.single-product-layout .top-watch-block__single .rightside-single-block .quantity__cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.6rem;
+}
+
+.single-product-layout .top-watch-block__single .rightside-single-block .quantity__cart .quantity-count-input {
+  border: 1px solid #ddd;
+  text-align: center;
+  margin: 3px;
+  width: 55px;
+  height: 36px;
+  line-height: 25px;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.single-product-layout .top-watch-block__single .rightside-single-block .quantity__cart .increment,
+.single-product-layout .top-watch-block__single .rightside-single-block .quantity__cart .decrement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 36px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 36px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 700;
+  color: #000;
+  margin: 3px;
+  line-height: 34px;
+  background-color: #eee;
+  border-radius: 20rem;
+  font-size: 0.8rem;
+}
+
+.single-product-layout .top-watch-block__single .rightside-single-block .add-to-cart-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  background-color: #ff3c49;
+  border-radius: 0.3rem;
+  width: 15rem;
+  height: 3rem;
+  cursor: pointer;
+}
+
+.single-product-layout .top-watch-block__single .bottom-rightside-single-block {
+  margin-top: 2rem;
+}
+
+.single-product-layout .bottom-watch-block__single {
+  width: 70rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.single-product-layout .bottom-watch-block__single .tabs-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #e9eaea;
+  font-weight: 500;
+}
+
+.single-product-layout .bottom-watch-block__single .tabs-list .tabs-list-item {
+  display: block;
+  padding: 2rem 1rem 0.8rem 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.single-product-layout .bottom-watch-block__single .tabs-list .tabs-list-item.selected {
+  border-bottom: 2px solid #ff3c49;
+}
+
+.single-product-layout .bottom-watch-block__single .tab-content {
+  margin-top: 2.5rem;
+}
+
+.single-product-layout .bottom-watch-block__single .tab-content p {
+  line-height: 28px;
+  margin-bottom: 2rem;
+  color: #687188;
+}
+
+.single-product-layout .bottom-watch-block__single .tab-content p:last-child {
+  margin-bottom: 6rem;
+}
+
+/** SIGN-IN & SIGN-UP PAGES **/
+.main-wrapper.sign-in-page, .main-wrapper.sign-up-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  background-color: #fcfcfc;
+}
+
+.main-wrapper.sign-in-page .sign-up-page-content form .input-container:nth-child(2), .main-wrapper.sign-up-page .sign-up-page-content form .input-container:nth-child(2) {
+  margin-bottom: 1rem;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content,
+.main-wrapper.sign-in-page .sign-up-page-content, .main-wrapper.sign-up-page .sign-in-page-content,
+.main-wrapper.sign-up-page .sign-up-page-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.3rem;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 50rem;
+  min-height: 30rem;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content .brand,
+.main-wrapper.sign-in-page .sign-up-page-content .brand, .main-wrapper.sign-up-page .sign-in-page-content .brand,
+.main-wrapper.sign-up-page .sign-up-page-content .brand {
+  margin-bottom: 3rem;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content h2,
+.main-wrapper.sign-in-page .sign-up-page-content h2, .main-wrapper.sign-up-page .sign-in-page-content h2,
+.main-wrapper.sign-up-page .sign-up-page-content h2 {
+  margin-bottom: 4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form,
+.main-wrapper.sign-in-page .sign-up-page-content form, .main-wrapper.sign-up-page .sign-in-page-content form,
+.main-wrapper.sign-up-page .sign-up-page-content form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .text-input,
+.main-wrapper.sign-in-page .sign-in-page-content form .password-input,
+.main-wrapper.sign-in-page .sign-in-page-content form .email-input,
+.main-wrapper.sign-in-page .sign-up-page-content form .text-input,
+.main-wrapper.sign-in-page .sign-up-page-content form .password-input,
+.main-wrapper.sign-in-page .sign-up-page-content form .email-input, .main-wrapper.sign-up-page .sign-in-page-content form .text-input,
+.main-wrapper.sign-up-page .sign-in-page-content form .password-input,
+.main-wrapper.sign-up-page .sign-in-page-content form .email-input,
+.main-wrapper.sign-up-page .sign-up-page-content form .text-input,
+.main-wrapper.sign-up-page .sign-up-page-content form .password-input,
+.main-wrapper.sign-up-page .sign-up-page-content form .email-input {
+  width: 25rem;
+  height: 3.1rem;
+  border: none;
+  border-width: 0px;
+  background-color: #f2f2f2;
+  padding-left: 1rem;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .text-input::-webkit-input-placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .password-input::-webkit-input-placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .email-input::-webkit-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .text-input::-webkit-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .password-input::-webkit-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .email-input::-webkit-input-placeholder, .main-wrapper.sign-up-page .sign-in-page-content form .text-input::-webkit-input-placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .password-input::-webkit-input-placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .email-input::-webkit-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .text-input::-webkit-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .password-input::-webkit-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .email-input::-webkit-input-placeholder {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .text-input:-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .password-input:-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .email-input:-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .text-input:-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .password-input:-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .email-input:-ms-input-placeholder, .main-wrapper.sign-up-page .sign-in-page-content form .text-input:-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .password-input:-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .email-input:-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .text-input:-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .password-input:-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .email-input:-ms-input-placeholder {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .text-input::-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .password-input::-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .email-input::-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .text-input::-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .password-input::-ms-input-placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .email-input::-ms-input-placeholder, .main-wrapper.sign-up-page .sign-in-page-content form .text-input::-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .password-input::-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .email-input::-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .text-input::-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .password-input::-ms-input-placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .email-input::-ms-input-placeholder {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .text-input::placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .password-input::placeholder,
+.main-wrapper.sign-in-page .sign-in-page-content form .email-input::placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .text-input::placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .password-input::placeholder,
+.main-wrapper.sign-in-page .sign-up-page-content form .email-input::placeholder, .main-wrapper.sign-up-page .sign-in-page-content form .text-input::placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .password-input::placeholder,
+.main-wrapper.sign-up-page .sign-in-page-content form .email-input::placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .text-input::placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .password-input::placeholder,
+.main-wrapper.sign-up-page .sign-up-page-content form .email-input::placeholder {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .input-container,
+.main-wrapper.sign-in-page .sign-up-page-content form .input-container, .main-wrapper.sign-up-page .sign-in-page-content form .input-container,
+.main-wrapper.sign-up-page .sign-up-page-content form .input-container {
+  border-radius: 0.3rem;
+  padding: 0.4rem;
+  background-color: #f2f2f2;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .input-container:first-child,
+.main-wrapper.sign-in-page .sign-up-page-content form .input-container:first-child, .main-wrapper.sign-up-page .sign-in-page-content form .input-container:first-child,
+.main-wrapper.sign-up-page .sign-up-page-content form .input-container:first-child {
+  margin-bottom: 1rem;
+}
+
+.main-wrapper.sign-in-page .sign-in-page-content form .sign-in-button,
+.main-wrapper.sign-in-page .sign-in-page-content form .sign-up-button,
+.main-wrapper.sign-in-page .sign-up-page-content form .sign-in-button,
+.main-wrapper.sign-in-page .sign-up-page-content form .sign-up-button, .main-wrapper.sign-up-page .sign-in-page-content form .sign-in-button,
+.main-wrapper.sign-up-page .sign-in-page-content form .sign-up-button,
+.main-wrapper.sign-up-page .sign-up-page-content form .sign-in-button,
+.main-wrapper.sign-up-page .sign-up-page-content form .sign-up-button {
+  font-family: 'Montserrat', sans-serif;
+  height: 3rem;
+  width: 11rem;
+  border: none;
+  background: none;
+  padding: 0;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  background-color: #ff2d3b;
+  border-radius: 4rem;
+  margin-top: 2rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.watches-container {
+  width: 84rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #f9f9f9;
+  margin-bottom: 6rem;
+}
+
+@media (min-width: 56.31rem) and (max-width: 87.5rem) {
+  .watches-container {
+    width: 100%;
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 37.5625em) and (max-width: 56.25rem) {
+  .watches-container {
+    width: 100%;
+    padding: 0 1.9rem;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 37.5em) {
+  .watches-container {
+    width: 100%;
+  }
+}
+
+.watch-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 320px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 3px 0 rgba(181, 181, 181, 0.2);
+          box-shadow: 0 1px 3px 0 rgba(181, 181, 181, 0.2);
+  border-radius: 0.3rem;
+}
+
+@media (min-width: 56.31rem) and (max-width: 87.5rem) {
+  .watch-block {
+    width: 32%;
+  }
+}
+
+@media (min-width: 37.5625em) and (max-width: 56.25rem) {
+  .watch-block {
+    width: 48%;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 37.5em) {
+  .watch-block {
+    width: 100vw;
+  }
+}
+
+.watch-name {
+  color: #333333;
+  font-size: 0.875rem;
+}
+
+.watch-details .name {
+  margin-bottom: 0.3rem;
+  padding: 0.5rem 0;
+}
+
+.price {
+  height: 0.9rem;
+  font-size: 0.875rem;
+  color: black;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.price .full-price {
+  height: 1rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.price .watch-price {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+img {
+  width: 160px;
+  height: 320px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.add-to-cart {
+  color: #ff2d3b;
+  font-weight: 600;
+  margin-top: 1.1rem;
+  padding: 0.6rem;
+  cursor: pointer;
+}
+
 /** RESET **/
 html,
 body,
@@ -106,13 +837,34 @@ hr {
   background-color: #fff;
 }
 
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .nav .search {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    width: 100%;
+  }
+}
+
+@media (min-width: 41.6875em) and (max-width: 56.25rem) {
+  .nav .search {
+    width: 85vw;
+  }
+}
+
 .nav input {
-  padding: 8px 12px;
+  padding: 12px;
   border: 2px solid #edeff3;
   font-size: 14px;
   border-radius: 0.3rem;
   color: #eaecf1;
   width: 30rem;
+}
+
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .nav input {
+    width: 100%;
+  }
 }
 
 .centered-nav {
@@ -128,6 +880,30 @@ hr {
   width: 84rem;
 }
 
+@media (min-width: 56.31rem) and (max-width: 87.5rem) {
+  .centered-nav {
+    width: 100%;
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .centered-nav {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 41.6875em) and (max-width: 56.25rem) {
+  .centered-nav {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 .left-nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -135,15 +911,53 @@ hr {
   min-height: inherit;
 }
 
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .left-nav {
+    margin-bottom: 2rem;
+    padding-left: 0.5rem;
+    width: 40vw;
+  }
+}
+
 .right-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-width: 10rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 6rem;
+  padding-right: 1rem;
 }
 
-.cart-icon {
-  padding-right: 2.5rem;
+.right-nav .fal {
+  font-weight: 400;
+  color: gray;
+  font-size: 1.4rem;
+}
+
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .right-nav .fal {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .right-nav .username-icon {
+    margin-right: 1rem;
+    margin-left: 1.8rem;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .right-nav {
+    margin-bottom: 2rem;
+    width: 45vw;
+    padding-right: 0;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
 }
 
 /** HEADING **/
@@ -151,7 +965,6 @@ hr {
 .page-heading {
   margin-top: 4rem;
   margin-bottom: 4.5rem;
-  width: 84rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -175,6 +988,12 @@ hr {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (min-width: 56.31rem) and (max-width: 87.5rem) {
+  .brand {
+    padding-right: 2rem;
+  }
 }
 
 .brand-name {
@@ -244,5 +1063,23 @@ hr {
 
 .footer-wrapper .footer-content .copyright {
   color: #9098a5;
+}
+
+@media (min-width: 56.31rem) and (max-width: 87.5rem) {
+  .footer-wrapper .footer-content {
+    width: 100%;
+  }
+}
+
+@media (min-width: 37.5625em) and (max-width: 56.25rem) {
+  .footer-wrapper .footer-content {
+    width: 100%;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 37.5em) {
+  .footer-wrapper .footer-content {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

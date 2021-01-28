@@ -1,7 +1,8 @@
-@import url('cart.css');
-@import url('product-page.css');
-@import url('sign-in-sign-up-page.css');
-@import url('index.css');
+@import 'mixins.scss';
+@import 'cart.scss';
+@import 'product-page.scss';
+@import 'sign-in-sign-up-page.scss';
+@import 'index.scss';
 /** RESET **/
 html,
 body,
@@ -97,13 +98,29 @@ hr {
   justify-content: center;
   background-color: #fff;
 
+  .search {
+    @include respond(max-tab-port) {
+      order: 3;
+      width: 100%;
+    }
+
+    @include respond(tab-port2) {
+      width: 85vw;
+    }
+  }
+
   input {
-    padding: 8px 12px;
+    // padding: 8px 12px;
+    padding: 12px;
     border: 2px solid #edeff3;
     font-size: 14px;
     border-radius: 0.3rem;
     color: darken(#edeff3, 1%);
     width: 30rem;
+
+    @include respond(max-tab-port) {
+      width: 100%;
+    }
   }
 }
 
@@ -112,20 +129,63 @@ hr {
   justify-content: space-between;
   align-items: center;
   width: 84rem;
+
+  @include respond(hybrid-1400) {
+    width: 100%;
+    padding: 0 2rem;
+  }
+
+  @include respond(max-tab-port) {
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  @include respond(tab-port2) {
+    justify-content: center;
+  }
 }
 
 .left-nav {
   display: flex;
   min-height: inherit;
+
+  @include respond(max-tab-port) {
+    margin-bottom: 2rem;
+    padding-left: 0.5rem;
+    width: 40vw;
+  }
 }
 
 .right-nav {
   display: flex;
-  min-width: 10rem;
-}
+  justify-content: space-between;
+  width: 6rem;
+  padding-right: 1rem;
 
-.cart-icon {
-  padding-right: 2.5rem;
+  .fal {
+    font-weight: 400;
+    color: gray;
+    font-size: 1.4rem;
+
+    @include respond(max-tab-port) {
+      font-size: 1.3rem;
+    }
+  }
+
+  .username-icon {
+    @include respond(max-tab-port) {
+      margin-right: 1rem;
+      margin-left: 1.8rem;
+    }
+  }
+
+  @include respond(max-tab-port) {
+    margin-bottom: 2rem;
+    width: 45vw;
+    padding-right: 0;
+    justify-content: flex-end;
+  }
 }
 
 /** HEADING **/
@@ -133,7 +193,6 @@ hr {
 .page-heading {
   margin-top: 4rem;
   margin-bottom: 4.5rem;
-  width: 84rem;
   display: flex;
   justify-content: center;
   h2 {
@@ -148,6 +207,10 @@ hr {
 .brand {
   display: flex;
   align-items: center;
+
+  @include respond(hybrid-1400) {
+    padding-right: 2rem;
+  }
 }
 
 .brand-name {
@@ -196,6 +259,16 @@ hr {
 
     .copyright {
       color: #9098a5;
+    }
+
+    @include respond(hybrid-1400) {
+      width: 100%;
+    }
+    @include respond(tab-port) {
+      width: 100%;
+    }
+    @include respond(phone) {
+      width: 100%;
     }
   }
 }
