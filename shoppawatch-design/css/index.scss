@@ -8,15 +8,15 @@
   margin-bottom: 6rem;
 
   @include respond(hybrid-1400) {
-    width: 100vw;
+    width: 100%;
     padding: 0 2rem;
   }
   @include respond(tab-port) {
-    width: 100vw;
+    width: 100%;
     padding: 0 1.9rem;
   }
   @include respond(phone) {
-    width: 100vw;
+    width: 100%;
   }
 }
 .watch-block {
@@ -34,7 +34,6 @@
   @include respond(hybrid-1400) {
     width: 32%;
   }
-
   @include respond(tab-port) {
     width: 48%;
   }

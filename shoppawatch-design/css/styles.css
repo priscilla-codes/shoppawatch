@@ -1,16 +1,14 @@
 /*
-0 - 600px:        Phone
-601 - 900px:      Tablet landscape
-901 - 1200px:     Tablet landscape
-[1201 - 1800]:    Normal styles
-1801px +:         Big desktop
-
 $breakpoint argument choices:
-- phone
-- tab-port
-- tab-land
-- desktop
-- big-desktop
+- phone              [280-600]
+- mini-phone         [280-320]
+- tab-port           [601-900]
+- tab-port2          [667-900]
+- max-tab-port       [280-900]
+- tab-land           [901-1200]
+- hybrid             [901-1400]
+- hybrid-min-land    [601-1400]
+- desktop            [1201 - 1800]
 
 1em = 16px
 
@@ -627,21 +625,21 @@ $breakpoint argument choices:
 
 @media (min-width: 56.31rem) and (max-width: 87.5rem) {
   .watches-container {
-    width: 100vw;
+    width: 100%;
     padding: 0 2rem;
   }
 }
 
 @media (min-width: 37.5625em) and (max-width: 56.25rem) {
   .watches-container {
-    width: 100vw;
+    width: 100%;
     padding: 0 1.9rem;
   }
 }
 
-@media (min-width: 20em) and (max-width: 37.5em) {
+@media (min-width: 17.5em) and (max-width: 37.5em) {
   .watches-container {
-    width: 100vw;
+    width: 100%;
   }
 }
 
@@ -678,7 +676,7 @@ $breakpoint argument choices:
   }
 }
 
-@media (min-width: 20em) and (max-width: 37.5em) {
+@media (min-width: 17.5em) and (max-width: 37.5em) {
   .watch-block {
     width: 100vw;
   }
@@ -839,13 +837,34 @@ hr {
   background-color: #fff;
 }
 
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .nav .search {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    width: 100%;
+  }
+}
+
+@media (min-width: 41.6875em) and (max-width: 56.25rem) {
+  .nav .search {
+    width: 85vw;
+  }
+}
+
 .nav input {
-  padding: 8px 12px;
+  padding: 12px;
   border: 2px solid #edeff3;
   font-size: 14px;
   border-radius: 0.3rem;
   color: #eaecf1;
   width: 30rem;
+}
+
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .nav input {
+    width: 100%;
+  }
 }
 
 .centered-nav {
@@ -861,6 +880,30 @@ hr {
   width: 84rem;
 }
 
+@media (min-width: 56.31rem) and (max-width: 87.5rem) {
+  .centered-nav {
+    width: 100%;
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .centered-nav {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 41.6875em) and (max-width: 56.25rem) {
+  .centered-nav {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 .left-nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -868,15 +911,53 @@ hr {
   min-height: inherit;
 }
 
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .left-nav {
+    margin-bottom: 2rem;
+    padding-left: 0.5rem;
+    width: 40vw;
+  }
+}
+
 .right-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-width: 10rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 6rem;
+  padding-right: 1rem;
 }
 
-.cart-icon {
-  padding-right: 2.5rem;
+.right-nav .fal {
+  font-weight: 400;
+  color: gray;
+  font-size: 1.4rem;
+}
+
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .right-nav .fal {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .right-nav .username-icon {
+    margin-right: 1rem;
+    margin-left: 1.8rem;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 56.25rem) {
+  .right-nav {
+    margin-bottom: 2rem;
+    width: 45vw;
+    padding-right: 0;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
 }
 
 /** HEADING **/
@@ -884,7 +965,6 @@ hr {
 .page-heading {
   margin-top: 4rem;
   margin-bottom: 4.5rem;
-  width: 84rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -908,6 +988,12 @@ hr {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (min-width: 56.31rem) and (max-width: 87.5rem) {
+  .brand {
+    padding-right: 2rem;
+  }
 }
 
 .brand-name {
@@ -977,5 +1063,23 @@ hr {
 
 .footer-wrapper .footer-content .copyright {
   color: #9098a5;
+}
+
+@media (min-width: 56.31rem) and (max-width: 87.5rem) {
+  .footer-wrapper .footer-content {
+    width: 100%;
+  }
+}
+
+@media (min-width: 37.5625em) and (max-width: 56.25rem) {
+  .footer-wrapper .footer-content {
+    width: 100%;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 37.5em) {
+  .footer-wrapper .footer-content {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
