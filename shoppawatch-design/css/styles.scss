@@ -99,6 +99,21 @@ hr {
   background-color: #fff;
 
   .search {
+    border-radius: 3rem;
+    border: 2px solid #edeff3;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 1.5rem;
+
+    .fal {
+      color: #858585;
+      font-weight: 500;
+    }
+
+    &::placeholder {
+      color: gray;
+    }
+
     @include respond(max-tab-port) {
       order: 3;
       width: 100%;
@@ -110,13 +125,11 @@ hr {
   }
 
   input {
-    // padding: 8px 12px;
-    padding: 12px;
-    border: 2px solid #edeff3;
-    font-size: 14px;
-    border-radius: 0.3rem;
-    color: darken(#edeff3, 1%);
+    font-size: 1rem;
+    color: lighten(#000, 5%);
     width: 30rem;
+    outline: none;
+    border: 0;
 
     @include respond(max-tab-port) {
       width: 100%;
