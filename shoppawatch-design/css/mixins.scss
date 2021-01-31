@@ -3,9 +3,11 @@
 $breakpoint argument choices:
 - phone              [280-600]
 - mini-phone         [280-320]
+- min-601px          [601+]
 - tab-port           [601-900]
 - tab-port2          [667-900]
 - max-tab-port       [280-900]
+- min-901px          [901+]
 - tab-land           [901-1200]
 - hybrid             [901-1400]
 - hybrid-min-land    [601-1400]
@@ -30,6 +32,13 @@ $breakpoint argument choices:
     }
   }
 
+  // min-601px
+  @if $breakpoint == min-601px {
+    @media (min-width: 37.5em) {
+      @content;
+    }
+  }
+
   // min-280px - max-900px
   @if $breakpoint == max-tab-port {
     @media (min-width: 17.5em) and (max-width: 56.25rem) {
@@ -47,6 +56,13 @@ $breakpoint argument choices:
   // min-667px - max-900px
   @if $breakpoint == tab-port2 {
     @media (min-width: 41.6875em) and (max-width: 56.25rem) {
+      @content;
+    }
+  }
+
+  // min-901px
+  @if $breakpoint == min-901px {
+    @media (min-width: 56.31rem) {
       @content;
     }
   }
