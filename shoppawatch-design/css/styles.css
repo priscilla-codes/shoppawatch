@@ -32,7 +32,7 @@ $breakpoint argument choices:
           flex-direction: column;
 }
 
-@media (min-width: 37.5625em) and (max-width: 87.5rem) {
+@media (min-width: 37.6em) and (max-width: 87.5rem) {
   .watches-container__cart {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -78,6 +78,12 @@ $breakpoint argument choices:
 @media (min-width: 17.5em) and (max-width: 37.5em) {
   .watches-container__cart .watch-block__cart img {
     width: 100px;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 20em) {
+  .watches-container__cart .watch-block__cart img {
+    width: 80px;
   }
 }
 
@@ -134,7 +140,7 @@ $breakpoint argument choices:
   width: 10rem;
 }
 
-@media (min-width: 601px) {
+@media (min-width: 37.6em) {
   .watches-container__cart .watch-block__cart .watch-details-right .mobile {
     display: none;
   }
@@ -289,7 +295,14 @@ $breakpoint argument choices:
   font-size: 0.8rem;
 }
 
-@media (min-width: 37.5625em) and (max-width: 87.5rem) {
+@media (min-width: 17.5em) and (max-width: 37.5em) {
+  .watches-container__cart .watch-block__cart .increment,
+  .watches-container__cart .watch-block__cart .decrement {
+    margin: 0;
+  }
+}
+
+@media (min-width: 37.6em) and (max-width: 87.5rem) {
   .watches-container__cart .watch-block__cart {
     width: 95vw;
   }
@@ -402,7 +415,7 @@ $breakpoint argument choices:
   }
 }
 
-@media (min-width: 37.5625em) and (max-width: 87.5rem) {
+@media (min-width: 37.6em) and (max-width: 87.5rem) {
   .checkout-wrapper {
     width: 100%;
     padding-right: 1rem;

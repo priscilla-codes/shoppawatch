@@ -41,6 +41,10 @@
       @include respond(phone) {
         width: 100px;
       }
+
+      @include respond(mini-phone) {
+        width: 80px;
+      }
     }
 
     .watch-details-left {
@@ -189,6 +193,10 @@
       background-color: #eee;
       border-radius: 20rem;
       font-size: 0.8rem;
+
+      @include respond(phone) {
+        margin: 0;
+      }
     }
 
     @include respond(hybrid-min-land) {
