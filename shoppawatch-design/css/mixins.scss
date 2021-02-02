@@ -34,7 +34,7 @@ $breakpoint argument choices:
 
   // min-601px
   @if $breakpoint == min-601px {
-    @media (min-width: 37.5em) {
+    @media (min-width: 37.6em) {
       @content;
     }
   }
@@ -83,7 +83,7 @@ $breakpoint argument choices:
 
   // min-601 - max-1400px
   @if $breakpoint == hybrid-min-land {
-    @media (min-width: 37.5625em) and (max-width: 87.5rem) {
+    @media (min-width: 37.6em) and (max-width: 87.5rem) {
       @content;
     }
   }
