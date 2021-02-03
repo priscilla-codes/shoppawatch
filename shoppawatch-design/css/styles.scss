@@ -187,6 +187,7 @@ hr {
   }
 
   .username-icon {
+    cursor: pointer;
     @include respond(max-tab-port) {
       margin-right: 1rem;
       margin-left: 1.8rem;
@@ -220,6 +221,7 @@ hr {
 .brand {
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   @include respond(hybrid-1400) {
     padding-right: 2rem;
@@ -246,6 +248,7 @@ hr {
 
 .cart-icon {
   position: relative;
+  cursor: pointer;
   .cart-icon-badge {
     position: absolute;
     top: -10px;

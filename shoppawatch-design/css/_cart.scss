@@ -124,6 +124,7 @@
       width: 5rem;
 
       &.bigger-screen {
+        font-weight: 500;
         @include respond(phone) {
           display: none;
         }
@@ -146,7 +147,7 @@
     .delete-watch {
       .fal {
         color: darken(#eee, 50%);
-        font-size: 1rem;
+        font-size: 1.2rem;
 
         &.selected {
           color: lighten(#ff2d3b, 3%);

@@ -29,7 +29,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 4rem 8rem 0 8rem;
+  padding: 4rem 6.6rem 0 6.6rem;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -93,7 +93,7 @@
 
 .single-product-layout .top-watch-block__single .rightside-single-block .watch-name {
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .single-product-layout .top-watch-block__single .rightside-single-block .quantity__cart {
@@ -134,6 +134,7 @@
   background-color: #eee;
   border-radius: 20rem;
   font-size: 0.8rem;
+  cursor: pointer;
 }
 
 .single-product-layout .top-watch-block__single .rightside-single-block .add-to-cart-button {
