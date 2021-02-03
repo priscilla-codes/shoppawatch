@@ -1258,6 +1258,31 @@ hr {
   margin-top: 0.4rem;
 }
 
+.cart-icon {
+  position: relative;
+}
+
+.cart-icon .cart-icon-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 18px;
+  height: 18px;
+  background: #ff2d3b;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+
 /** MAIN-CONTENT **/
 .main-content {
   display: -webkit-box;
