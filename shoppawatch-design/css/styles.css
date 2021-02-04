@@ -209,6 +209,10 @@ $breakpoint argument choices:
   width: 5rem;
 }
 
+.watches-container__cart .watch-block__cart .price__cart.bigger-screen {
+  font-weight: 500;
+}
+
 @media (min-width: 17.5em) and (max-width: 37.5em) {
   .watches-container__cart .watch-block__cart .price__cart.bigger-screen {
     display: none;
@@ -237,7 +241,7 @@ $breakpoint argument choices:
 
 .watches-container__cart .watch-block__cart .delete-watch .fal {
   color: #6f6f6f;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .watches-container__cart .watch-block__cart .delete-watch .fal.selected {
@@ -460,7 +464,7 @@ $breakpoint argument choices:
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 4rem 8rem 0 8rem;
+  padding: 4rem 6.6rem 0 6.6rem;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -524,7 +528,7 @@ $breakpoint argument choices:
 
 .single-product-layout .top-watch-block__single .rightside-single-block .watch-name {
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .single-product-layout .top-watch-block__single .rightside-single-block .quantity__cart {
@@ -565,6 +569,7 @@ $breakpoint argument choices:
   background-color: #eee;
   border-radius: 20rem;
   font-size: 0.8rem;
+  cursor: pointer;
 }
 
 .single-product-layout .top-watch-block__single .rightside-single-block .add-to-cart-button {
@@ -1186,6 +1191,10 @@ hr {
   }
 }
 
+.right-nav .username-icon {
+  cursor: pointer;
+}
+
 @media (min-width: 17.5em) and (max-width: 56.25rem) {
   .right-nav .username-icon {
     margin-right: 1rem;
@@ -1232,6 +1241,7 @@ hr {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: pointer;
 }
 
 @media (min-width: 56.31rem) and (max-width: 87.5rem) {
@@ -1256,6 +1266,32 @@ hr {
   height: 0.5rem;
   margin-left: 0.1rem;
   margin-top: 0.4rem;
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-icon .cart-icon-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 18px;
+  height: 18px;
+  background: #ff2d3b;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
 }
 
 /** MAIN-CONTENT **/
