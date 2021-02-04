@@ -47,6 +47,12 @@ $breakpoint argument choices:
   }
 }
 
+@media (max-width: 17.44rem) {
+  .watches-container__cart {
+    width: auto;
+  }
+}
+
 .watches-container__cart .watch-block__cart {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -430,6 +436,12 @@ $breakpoint argument choices:
   .checkout-wrapper {
     width: 100%;
     padding: 0 1.1rem;
+  }
+}
+
+@media (max-width: 17.44rem) {
+  .checkout-wrapper {
+    width: auto;
   }
 }
 
@@ -860,6 +872,12 @@ $breakpoint argument choices:
   }
 }
 
+@media (max-width: 17.44rem) {
+  .watches-container {
+    width: auto;
+  }
+}
+
 .watch-block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1021,6 +1039,13 @@ body {
 body {
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
+}
+
+@media (max-width: 17.44rem) {
+  body {
+    min-width: 1000px;
+    width: auto !important;
+  }
 }
 
 .main-wrapper {
