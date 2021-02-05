@@ -10,6 +10,15 @@
 .main-content {
   &.product-page {
     margin-top: 5rem;
+    @include respond(hybrid-min-land) {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    @include respond(max-767px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }
 .single-product-layout {
@@ -37,6 +46,17 @@
       img {
         width: 320px;
         height: 500px;
+        @include respond(phone) {
+          width: 275px;
+        }
+        @include respond(mini-phone) {
+          width: 200px;
+        }
+      }
+      @include respond(max-767px) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
       }
     }
     .rightside-single-block {
@@ -116,10 +136,24 @@
         height: 3rem;
         cursor: pointer;
       }
+
+      @include respond(max-767px) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
     }
 
     .bottom-rightside-single-block {
       margin-top: 2rem;
+    }
+
+    @include respond(hybrid-min-land) {
+      width: 100%;
+    }
+
+    @include respond(max-767px) {
+      width: 100%;
+      flex-wrap: wrap;
     }
   }
 
@@ -156,5 +190,27 @@
         }
       }
     }
+    @include respond(hybrid-min-land) {
+      width: 100%;
+    }
+
+    @include respond(max-767px) {
+      width: 100%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  @include respond(hybrid-min-land) {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @include respond(max-767px) {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+  @include respond(phone) {
+    padding-top: 0;
   }
 }

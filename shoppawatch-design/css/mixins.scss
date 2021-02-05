@@ -6,6 +6,7 @@ $breakpoint argument choices:
 - min-601px          [601+]
 - tab-port           [601-900]
 - tab-port2          [667-900]
+- max-767            [767]
 - max-tab-port       [280-900]
 - min-901px          [901+]
 - tab-land           [901-1200]
@@ -56,6 +57,13 @@ $breakpoint argument choices:
   // min-667px - max-900px
   @if $breakpoint == tab-port2 {
     @media (min-width: 41.6875em) and (max-width: 56.25rem) {
+      @content;
+    }
+  }
+
+  // max-767px
+  @if $breakpoint == max-767px {
+    @media (max-width: 47.9em) {
       @content;
     }
   }
