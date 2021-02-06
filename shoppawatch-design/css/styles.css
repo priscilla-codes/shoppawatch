@@ -2,6 +2,7 @@
 $breakpoint argument choices:
 - phone              [280-600]
 - mini-phone         [280-320]
+- max-599px          [<= 599]
 - min-601px          [601+]
 - tab-port           [601-900]
 - tab-port2          [667-900]
@@ -783,6 +784,14 @@ $breakpoint argument choices:
   font-weight: 600;
 }
 
+@media (min-width: 17.5em) and (max-width: 20em) {
+  .main-wrapper.sign-in-page .sign-in-page-content h2,
+  .main-wrapper.sign-in-page .sign-up-page-content h2, .main-wrapper.sign-up-page .sign-in-page-content h2,
+  .main-wrapper.sign-up-page .sign-up-page-content h2 {
+    font-size: 1.3rem;
+  }
+}
+
 .main-wrapper.sign-in-page .sign-in-page-content form,
 .main-wrapper.sign-in-page .sign-up-page-content form, .main-wrapper.sign-up-page .sign-in-page-content form,
 .main-wrapper.sign-up-page .sign-up-page-content form {
@@ -884,12 +893,60 @@ $breakpoint argument choices:
   font-weight: 700;
 }
 
+@media (max-width: 37.4375em) {
+  .main-wrapper.sign-in-page .sign-in-page-content form .text-input,
+  .main-wrapper.sign-in-page .sign-in-page-content form .password-input,
+  .main-wrapper.sign-in-page .sign-in-page-content form .email-input,
+  .main-wrapper.sign-in-page .sign-up-page-content form .text-input,
+  .main-wrapper.sign-in-page .sign-up-page-content form .password-input,
+  .main-wrapper.sign-in-page .sign-up-page-content form .email-input, .main-wrapper.sign-up-page .sign-in-page-content form .text-input,
+  .main-wrapper.sign-up-page .sign-in-page-content form .password-input,
+  .main-wrapper.sign-up-page .sign-in-page-content form .email-input,
+  .main-wrapper.sign-up-page .sign-up-page-content form .text-input,
+  .main-wrapper.sign-up-page .sign-up-page-content form .password-input,
+  .main-wrapper.sign-up-page .sign-up-page-content form .email-input {
+    width: 100%;
+    height: 2.8rem;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 20em) {
+  .main-wrapper.sign-in-page .sign-in-page-content form .text-input,
+  .main-wrapper.sign-in-page .sign-in-page-content form .password-input,
+  .main-wrapper.sign-in-page .sign-in-page-content form .email-input,
+  .main-wrapper.sign-in-page .sign-up-page-content form .text-input,
+  .main-wrapper.sign-in-page .sign-up-page-content form .password-input,
+  .main-wrapper.sign-in-page .sign-up-page-content form .email-input, .main-wrapper.sign-up-page .sign-in-page-content form .text-input,
+  .main-wrapper.sign-up-page .sign-in-page-content form .password-input,
+  .main-wrapper.sign-up-page .sign-in-page-content form .email-input,
+  .main-wrapper.sign-up-page .sign-up-page-content form .text-input,
+  .main-wrapper.sign-up-page .sign-up-page-content form .password-input,
+  .main-wrapper.sign-up-page .sign-up-page-content form .email-input {
+    width: 100%;
+    height: 2.2rem;
+  }
+}
+
 .main-wrapper.sign-in-page .sign-in-page-content form .input-container,
 .main-wrapper.sign-in-page .sign-up-page-content form .input-container, .main-wrapper.sign-up-page .sign-in-page-content form .input-container,
 .main-wrapper.sign-up-page .sign-up-page-content form .input-container {
   border-radius: 0.3rem;
   padding: 0.4rem;
   background-color: #f2f2f2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 37.4375em) {
+  .main-wrapper.sign-in-page .sign-in-page-content form .input-container,
+  .main-wrapper.sign-in-page .sign-up-page-content form .input-container, .main-wrapper.sign-up-page .sign-in-page-content form .input-container,
+  .main-wrapper.sign-up-page .sign-up-page-content form .input-container {
+    width: 100%;
+  }
 }
 
 .main-wrapper.sign-in-page .sign-in-page-content form .input-container:first-child,
@@ -920,6 +977,24 @@ $breakpoint argument choices:
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: 700;
+}
+
+@media (max-width: 37.4375em) {
+  .main-wrapper.sign-in-page .sign-in-page-content form,
+  .main-wrapper.sign-in-page .sign-up-page-content form, .main-wrapper.sign-up-page .sign-in-page-content form,
+  .main-wrapper.sign-up-page .sign-up-page-content form {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 37.4375em) {
+  .main-wrapper.sign-in-page .sign-in-page-content,
+  .main-wrapper.sign-in-page .sign-up-page-content, .main-wrapper.sign-up-page .sign-in-page-content,
+  .main-wrapper.sign-up-page .sign-up-page-content {
+    width: 100%;
+  }
 }
 
 .watches-container {
