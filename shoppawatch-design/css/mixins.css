@@ -2,6 +2,7 @@
 $breakpoint argument choices:
 - phone              [280-600]
 - mini-phone         [280-320]
+- max-599px          [<= 599]
 - min-601px          [601+]
 - tab-port           [601-900]
 - tab-port2          [667-900]

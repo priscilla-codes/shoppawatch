@@ -3,6 +3,7 @@
 $breakpoint argument choices:
 - phone              [280-600]
 - mini-phone         [280-320]
+- max-599px          [<= 599]
 - min-601px          [601+]
 - tab-port           [601-900]
 - tab-port2          [667-900]
@@ -22,6 +23,13 @@ $breakpoint argument choices:
   // min-280px - max-320px
   @if $breakpoint == mini-phone {
     @media (min-width: 17.5em) and (max-width: 20em) {
+      @content;
+    }
+  }
+
+  // max-599px
+  @if $breakpoint == max-599px {
+    @media (max-width: 37.4375em) {
       @content;
     }
   }
