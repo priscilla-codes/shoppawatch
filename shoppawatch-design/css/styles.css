@@ -250,6 +250,12 @@ $breakpoint argument choices:
   color: #ff3c49;
 }
 
+@media (min-width: 56.31rem) {
+  .watches-container__cart .watch-block__cart .delete-watch .fal {
+    font-size: 1.3rem;
+  }
+}
+
 @media (min-width: 37.5625em) and (max-width: 56.25rem) {
   .watches-container__cart .watch-block__cart .delete-watch {
     padding-right: 0;
@@ -1352,7 +1358,7 @@ hr {
 
 .right-nav .fal {
   font-weight: 300;
-  color: gray;
+  color: #393939;
   font-size: 1.4rem;
 }
 

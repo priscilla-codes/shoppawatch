@@ -178,7 +178,7 @@ hr {
 
   .fal {
     font-weight: 300;
-    color: gray;
+    color: darken(#858585, 30%);
     font-size: 1.4rem;
 
     @include respond(max-tab-port) {

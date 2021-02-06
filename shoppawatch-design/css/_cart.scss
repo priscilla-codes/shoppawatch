@@ -152,6 +152,10 @@
         &.selected {
           color: lighten(#ff2d3b, 3%);
         }
+
+        @include respond(min-901px) {
+          font-size: 1.3rem;
+        }
       }
 
       @include respond(tab-port) {
