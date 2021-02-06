@@ -5,6 +5,7 @@ $breakpoint argument choices:
 - min-601px          [601+]
 - tab-port           [601-900]
 - tab-port2          [667-900]
+- max-767            [767]
 - max-tab-port       [280-900]
 - min-901px          [901+]
 - tab-land           [901-1200]

@@ -5,6 +5,7 @@ $breakpoint argument choices:
 - min-601px          [601+]
 - tab-port           [601-900]
 - tab-port2          [667-900]
+- max-767            [767]
 - max-tab-port       [280-900]
 - min-901px          [901+]
 - tab-land           [901-1200]
@@ -451,6 +452,20 @@ $breakpoint argument choices:
   margin-top: 5rem;
 }
 
+@media (min-width: 37.6em) and (max-width: 87.5rem) {
+  .main-content.product-page {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 47.9em) {
+  .main-content.product-page {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .single-product-layout {
   min-height: 40rem;
   background-color: #fff;
@@ -489,6 +504,30 @@ $breakpoint argument choices:
 .single-product-layout .top-watch-block__single .leftside-single-block img {
   width: 320px;
   height: 500px;
+}
+
+@media (min-width: 17.5em) and (max-width: 37.5em) {
+  .single-product-layout .top-watch-block__single .leftside-single-block img {
+    width: 275px;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 20em) {
+  .single-product-layout .top-watch-block__single .leftside-single-block img {
+    width: 200px;
+  }
+}
+
+@media (max-width: 47.9em) {
+  .single-product-layout .top-watch-block__single .leftside-single-block {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 .single-product-layout .top-watch-block__single .rightside-single-block {
@@ -590,8 +629,29 @@ $breakpoint argument choices:
   cursor: pointer;
 }
 
+@media (max-width: 47.9em) {
+  .single-product-layout .top-watch-block__single .rightside-single-block {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 .single-product-layout .top-watch-block__single .bottom-rightside-single-block {
   margin-top: 2rem;
+}
+
+@media (min-width: 37.6em) and (max-width: 87.5rem) {
+  .single-product-layout .top-watch-block__single {
+    width: 100%;
+  }
+}
+
+@media (max-width: 47.9em) {
+  .single-product-layout .top-watch-block__single {
+    width: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 
 .single-product-layout .bottom-watch-block__single {
@@ -632,6 +692,42 @@ $breakpoint argument choices:
 
 .single-product-layout .bottom-watch-block__single .tab-content p:last-child {
   margin-bottom: 6rem;
+}
+
+@media (min-width: 37.6em) and (max-width: 87.5rem) {
+  .single-product-layout .bottom-watch-block__single {
+    width: 100%;
+  }
+}
+
+@media (max-width: 47.9em) {
+  .single-product-layout .bottom-watch-block__single {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 37.6em) and (max-width: 87.5rem) {
+  .single-product-layout {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 47.9em) {
+  .single-product-layout {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 37.5em) {
+  .single-product-layout {
+    padding-top: 0;
+  }
 }
 
 /** SIGN-IN & SIGN-UP PAGES **/
