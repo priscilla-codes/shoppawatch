@@ -1176,8 +1176,12 @@ img {
 }
 
 .main-content.checkout-page h2 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.2rem;
+}
+
+.main-content.checkout-page h2:first-child {
+  margin-bottom: 0.5rem;
 }
 
 .main-content.checkout-page .watch-order-details {
@@ -1204,7 +1208,8 @@ img {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 1.5rem 0 0.3rem 0;
-  font-weight: 500;
+  font-weight: 600;
+  margin-top: 0.5rem;
 }
 
 .main-content.checkout-page .total-amount__checkout .total-price__checkout {
@@ -1215,6 +1220,7 @@ img {
   color: #8a8a8a;
   font-weight: 500;
   font-size: 0.875rem;
+  letter-spacing: 0.1rem;
 }
 
 .main-content.checkout-page .divider {
