@@ -1127,6 +1127,197 @@ img {
   cursor: pointer;
 }
 
+/** CHECKOUT PAGE **/
+.secure-icon .fas {
+  color: #393939;
+}
+
+.main-content.checkout-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+@media (max-width: 47.9em) {
+  .main-content.checkout-page {
+    padding: 0 2rem;
+  }
+}
+
+.main-content.checkout-page .checkout-card {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(181, 181, 181, 0.2);
+          box-shadow: 0 1px 3px 0 rgba(181, 181, 181, 0.2);
+  background-color: #fff;
+  min-height: 10rem;
+  margin-top: 6rem;
+  width: 40rem;
+  padding: 1rem 1.5rem;
+}
+
+@media (max-width: 47.9em) {
+  .main-content.checkout-page .checkout-card {
+    width: 100%;
+  }
+}
+
+.main-content.checkout-page h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 600;
+  font-size: 1.8rem;
+  padding: 1rem;
+}
+
+.main-content.checkout-page h2 {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.main-content.checkout-page .watch-order-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 1.5rem;
+  line-height: 1.43;
+}
+
+.main-content.checkout-page .watch-name__checkout {
+  font-weight: 500;
+  font-size: 0.975rem;
+}
+
+.main-content.checkout-page .total-amount__checkout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1.5rem 0 0.3rem 0;
+  font-weight: 500;
+}
+
+.main-content.checkout-page .total-amount__checkout .total-price__checkout {
+  font-weight: 700;
+}
+
+.main-content.checkout-page .quantity__checkout {
+  color: #8a8a8a;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.main-content.checkout-page .divider {
+  height: 1rem;
+  border-top: 1px solid red;
+}
+
+.main-content.checkout-page .checkout-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.main-content.checkout-page .checkout-actions .back-button {
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  height: 2.3rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.8rem;
+  font-weight: 500;
+}
+
+@media (min-width: 17.5em) and (max-width: 20em) {
+  .main-content.checkout-page .checkout-actions .back-button {
+    margin-left: 0.6rem;
+    width: 8.3rem;
+  }
+}
+
+.main-content.checkout-page .checkout-actions .pay-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  background-color: #ff3c49;
+  border-radius: 0.3rem;
+  height: 2.3rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.8rem;
+  font-weight: 600;
+}
+
+@media (min-width: 17.5em) and (max-width: 37.5em) {
+  .main-content.checkout-page .checkout-actions .pay-button {
+    margin-left: 0.6rem;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 20em) {
+  .main-content.checkout-page .checkout-actions .pay-button {
+    margin-top: 0.5rem;
+    width: 8.3rem;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 37.5em) {
+  .main-content.checkout-page .checkout-actions {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 17.5em) and (max-width: 20em) {
+  .main-content.checkout-page .checkout-actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.main-content.checkout-page .payment-method {
+  margin-bottom: 1.3rem;
+  color: #8a8a8a;
+}
+
+.main-content.checkout-page .checkout-card-bottom h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.3rem;
+}
+
 /** RESET **/
 html,
 body,

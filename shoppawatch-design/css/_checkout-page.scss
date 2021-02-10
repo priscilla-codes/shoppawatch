@@ -1,0 +1,140 @@
+/** CHECKOUT PAGE **/
+.secure-icon {
+  .fas {
+    color: darken(#858585, 30%);
+  }
+}
+.main-content {
+  &.checkout-page {
+    display: flex;
+    justify-content: flex-start;
+    @include respond(max-767px) {
+      padding: 0 2rem;
+    }
+
+    .checkout-card {
+      box-shadow: 0 1px 3px 0 rgba(181, 181, 181, 0.2);
+      background-color: #fff;
+      min-height: 10rem;
+      margin-top: 6rem;
+      width: 40rem;
+      padding: 1rem 1.5rem;
+
+      @include respond(max-767px) {
+        width: 100%;
+      }
+    }
+
+    h1 {
+      display: flex;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.8rem;
+      padding: 1rem;
+    }
+
+    h2 {
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
+    .watch-order-details {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 1.5rem;
+      line-height: 1.43;
+    }
+
+    .watch-name__checkout {
+      font-weight: 500;
+      font-size: 0.975rem;
+    }
+
+    .total-amount__checkout {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem 0 0.3rem 0;
+      font-weight: 500;
+
+      .total-price__checkout {
+        font-weight: 700;
+      }
+    }
+
+    .quantity__checkout {
+      color: darken(#e3e3e3, 35%);
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+
+    .divider {
+      height: 1rem;
+      border-top: 1px solid red;
+    }
+
+    .checkout-actions {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+
+      .back-button {
+        border: 1px solid rgba(0, 0, 0, 0.23);
+        height: 2.3rem;
+        border-radius: 0.3rem;
+        cursor: pointer;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        padding: 0.8rem;
+        font-weight: 500;
+        @include respond(mini-phone) {
+          margin-left: 0.6rem;
+          width: 8.3rem;
+        }
+      }
+
+      .pay-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        background-color: #ff3c49;
+        border-radius: 0.3rem;
+        height: 2.3rem;
+        cursor: pointer;
+        font-size: 0.9rem;
+        padding: 0.8rem;
+        font-weight: 600;
+
+        @include respond(phone) {
+          margin-left: 0.6rem;
+        }
+        @include respond(mini-phone) {
+          margin-top: 0.5rem;
+          width: 8.3rem;
+        }
+      }
+
+      @include respond(phone) {
+        flex-wrap: wrap;
+      }
+
+      @include respond(mini-phone) {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .payment-method {
+      margin-bottom: 1.3rem;
+      color: darken(#e3e3e3, 35%);
+    }
+
+    .checkout-card-bottom {
+      h2 {
+        margin-top: 1.5rem;
+        margin-bottom: 1.3rem;
+      }
+    }
+  }
+}
