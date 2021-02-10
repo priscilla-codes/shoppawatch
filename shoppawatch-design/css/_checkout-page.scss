@@ -34,8 +34,12 @@
     }
 
     h2 {
-      font-weight: 500;
+      font-weight: 600;
       font-size: 1.2rem;
+
+      &:first-child {
+        margin-bottom: 0.5rem;
+      }
     }
 
     .watch-order-details {
@@ -54,7 +58,8 @@
       display: flex;
       justify-content: space-between;
       padding: 1.5rem 0 0.3rem 0;
-      font-weight: 500;
+      font-weight: 600;
+      margin-top: 0.5rem;
 
       .total-price__checkout {
         font-weight: 700;
@@ -65,6 +70,7 @@
       color: darken(#e3e3e3, 35%);
       font-weight: 500;
       font-size: 0.875rem;
+      letter-spacing: 0.1rem;
     }
 
     .divider {
