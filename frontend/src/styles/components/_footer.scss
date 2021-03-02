@@ -1,0 +1,32 @@
+/** FOOTER **/
+.footer-wrapper {
+  min-height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 84rem;
+    border-top: 1px solid lighten(#e6e7e8, 1%);
+    font-size: 12px;
+    min-height: inherit;
+
+    .copyright {
+      color: #9098a5;
+    }
+
+    @include respond(hybrid-1400) {
+      width: 100%;
+    }
+    @include respond(tab-port) {
+      width: 100%;
+    }
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+}
