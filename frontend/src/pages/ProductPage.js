@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import products from '../products';
 import MainContent from '../components/MainContent';
+import ProductDescription from '../components/ProductDescription';
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -25,11 +26,7 @@ const ProductPage = () => {
                   </span>
                 </div>
                 <div className="description">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Curabitur scelerisque commodo erat id hendrerit. Suspendisse
-                    ac consequat elit, ac ultrices ipsum.
-                  </p>
+                  <p>{product.description.summary}</p>
                 </div>
               </div>
               <hr />
@@ -57,27 +54,7 @@ const ProductPage = () => {
                 <span className="tabs-list-item">Reviews(0)</span>
               </div>
               <div className="tab-content">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Curabitur scelerisque commodo erat id hendrerit. Suspendisse
-                  ac consequat elit, ac ultrices ipsum. Sed non justo id odio
-                  commodo fringilla eu sed risus.
-                </p>
-                <p>- Phasellus a sollicitudin eros</p>
-                <p>- 50% consectetur nisl justo</p>
-                <p>- Aenean ornare</p>
-                <p>- Morbi pharetra vitae tellus ac sollicitudin</p>
-                <p>- Praesent non semper ante</p>
-                <p>
-                  Nulla varius maximus felis eu lacinia. Sed quis erat quis
-                  tellus vehicula consequat id non ex. Quisque facilisis
-                  dignissim est vitae porttitor. Suspendisse orci leo, consequat
-                  ac elit eu, vestibulum congue dui. Suspendisse vestibulum odio
-                  sit amet pulvinar eleifend. Morbi pulvinar sapien eu quam
-                  tempor tincidunt. Cras fermentum nibh quis sodales tincidunt.
-                  Nulla facilisi. Sed vitae magna ut libero posuere imperdiet.
-                  Pellentesque a fermentum enim. Nullam vel enim nibh.
-                </p>
+                <ProductDescription key={product._id} product={product} />
               </div>
             </div>
           </div>
