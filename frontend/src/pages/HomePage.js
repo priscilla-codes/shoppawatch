@@ -1,10 +1,11 @@
 import Product from '../components/Product';
 import products from '../products';
+import MainContent from '../components/MainContent';
 
 const HomePage = () => {
   return (
-    <div>
-      <div className="main-content">
+    <>
+      <MainContent>
         <div className="page-heading">
           <h2>Shop</h2>
         </div>
@@ -13,8 +14,8 @@ const HomePage = () => {
             <Product key={product._id} product={product} />
           ))}
         </div>
-      </div>
-    </div>
+      </MainContent>
+    </>
   );
 };
 

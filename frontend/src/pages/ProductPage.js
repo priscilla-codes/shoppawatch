@@ -1,7 +1,9 @@
+import MainContent from '../components/MainContent';
+
 const ProductPage = () => {
   return (
-    <div>
-      <div className="main-content product-page">
+    <>
+      <MainContent page="product-page">
         <div className="single-product-layout">
           <div className="top-watch-block__single">
             <div className="leftside-single-block">
@@ -75,8 +77,8 @@ const ProductPage = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </MainContent>
+    </>
   );
 };
 
