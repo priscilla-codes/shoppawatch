@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
+  const truncateText = text =>
+    text.length > 29 ? `${text.substring(0, 29)}...` : text;
   return (
     <div className="watch-block">
       <Link to={`/products/${product._id}`} className="watch-image-link">
@@ -12,7 +14,7 @@ const Product = ({ product }) => {
         </div>
         <Link to={`/products/${product._id}`}>
           <div className="name">
-            <span className="watch-name">{product.name}</span>
+            <span className="watch-name">{truncateText(product.name)}</span>
           </div>
         </Link>
         <Link to={`/products/${product._id}`}>
