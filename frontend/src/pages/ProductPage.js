@@ -1,22 +1,27 @@
+import { useParams } from 'react-router-dom';
+import products from '../products';
 import MainContent from '../components/MainContent';
 
 const ProductPage = () => {
+  const { id } = useParams();
+  const product = products.find(p => p._id === id);
+
   return (
     <>
       <MainContent page="product-page">
         <div className="single-product-layout">
           <div className="top-watch-block__single">
             <div className="leftside-single-block">
-              <img src="./images/watch1.jpg" alt="" />
+              {<img src={product.image} alt="" />}
             </div>
             <div className="rightside-single-block">
               <div className="top-rightside-single-block">
                 <div className="name">
-                  <span className="watch-name">Fossil</span>
+                  <span className="watch-name">{product.name}</span>
                 </div>
                 <div className="price">
                   <span className="watch-price">
-                    <span className="full-price">$425.00</span>
+                    <span className="full-price">${product.price}</span>
                   </span>
                 </div>
                 <div className="description">

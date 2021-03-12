@@ -1,13 +1,17 @@
+import { Link } from 'react-router-dom';
+
 const Navbar = () => {
   return (
     <div>
       <div className="nav">
         <div className="centered-nav">
           <div className="left-nav">
-            <div className="brand">
-              <span className="brand-name">ShoppAWatch</span>
-              <span className="brand-end-period"></span>
-            </div>
+            <Link to="/">
+              <div className="brand">
+                <span className="brand-name">ShoppAWatch</span>
+                <span className="brand-end-period"></span>
+              </div>
+            </Link>
           </div>
           <div className="search">
             <input type="text" placeholder="Search" />
