@@ -72,6 +72,11 @@
   display: flex;
   min-height: inherit;
 
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
   @include respond(max-tab-port) {
     margin-bottom: 2rem;
     padding-left: 0.5rem;

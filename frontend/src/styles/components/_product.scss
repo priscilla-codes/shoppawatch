@@ -11,6 +11,10 @@
   box-shadow: 0 1px 3px 0 rgba(181, 181, 181, 0.2);
   border-radius: 0.3rem;
 
+  a {
+    text-decoration: none;
+  }
+
   @include respond(hybrid-1400) {
     width: 32%;
   }
@@ -22,9 +26,17 @@
   }
 }
 
+.watch-image-link {
+  display: flex;
+  margin-bottom: 0.5rem;
+  justify-content: center;
+  width: 100%;
+}
+
 .watch-name {
   color: darken(#404040, 5%);
   font-size: 0.875rem;
+  font-weight: 400;
 }
 
 .watch-details {
@@ -34,11 +46,12 @@
   }
 }
 
-.price {
+.price,
+.brand__watch {
   height: 0.9rem;
   font-size: 0.875rem;
   color: darken(#1f1f1f, 50%);
-  font-weight: 700;
+  font-weight: 600;
   display: flex;
   justify-content: center;
 
@@ -50,6 +63,10 @@
     height: 100%;
     display: flex;
   }
+}
+
+.brand__watch {
+  font-weight: 700;
 }
 
 img {
