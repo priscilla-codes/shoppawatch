@@ -1,0 +1,113 @@
+// MEDIA QUERY MANAGER
+/*
+$breakpoint argument choices:
+- phone              [280-600]
+- mini-phone         [280-320]
+- max-599px          [<= 599]
+- min-601px          [601+]
+- tab-port           [601-900]
+- tab-port2          [667-900]
+- max-767            [767]
+- max-tab-port       [280-900]
+- min-901px          [901+]
+- tab-land           [901-1200]
+- hybrid             [901-1400]
+- hybrid-min-land    [601-1400]
+- desktop            [1201 - 1800]
+
+1em = 16px
+
+*/
+
+@mixin respond($breakpoint) {
+  // min-280px - max-320px
+  @if $breakpoint == mini-phone {
+    @media (min-width: 17.5em) and (max-width: 20em) {
+      @content;
+    }
+  }
+
+  // max-599px
+  @if $breakpoint == max-599px {
+    @media (max-width: 37.4375em) {
+      @content;
+    }
+  }
+
+  // min-280px - max-600px
+  @if $breakpoint == phone {
+    @media (min-width: 17.5em) and (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  // min-601px
+  @if $breakpoint == min-601px {
+    @media (min-width: 37.6em) {
+      @content;
+    }
+  }
+
+  // min-280px - max-900px
+  @if $breakpoint == max-tab-port {
+    @media (min-width: 17.5em) and (max-width: 56.25rem) {
+      @content;
+    }
+  }
+
+  // min-601px - max-900px
+  @if $breakpoint == tab-port {
+    @media (min-width: 37.5625em) and (max-width: 56.25rem) {
+      @content;
+    }
+  }
+
+  // min-667px - max-900px
+  @if $breakpoint == tab-port2 {
+    @media (min-width: 41.6875em) and (max-width: 56.25rem) {
+      @content;
+    }
+  }
+
+  // max-767px
+  @if $breakpoint == max-767px {
+    @media (max-width: 47.9em) {
+      @content;
+    }
+  }
+
+  // min-901px
+  @if $breakpoint == min-901px {
+    @media (min-width: 56.31rem) {
+      @content;
+    }
+  }
+
+  // min-901px - max-1200px
+  @if $breakpoint == tab-land {
+    @media (min-width: 56.31rem) and (max-width: 75rem) {
+      @content;
+    }
+  }
+
+  // min-901px - max-1400px
+  @if $breakpoint == hybrid-1400 {
+    @media (min-width: 56.31rem) and (max-width: 87.5rem) {
+      @content;
+    }
+  }
+
+  // min-601 - max-1400px
+  @if $breakpoint == hybrid-min-land {
+    @media (min-width: 37.6em) and (max-width: 87.5rem) {
+      @content;
+    }
+  }
+
+  // min-1201px - max-1800px
+  @if $breakpoint == desktop {
+    @media (min-width: 75.0625rem) and (max-width: 112.5rem) {
+      @content;
+    }
+  }
+}

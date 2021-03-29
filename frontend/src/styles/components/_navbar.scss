@@ -1,0 +1,180 @@
+/** NAVBAR **/
+.nav {
+  display: flex;
+  border-bottom: 1px solid #edeff3;
+  min-height: 4.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+
+  .search {
+    border-radius: 3rem;
+    border: 2px solid #edeff3;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 1.5rem;
+
+    .fal {
+      color: #858585;
+      font-weight: 500;
+    }
+
+    &::placeholder {
+      color: gray;
+    }
+
+    @include respond(max-tab-port) {
+      order: 3;
+      width: 100%;
+    }
+
+    @include respond(tab-port2) {
+      width: 85vw;
+    }
+  }
+
+  input {
+    font-size: 1rem;
+    color: lighten(#000, 5%);
+    width: 30rem;
+    outline: none;
+    border: 0;
+
+    @include respond(max-tab-port) {
+      width: 100%;
+    }
+  }
+}
+
+.centered-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 84rem;
+
+  @include respond(hybrid-1400) {
+    width: 100%;
+    padding: 0 2rem;
+  }
+
+  @include respond(max-tab-port) {
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  @include respond(tab-port2) {
+    justify-content: center;
+  }
+}
+
+.left-nav {
+  display: flex;
+  min-height: inherit;
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  @include respond(max-tab-port) {
+    margin-bottom: 2rem;
+    padding-left: 0.5rem;
+    width: 40vw;
+  }
+}
+
+.right-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 6rem;
+  padding-right: 1rem;
+
+  .fal {
+    font-weight: 300;
+    color: darken(#858585, 30%);
+    font-size: 1.4rem;
+
+    @include respond(max-tab-port) {
+      font-size: 1.3rem;
+    }
+  }
+
+  .username-icon {
+    cursor: pointer;
+    @include respond(max-tab-port) {
+      margin-right: 1rem;
+      margin-left: 1.8rem;
+    }
+  }
+
+  @include respond(max-tab-port) {
+    margin-bottom: 2rem;
+    width: 45vw;
+    padding-right: 0;
+    justify-content: flex-end;
+  }
+}
+
+/** HEADING **/
+.cart-heading,
+.page-heading {
+  margin-top: 4rem;
+  margin-bottom: 4.5rem;
+  display: flex;
+  justify-content: center;
+  h2 {
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+  }
+}
+
+/** BRAND#LOGO **/
+
+.brand {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  @include respond(hybrid-1400) {
+    padding-right: 2rem;
+  }
+}
+
+.brand-name {
+  font-weight: 400;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.3rem;
+}
+
+.brand-end-period {
+  font-size: 3.1rem;
+  display: block;
+  background-color: #ff2d3b;
+  font-family: 'Archivo Black', sans-serif;
+  border-radius: 3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: 0.1rem;
+  margin-top: 0.4rem;
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  .cart-icon-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 18px;
+    height: 18px;
+    background: #ff2d3b;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 0.8rem;
+  }
+}

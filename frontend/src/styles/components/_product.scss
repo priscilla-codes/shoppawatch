@@ -1,0 +1,84 @@
+/* PRODUCT CARD */
+.watch-block {
+  display: flex;
+  padding: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  flex-direction: column;
+  width: 320px;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(181, 181, 181, 0.2);
+  border-radius: 0.3rem;
+
+  a {
+    text-decoration: none;
+  }
+
+  @include respond(hybrid-1400) {
+    width: 32%;
+  }
+  @include respond(tab-port) {
+    width: 48%;
+  }
+  @include respond(phone) {
+    width: 100vw;
+  }
+}
+
+.watch-image-link {
+  display: flex;
+  margin-bottom: 0.5rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.watch-name {
+  color: darken(#404040, 5%);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.watch-details {
+  .name {
+    margin-bottom: 0.3rem;
+    padding: 0.5rem 0;
+  }
+}
+
+.price,
+.brand__watch {
+  height: 0.9rem;
+  font-size: 0.875rem;
+  color: darken(#1f1f1f, 50%);
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+
+  .full-price {
+    height: 1rem;
+    align-self: flex-end;
+  }
+  .watch-price {
+    height: 100%;
+    display: flex;
+  }
+}
+
+.brand__watch {
+  font-weight: 700;
+}
+
+img {
+  width: 160px;
+  height: 320px;
+  object-fit: contain;
+}
+
+.add-to-cart {
+  color: #ff2d3b;
+  font-weight: 600;
+  margin-top: 1.1rem;
+  padding: 0.6rem;
+  cursor: pointer;
+}
