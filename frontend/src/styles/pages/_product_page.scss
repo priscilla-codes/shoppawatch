@@ -184,14 +184,31 @@
 
     .tab-content {
       margin-top: 2.5rem;
-      p {
+      p,
+      li {
         line-height: 28px;
         margin-bottom: 2rem;
         color: #687188;
+      }
 
+      p {
         &:last-child {
           margin-bottom: 6rem;
         }
+      }
+
+      ul {
+        list-style-type: none;
+
+        li {
+          padding-left: 0.8rem;
+        }
+      }
+
+      ul li:before {
+        content: '-';
+        position: absolute;
+        margin-left: -0.7rem;
       }
     }
     @include respond(hybrid-min-land) {

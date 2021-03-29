@@ -4,9 +4,11 @@ const ProductDescription = ({ product }) => {
   return (
     <>
       <p>{product.description.main}</p>
-      {productDetails.map(prodDetail => (
-        <p>- {prodDetail}</p>
-      ))}
+      <ul>
+        {productDetails.map(prodDetail => (
+          <li>{prodDetail}</li>
+        ))}
+      </ul>
       <p>{product.description.details}</p>
     </>
   );
