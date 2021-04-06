@@ -35,3 +35,10 @@ hr {
   min-height: 85rem;
   background-color: rgb(249, 249, 249);
 }
+
+/** LOADER SPINNER **/
+.loader-spinner {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+}

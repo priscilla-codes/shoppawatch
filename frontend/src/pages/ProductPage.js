@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import MainContent from '../components/MainContent';
 import ProductDescription from '../components/ProductDescription';
+import Loader from 'react-loader-spinner';
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -22,7 +23,19 @@ const ProductPage = () => {
   }, [url, id]);
 
   if (!product.description) {
-    return <p>Loading</p>;
+    return (
+      <MainContent>
+        <div className="loader-spinner">
+          <Loader
+            type="TailSpin"
+            color="Gray"
+            height={100}
+            width={100}
+            timeout={3000}
+          />
+        </div>
+      </MainContent>
+    );
   }
 
   return (
