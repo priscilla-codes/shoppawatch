@@ -1,11 +1,29 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import products from '../products';
 import MainContent from '../components/MainContent';
 import ProductDescription from '../components/ProductDescription';
 
 const ProductPage = () => {
   const { id } = useParams();
-  const product = products.find(p => p._id === id);
+  const [product, setProduct] = useState({});
+  const url = 'api/v1/products/';
+
+  axios.defaults.baseURL = 'http://localhost:8000';
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`${url}${id}`);
+
+      setProduct(data);
+    };
+
+    fetchProduct();
+  }, [url, id]);
+
+  if (!product.description) {
+    return <p>Loading</p>;
+  }
 
   return (
     <>
@@ -13,7 +31,7 @@ const ProductPage = () => {
         <div className="single-product-layout">
           <div className="top-watch-block__single">
             <div className="leftside-single-block">
-              {<img src={product.image} alt="" />}
+              {<img src={product.main_image} alt="" />}
             </div>
             <div className="rightside-single-block">
               <div className="top-rightside-single-block">
@@ -54,7 +72,7 @@ const ProductPage = () => {
                 <span className="tabs-list-item">Reviews(0)</span>
               </div>
               <div className="tab-content">
-                <ProductDescription key={product._id} product={product} />
+                <ProductDescription key={product.id} product={product} />
               </div>
             </div>
           </div>
