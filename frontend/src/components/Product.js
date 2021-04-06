@@ -12,12 +12,12 @@ const Product = ({ product }) => {
         <div className="brand__watch">
           <span className="brand-name__watch">{product.brand}</span>
         </div>
-        <Link to={`/products/${product._id}`}>
+        <Link to={`/products/${product.id}`}>
           <div className="name">
             <span className="watch-name">{truncateText(product.name)}</span>
           </div>
         </Link>
-        <Link to={`/products/${product._id}`}>
+        <Link to={`/products/${product.id}`}>
           <div className="price">
             <span className="watch-price">
               <span className="full-price">${product.price}</span>
