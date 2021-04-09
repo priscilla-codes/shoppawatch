@@ -4,23 +4,21 @@ import { useParams } from 'react-router-dom';
 import MainContent from '../components/MainContent';
 import ProductDescription from '../components/ProductDescription';
 import Loader from 'react-loader-spinner';
+import api from '../api';
 
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  const url = 'api/v1/products/';
-
-  axios.defaults.baseURL = 'http://localhost:8000';
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const { data } = await axios.get(`${url}${id}`);
+      const { data } = await axios.get(`${api.products}${id}`);
 
       setProduct(data);
     };
 
     fetchProduct();
-  }, [url, id]);
+  }, [id]);
 
   if (!product.description) {
     return (
