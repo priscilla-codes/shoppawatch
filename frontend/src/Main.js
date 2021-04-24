@@ -31,6 +31,20 @@ function Main() {
     setCart(response.data);
   };
 
+  const getQuantity = e => {
+    setQuantity(e.target.value);
+  };
+
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   useEffect(() => {
     fetchCart();
   }, []);
@@ -48,7 +62,14 @@ function Main() {
             />
           </Route>
           <Route path="/products/:id">
-            <ProductPage />
+            <ProductPage
+              addToCartHandler={addToCartHandler}
+              getItemQuantity={getQuantity}
+              increaseQuantity={increaseQuantity}
+              decreaseQuantity={decreaseQuantity}
+              setQauntity={setQuantity}
+              quantity={quantity}
+            />
           </Route>
         </Switch>
         <Footer />
