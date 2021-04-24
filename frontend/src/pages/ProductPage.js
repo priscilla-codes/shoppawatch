@@ -6,7 +6,13 @@ import ProductDescription from '../components/ProductDescription';
 import Loader from 'react-loader-spinner';
 import api from '../api';
 
-const ProductPage = () => {
+const ProductPage = ({
+  addToCartHandler,
+  getQuantity,
+  increaseQuantity,
+  decreaseQuantity,
+  quantity
+}) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
 
@@ -61,15 +67,31 @@ const ProductPage = () => {
               <hr />
               <div className="bottom-rightside-single-block">
                 <div className="quantity__cart">
-                  <span className="increment">
+                  <span
+                    className="decrement"
+                    onClick={() => decreaseQuantity()}
+                  >
                     <i className="far fa-minus"></i>
                   </span>
-                  <input className="quantity-count-input" value="1" size="4" />
-                  <span className="decrement">
+                  <input
+                    className="quantity-count-input"
+                    value={quantity}
+                    size="4"
+                    onChange={() => getQuantity()}
+                  />
+                  <span
+                    className="increment"
+                    onClick={() => increaseQuantity()}
+                  >
                     <i className="far fa-plus"></i>
                   </span>
                 </div>
-                <div className="add-to-cart-button">
+                <div
+                  className="add-to-cart-button"
+                  onClick={() => {
+                    addToCartHandler(product);
+                  }}
+                >
                   <span>Add To Cart</span>
                 </div>
               </div>

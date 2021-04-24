@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const Product = ({ product }) => {
+const Product = ({ product, addToCartHandler }) => {
   const truncateText = text =>
     text.length > 29 ? `${text.substring(0, 29)}...` : text;
   return (
@@ -25,7 +25,9 @@ const Product = ({ product }) => {
           </div>
         </Link>
       </div>
-      <div className="add-to-cart">Add to cart</div>
+      <div className="add-to-cart" onClick={() => addToCartHandler(product)}>
+        Add to cart
+      </div>
     </div>
   );
 };
