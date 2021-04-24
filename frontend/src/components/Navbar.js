@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ cart }) => {
   return (
     <div>
       <div className="nav">
@@ -21,7 +21,7 @@ const Navbar = () => {
           </div>
           <div className="right-nav">
             <div className="cart-icon">
-              <span className="cart-icon-badge">3</span>
+              <span className="cart-icon-badge">{cart.total_items}</span>
               <i className="fal fa-shopping-cart"></i>
             </div>
             <div className="username-icon">

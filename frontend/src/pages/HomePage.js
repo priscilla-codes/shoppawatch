@@ -4,7 +4,7 @@ import MainContent from '../components/MainContent';
 import axios from 'axios';
 import api from '../api';
 
-const HomePage = () => {
+const HomePage = ({ addToCartHandler, setQuantity }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,11 @@ const HomePage = () => {
         </div>
         <div className="watches-container">
           {products.map(product => (
-            <Product key={product.id} product={product} />
+            <Product
+              key={product.id}
+              product={product}
+              addToCartHandler={addToCartHandler}
+            />
           ))}
         </div>
       </MainContent>
