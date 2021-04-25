@@ -7,15 +7,16 @@ import api from '../api';
 const HomePage = ({ addToCartHandler, setQuantity }) => {
   const [products, setProducts] = useState([]);
 
+  const fetchProducts = async () => {
+    const { data } = await axios.get(api.products);
+
+    setProducts(data);
+  };
+
   useEffect(() => {
-    const fetchProducts = async () => {
-      const { data } = await axios.get(api.products);
-
-      setProducts(data);
-    };
-
     fetchProducts();
-  }, []);
+    setQuantity(1);
+  }, [setQuantity]);
 
   return (
     <>
