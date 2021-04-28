@@ -22,4 +22,8 @@ class Cart < ApplicationRecord
     end
     item_count
   end
+
+  def total_price
+    cart_items.to_a.sum {|item| item.total_price}
+  end
 end

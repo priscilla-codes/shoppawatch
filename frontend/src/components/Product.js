@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 const Product = ({ product, addToCartHandler }) => {
   const truncateText = text =>
     text.length > 29 ? `${text.substring(0, 29)}...` : text;
+
+  console.log(product);
   return (
     <div className="watch-block">
       <Link to={`/products/${product.id}`} className="watch-image-link">

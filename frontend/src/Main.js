@@ -9,6 +9,7 @@ import MainWrapper from './components/MainWrapper';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
 
 function Main() {
   const [cart, setCart] = useState({});
@@ -70,6 +71,9 @@ function Main() {
               setQauntity={setQuantity}
               quantity={quantity}
             />
+          </Route>
+          <Route path="/cart">
+            <CartPage cart={cart} />
           </Route>
         </Switch>
         <Footer />

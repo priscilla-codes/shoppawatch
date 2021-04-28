@@ -1,0 +1,293 @@
+/** CART **/
+.main-wrapper {
+  .main-content {
+    min-height: 100vh;
+    padding-bottom: 5rem;
+  }
+}
+.watches-container__cart {
+  width: 75rem;
+  display: flex;
+  flex-direction: column;
+
+  @include respond(hybrid-min-land) {
+    align-items: center;
+    width: 100%;
+  }
+
+  @include respond(phone) {
+    width: 100%;
+  }
+
+  .watch-block__cart {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    position: relative;
+
+    img {
+      width: 180px;
+      height: 180px;
+
+      @include respond(tab-port) {
+        width: 100px;
+      }
+
+      @include respond(phone) {
+        width: 100px;
+      }
+
+      @include respond(mini-phone) {
+        width: 80px;
+      }
+    }
+
+    .watch-details-left {
+      display: flex;
+      align-items: center;
+
+      .name__cart {
+        font-weight: 500;
+        width: 10rem;
+        @include respond(tab-port) {
+          padding-left: 1rem;
+        }
+        @include respond(phone) {
+          display: none;
+        }
+      }
+
+      @include respond(phone) {
+        width: 8rem;
+      }
+      @include respond(mini-phone) {
+        width: 38%;
+      }
+    }
+
+    .watch-details-right {
+      width: 60%;
+      display: flex;
+      flex-wrap: wrap;
+
+      .mobile {
+        .name__cart {
+          font-weight: 500;
+          margin-bottom: 0.6rem;
+          width: 10rem;
+        }
+        @include respond(min-601px) {
+          display: none;
+        }
+        @include respond(phone) {
+          margin-bottom: 1rem;
+        }
+      }
+
+      @include respond(min-901px) {
+        padding-left: 1.2rem;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      @include respond(tab-port) {
+        padding-left: 1.2rem;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      @include respond(phone) {
+        justify-content: space-between;
+      }
+    }
+
+    .quantity__cart {
+      display: flex;
+      border-radius: 0.2rem;
+      justify-content: space-around;
+      min-width: 5rem;
+      align-items: center;
+      cursor: pointer;
+
+      @include respond(phone) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .price__cart {
+      width: 5rem;
+
+      &.bigger-screen {
+        font-weight: 500;
+        @include respond(phone) {
+          display: none;
+        }
+      }
+    }
+
+    .quantity-count {
+      font-size: 1rem;
+      align-items: center;
+      display: flex;
+      height: 1.4rem;
+      width: 1.4rem;
+      justify-content: center;
+      background-color: #4784ff;
+      color: white;
+      font-weight: 500;
+      border-radius: 0.5rem;
+      padding: 1rem;
+    }
+    .delete-watch {
+      .fal {
+        color: darken(#eee, 50%);
+        font-size: 1.2rem;
+
+        &.selected {
+          color: lighten(#ff2d3b, 3%);
+        }
+
+        @include respond(min-901px) {
+          font-size: 1.3rem;
+        }
+      }
+
+      @include respond(tab-port) {
+        padding-right: 0;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+
+      @include respond(phone) {
+        padding-right: 0;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+    }
+
+    .quantity-count-input {
+      border: 1px solid #ddd;
+      text-align: center;
+      margin: 3px;
+      width: 55px;
+      height: 36px;
+      line-height: 25px;
+      font-weight: 400;
+      font-size: 1rem;
+    }
+
+    .increment,
+    .decrement {
+      display: flex;
+      height: 36px;
+      align-items: center;
+      width: 36px;
+      justify-content: center;
+      font-weight: 700;
+      color: #000;
+      margin: 3px;
+      line-height: 34px;
+      background-color: #eee;
+      border-radius: 20rem;
+      font-size: 0.8rem;
+
+      @include respond(phone) {
+        margin: 0;
+      }
+    }
+
+    @include respond(hybrid-min-land) {
+      width: 95vw;
+    }
+
+    @include respond(phone) {
+      justify-content: flex-start;
+    }
+  }
+}
+
+/** CHECKOUT BUTTON **/
+.checkout-wrapper {
+  width: 75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 3rem;
+
+  .delivery-amount {
+    border-bottom: 2px solid lighten(#e6e7e8, 1%);
+    padding: 1rem 0;
+  }
+
+  .subtotal-text,
+  .delivery-text {
+    color: #bdc2cb;
+  }
+
+  .total-amount {
+    margin-bottom: 4rem;
+    padding-top: 1.5rem;
+    .total-price {
+      font-weight: 700;
+    }
+  }
+
+  .delivery-amount,
+  .subtotal-amount,
+  .total-amount {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0.5rem;
+  }
+
+  .checkout {
+    width: 22rem;
+    min-height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+
+  .checkout-button {
+    display: flex;
+    justify-content: center;
+    padding: 1.3rem 6rem;
+    color: #fff;
+    background-color: lighten(#ff2d3b, 3%);
+    border-radius: 3rem;
+    width: 100%;
+    height: 3.8rem;
+    cursor: pointer;
+
+    @include respond(phone) {
+      width: 70vw;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+  }
+
+  @include respond(hybrid-min-land) {
+    width: 100%;
+    padding-right: 1rem;
+  }
+
+  @include respond(phone) {
+    width: 100%;
+    padding: 0 1.1rem;
+  }
+}
