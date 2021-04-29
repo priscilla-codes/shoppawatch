@@ -18,36 +18,45 @@ const CartPage = ({ cart }) => {
       </MainContent>
     );
   }
+
   return (
     <>
       <MainContent page="cart">
-        <div class="cart-heading">
+        <div className="cart-heading">
           <h2>Cart</h2>
         </div>
-        <div class="watches-container__cart">
-          {cart.cart_items.map(item => (
-            <CartItem item={item}></CartItem>
-          ))}
-        </div>
-        <div class="checkout-wrapper">
-          <div class="checkout">
-            <div class="subtotal-amount">
-              <span class="subtotal-text">Subtotal</span>
-              <span class="subtotal-price">${cart.total_price}</span>
-            </div>
-            <div class="delivery-amount">
-              <span class="delivery-text">Delivery</span>
-              <span class="delivery-price">Free</span>
-            </div>
-            <div class="total-amount">
-              <span class="total-text">Total</span>
-              <span class="total-price">${cart.total_price}</span>
-            </div>
-            <div class="checkout-button">
-              <span>Checkout</span>
-            </div>
+        {cart.cart_items.length === 0 ? (
+          <div className="empty-cart">
+            <p className="empty-cart-text">Your ShoppAWatch Cart is empty</p>
           </div>
-        </div>
+        ) : (
+          <>
+            <div className="watches-container__cart">
+              {cart.cart_items.map(item => (
+                <CartItem item={item}></CartItem>
+              ))}
+            </div>
+            <div className="checkout-wrapper">
+              <div className="checkout">
+                <div className="subtotal-amount">
+                  <span className="subtotal-text">Subtotal</span>
+                  <span className="subtotal-price">${cart.total_price}</span>
+                </div>
+                <div className="delivery-amount">
+                  <span className="delivery-text">Delivery</span>
+                  <span className="delivery-price">Free</span>
+                </div>
+                <div className="total-amount">
+                  <span className="total-text">Total</span>
+                  <span className="total-price">${cart.total_price}</span>
+                </div>
+                <div className="checkout-button">
+                  <span>Checkout</span>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </MainContent>
     </>
   );
