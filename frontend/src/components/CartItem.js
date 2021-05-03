@@ -1,4 +1,16 @@
-const CartItem = ({ item }) => {
+import axios from 'axios';
+import api from '../api';
+
+const CartItem = ({ item, setCart }) => {
+  const updateItemQty = async itemQuantity => {
+    const response = await axios.put(`${api.updateItem}`, {
+      cart_item_id: item.id,
+      new_quantity: itemQuantity
+    });
+
+    setCart(response.data);
+  };
+
   return (
     <>
       <div className="watch-block__cart">
@@ -18,11 +30,22 @@ const CartItem = ({ item }) => {
             </div>
           </div>
           <div className="quantity__cart">
-            <span className="increment">
+            <span
+              className="decrement"
+              onClick={() => updateItemQty(item.quantity - 1)}
+            >
               <i className="far fa-minus"></i>
             </span>
-            <input className="quantity-count-input" value="1" size="4" />
-            <span className="decrement">
+            <input
+              className="quantity-count-input"
+              value={item.quantity}
+              size="4"
+              onChange={e => updateItemQty(Number(e.target.value))}
+            />
+            <span
+              className="increment"
+              onClick={() => updateItemQty(item.quantity + 1)}
+            >
               <i className="far fa-plus"></i>
             </span>
           </div>

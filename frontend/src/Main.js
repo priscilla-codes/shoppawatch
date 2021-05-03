@@ -73,7 +73,7 @@ function Main() {
             />
           </Route>
           <Route path="/cart">
-            <CartPage cart={cart} />
+            <CartPage cart={cart} setCart={setCart} />
           </Route>
         </Switch>
         <Footer />

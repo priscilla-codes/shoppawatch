@@ -2,7 +2,7 @@ import CartItem from '../components/CartItem';
 import MainContent from '../components/MainContent';
 import Loader from 'react-loader-spinner';
 
-const CartPage = ({ cart }) => {
+const CartPage = ({ cart, setCart }) => {
   if (!cart.cart_items) {
     return (
       <MainContent>
@@ -33,7 +33,11 @@ const CartPage = ({ cart }) => {
           <>
             <div className="watches-container__cart">
               {cart.cart_items.map(item => (
-                <CartItem item={item}></CartItem>
+                <CartItem
+                  item={item}
+                  setCart={setCart}
+                  key={item.id}
+                ></CartItem>
               ))}
             </div>
             <div className="checkout-wrapper">
