@@ -11,7 +11,8 @@ const ProductPage = ({
   getQuantity,
   increaseQuantity,
   decreaseQuantity,
-  quantity
+  quantity,
+  usCurrency
 }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
@@ -57,7 +58,9 @@ const ProductPage = ({
                 </div>
                 <div className="price">
                   <span className="watch-price">
-                    <span className="full-price">${product.price}</span>
+                    <span className="full-price">
+                      {usCurrency.format(product.price)}
+                    </span>
                   </span>
                 </div>
                 <div className="description">

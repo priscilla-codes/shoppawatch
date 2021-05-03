@@ -46,6 +46,11 @@ function Main() {
     }
   };
 
+  const usCurrency = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  });
+
   useEffect(() => {
     fetchCart();
   }, []);
@@ -60,6 +65,7 @@ function Main() {
               addToCartHandler={addToCartHandler}
               setQuantity={setQuantity}
               quantity={quantity}
+              usCurrency={usCurrency}
             />
           </Route>
           <Route path="/products/:id">
@@ -70,10 +76,11 @@ function Main() {
               decreaseQuantity={decreaseQuantity}
               setQauntity={setQuantity}
               quantity={quantity}
+              usCurrency={usCurrency}
             />
           </Route>
           <Route path="/cart">
-            <CartPage cart={cart} setCart={setCart} />
+            <CartPage cart={cart} setCart={setCart} usCurrency={usCurrency} />
           </Route>
         </Switch>
         <Footer />

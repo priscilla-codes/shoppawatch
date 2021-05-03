@@ -1,7 +1,7 @@
 import axios from 'axios';
 import api from '../api';
 
-const CartItem = ({ item, setCart }) => {
+const CartItem = ({ item, setCart, usCurrency }) => {
   const updateItemQty = async itemQuantity => {
     const response = await axios.put(`${api.updateItem}`, {
       cart_item_id: item.id,
@@ -50,7 +50,9 @@ const CartItem = ({ item, setCart }) => {
             </span>
           </div>
           <div className="bigger-screen price__cart">
-            <span className="watch-price__cart">${item.total_price}</span>
+            <span className="watch-price__cart">
+              {usCurrency.format(item.total_price)}
+            </span>
           </div>
         </div>
         <div className="delete-watch">

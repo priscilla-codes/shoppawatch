@@ -2,7 +2,7 @@ import CartItem from '../components/CartItem';
 import MainContent from '../components/MainContent';
 import Loader from 'react-loader-spinner';
 
-const CartPage = ({ cart, setCart }) => {
+const CartPage = ({ cart, setCart, usCurrency }) => {
   if (!cart.cart_items) {
     return (
       <MainContent>
@@ -37,6 +37,7 @@ const CartPage = ({ cart, setCart }) => {
                   item={item}
                   setCart={setCart}
                   key={item.id}
+                  usCurrency={usCurrency}
                 ></CartItem>
               ))}
             </div>
@@ -44,7 +45,9 @@ const CartPage = ({ cart, setCart }) => {
               <div className="checkout">
                 <div className="subtotal-amount">
                   <span className="subtotal-text">Subtotal</span>
-                  <span className="subtotal-price">${cart.total_price}</span>
+                  <span className="subtotal-price">
+                    {usCurrency.format(cart.total_price)}
+                  </span>
                 </div>
                 <div className="delivery-amount">
                   <span className="delivery-text">Delivery</span>
@@ -52,7 +55,9 @@ const CartPage = ({ cart, setCart }) => {
                 </div>
                 <div className="total-amount">
                   <span className="total-text">Total</span>
-                  <span className="total-price">${cart.total_price}</span>
+                  <span className="total-price">
+                    {usCurrency.format(cart.total_price)}
+                  </span>
                 </div>
                 <div className="checkout-button">
                   <span>Checkout</span>

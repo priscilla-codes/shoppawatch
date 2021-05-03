@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
 
-const Product = ({ product, addToCartHandler }) => {
+const Product = ({ product, addToCartHandler, usCurrency }) => {
   const truncateText = text =>
     text.length > 29 ? `${text.substring(0, 29)}...` : text;
 
-  console.log(product);
   return (
     <div className="watch-block">
       <Link to={`/products/${product.id}`} className="watch-image-link">
@@ -22,7 +21,9 @@ const Product = ({ product, addToCartHandler }) => {
         <Link to={`/products/${product.id}`}>
           <div className="price">
             <span className="watch-price">
-              <span className="full-price">${product.price}</span>
+              <span className="full-price">
+                {usCurrency.format(product.price)}
+              </span>
             </span>
           </div>
         </Link>
