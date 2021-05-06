@@ -3,6 +3,8 @@ class CartItem < ApplicationRecord
   belongs_to :cart
   belongs_to :product
 
+  validates_numericality_of :quantity, only_integer: true, greater_than: 0
+
   def total_price
     product.price * quantity
   end

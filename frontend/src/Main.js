@@ -24,8 +24,6 @@ function Main() {
     setCart(response.data);
   };
 
-  console.log(cart);
-
   const fetchCart = async () => {
     const response = await axios.get(api.cart);
 
