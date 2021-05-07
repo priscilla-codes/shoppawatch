@@ -16,7 +16,6 @@ const CartItem = ({ item, setCart, usCurrency }) => {
 
   const increaseQuantity = quantity => {
     setNewQuantity(Number(quantity) + 1);
-    console.log(newQuantity);
   };
 
   const decreaseQuantity = quantity => {

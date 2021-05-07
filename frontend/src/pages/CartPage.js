@@ -1,9 +1,12 @@
 import CartItem from '../components/CartItem';
 import MainContent from '../components/MainContent';
 import Loader from 'react-loader-spinner';
+import { sortBy } from 'lodash';
 
 const CartPage = ({ cart, setCart, usCurrency }) => {
-  if (!cart.cart_items) {
+  const cartItems = cart.cart_items;
+  const orderedCartItems = sortBy(cartItems, item => item.created_at);
+  if (!cartItems) {
     return (
       <MainContent>
         <div className="loader-spinner">
@@ -25,14 +28,14 @@ const CartPage = ({ cart, setCart, usCurrency }) => {
         <div className="cart-heading">
           <h2>Cart</h2>
         </div>
-        {cart.cart_items.length === 0 ? (
+        {cartItems.length === 0 ? (
           <div className="empty-cart">
             <p className="empty-cart-text">Your ShoppAWatch Cart is empty</p>
           </div>
         ) : (
           <>
             <div className="watches-container__cart">
-              {cart.cart_items.map(item => (
+              {orderedCartItems.map(item => (
                 <CartItem
                   item={item}
                   setCart={setCart}
