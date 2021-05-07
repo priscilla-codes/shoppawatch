@@ -16,12 +16,14 @@ function Main() {
   const [quantity, setQuantity] = useState(1);
 
   const addToCartHandler = async product => {
-    const response = await axios.post(`${api.addItem}`, {
-      product_id: product.id,
-      quantity
-    });
+    if (quantity >= 1) {
+      const response = await axios.post(`${api.addItem}`, {
+        product_id: product.id,
+        quantity
+      });
 
-    setCart(response.data);
+      setCart(response.data);
+    }
   };
 
   const fetchCart = async () => {
@@ -31,11 +33,15 @@ function Main() {
   };
 
   const getQuantity = e => {
-    setQuantity(e.target.value);
+    setQuantity(e.target.valueAsNumber || e.target.value);
   };
 
   const increaseQuantity = () => {
-    setQuantity(quantity + 1);
+    if (quantity >= 1) {
+      setQuantity(quantity + 1);
+    } else if (typeof quantity === 'string') {
+      setQuantity(1);
+    }
   };
 
   const decreaseQuantity = () => {
@@ -69,7 +75,7 @@ function Main() {
           <Route path="/products/:id">
             <ProductPage
               addToCartHandler={addToCartHandler}
-              getItemQuantity={getQuantity}
+              getQuantity={getQuantity}
               increaseQuantity={increaseQuantity}
               decreaseQuantity={decreaseQuantity}
               setQauntity={setQuantity}

@@ -77,10 +77,11 @@ const ProductPage = ({
                     <i className="far fa-minus"></i>
                   </span>
                   <input
+                    type="number"
                     className="quantity-count-input"
                     value={quantity}
                     size="4"
-                    onChange={() => getQuantity()}
+                    onChange={e => getQuantity(e)}
                   />
                   <span
                     className="increment"
