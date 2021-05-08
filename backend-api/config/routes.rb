@@ -7,6 +7,7 @@ Rails.application.routes.draw do
           get "get_cart"
           post "add_item"
           put "update_item"
+          delete "remove_item"
         end
       end
     end

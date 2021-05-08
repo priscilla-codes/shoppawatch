@@ -14,6 +14,13 @@ const CartItem = ({ item, setCart, usCurrency }) => {
     setCart(response.data);
   }, 10);
 
+  const removeItem = async () => {
+    const response = await axios.delete(`${api.removeItem}`, {
+      data: { cart_item_id: item.id }
+    });
+    setCart(response.data);
+  };
+
   const increaseQuantity = quantity => {
     setNewQuantity(Number(quantity) + 1);
   };
@@ -74,7 +81,7 @@ const CartItem = ({ item, setCart, usCurrency }) => {
             </span>
           </div>
         </div>
-        <div className="delete-watch">
+        <div className="delete-watch" onClick={() => removeItem()}>
           <span>
             <i className="fal fa-times mobile"></i>
           </span>

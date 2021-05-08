@@ -145,6 +145,12 @@
       padding: 1rem;
     }
     .delete-watch {
+      cursor: pointer;
+      height: 2rem;
+      width: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       .fal {
         color: darken(#eee, 50%);
         font-size: 1.2rem;
