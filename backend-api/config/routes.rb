@@ -6,6 +6,8 @@ Rails.application.routes.draw do
         collection do
           get "get_cart"
           post "add_item"
+          put "update_item"
+          delete "remove_item"
         end
       end
     end

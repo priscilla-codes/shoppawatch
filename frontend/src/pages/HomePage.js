@@ -4,7 +4,7 @@ import MainContent from '../components/MainContent';
 import axios from 'axios';
 import api from '../api';
 
-const HomePage = ({ addToCartHandler, setQuantity }) => {
+const HomePage = ({ addToCartHandler, setQuantity, usCurrency }) => {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
@@ -30,6 +30,7 @@ const HomePage = ({ addToCartHandler, setQuantity }) => {
               key={product.id}
               product={product}
               addToCartHandler={addToCartHandler}
+              usCurrency={usCurrency}
             />
           ))}
         </div>

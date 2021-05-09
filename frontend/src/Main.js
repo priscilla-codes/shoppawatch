@@ -9,21 +9,22 @@ import MainWrapper from './components/MainWrapper';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
 
 function Main() {
   const [cart, setCart] = useState({});
   const [quantity, setQuantity] = useState(1);
 
   const addToCartHandler = async product => {
-    const response = await axios.post(`${api.addItem}`, {
-      product_id: product.id,
-      quantity
-    });
+    if (quantity >= 1) {
+      const response = await axios.post(`${api.addItem}`, {
+        product_id: product.id,
+        quantity
+      });
 
-    setCart(response.data);
+      setCart(response.data);
+    }
   };
-
-  console.log(cart);
 
   const fetchCart = async () => {
     const response = await axios.get(api.cart);
@@ -32,11 +33,15 @@ function Main() {
   };
 
   const getQuantity = e => {
-    setQuantity(e.target.value);
+    setQuantity(e.target.valueAsNumber || e.target.value);
   };
 
   const increaseQuantity = () => {
-    setQuantity(quantity + 1);
+    if (quantity >= 1) {
+      setQuantity(quantity + 1);
+    } else if (typeof quantity === 'string') {
+      setQuantity(1);
+    }
   };
 
   const decreaseQuantity = () => {
@@ -44,6 +49,11 @@ function Main() {
       setQuantity(quantity - 1);
     }
   };
+
+  const usCurrency = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  });
 
   useEffect(() => {
     fetchCart();
@@ -59,17 +69,22 @@ function Main() {
               addToCartHandler={addToCartHandler}
               setQuantity={setQuantity}
               quantity={quantity}
+              usCurrency={usCurrency}
             />
           </Route>
           <Route path="/products/:id">
             <ProductPage
               addToCartHandler={addToCartHandler}
-              getItemQuantity={getQuantity}
+              getQuantity={getQuantity}
               increaseQuantity={increaseQuantity}
               decreaseQuantity={decreaseQuantity}
               setQauntity={setQuantity}
               quantity={quantity}
+              usCurrency={usCurrency}
             />
+          </Route>
+          <Route path="/cart">
+            <CartPage cart={cart} setCart={setCart} usCurrency={usCurrency} />
           </Route>
         </Switch>
         <Footer />

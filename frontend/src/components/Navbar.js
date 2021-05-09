@@ -20,10 +20,12 @@ const Navbar = ({ cart }) => {
             </span>
           </div>
           <div className="right-nav">
-            <div className="cart-icon">
-              <span className="cart-icon-badge">{cart.total_items}</span>
-              <i className="fal fa-shopping-cart"></i>
-            </div>
+            <Link to={'/cart'}>
+              <div className="cart-icon">
+                <span className="cart-icon-badge">{cart.total_items}</span>
+                <i className="fal fa-shopping-cart"></i>
+              </div>
+            </Link>
             <div className="username-icon">
               <i className="fal fa-user-circle"></i>
             </div>
