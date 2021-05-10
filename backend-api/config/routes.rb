@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      resources :sessions, only: [create]
       resources :products, only: [:index, :show]
       resources :carts do
         collection do
