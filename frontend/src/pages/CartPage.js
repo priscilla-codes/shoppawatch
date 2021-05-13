@@ -1,29 +1,37 @@
 import CartItem from '../components/CartItem';
 import MainContent from '../components/MainContent';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import Loader from 'react-loader-spinner';
 import { sortBy } from 'lodash';
+import SignupPage from './SignupPage';
 
 const CartPage = ({ cart, setCart, usCurrency }) => {
   const cartItems = cart.cart_items;
   const orderedCartItems = sortBy(cartItems, item => item.created_at);
   if (!cartItems) {
     return (
-      <MainContent>
-        <div className="loader-spinner">
-          <Loader
-            type="TailSpin"
-            color="Gray"
-            height={100}
-            width={100}
-            timeout={3000}
-          />
-        </div>
-      </MainContent>
+      <>
+        <Navbar cart={cart} />
+        <MainContent>
+          <div className="loader-spinner">
+            <Loader
+              type="TailSpin"
+              color="Gray"
+              height={100}
+              width={100}
+              timeout={3000}
+            />
+          </div>
+        </MainContent>
+        <Footer />
+      </>
     );
   }
 
   return (
     <>
+      <Navbar cart={cart} />
       <MainContent page="cart">
         <div className="cart-heading">
           <h2>Cart</h2>
@@ -70,6 +78,7 @@ const CartPage = ({ cart, setCart, usCurrency }) => {
           </>
         )}
       </MainContent>
+      <Footer />
     </>
   );
 };

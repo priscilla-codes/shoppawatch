@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import MainContent from '../components/MainContent';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import ProductDescription from '../components/ProductDescription';
 import Loader from 'react-loader-spinner';
 import api from '../api';
@@ -12,7 +14,8 @@ const ProductPage = ({
   increaseQuantity,
   decreaseQuantity,
   quantity,
-  usCurrency
+  usCurrency,
+  cart
 }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
@@ -29,22 +32,27 @@ const ProductPage = ({
 
   if (!product.description) {
     return (
-      <MainContent>
-        <div className="loader-spinner">
-          <Loader
-            type="TailSpin"
-            color="Gray"
-            height={100}
-            width={100}
-            timeout={3000}
-          />
-        </div>
-      </MainContent>
+      <>
+        <Navbar cart={cart} />
+        <MainContent>
+          <div className="loader-spinner">
+            <Loader
+              type="TailSpin"
+              color="Gray"
+              height={100}
+              width={100}
+              timeout={3000}
+            />
+          </div>
+        </MainContent>
+        <Footer />
+      </>
     );
   }
 
   return (
     <>
+      <Navbar cart={cart} />
       <MainContent page="product-page">
         <div className="single-product-layout">
           <div className="top-watch-block__single">
@@ -115,6 +123,7 @@ const ProductPage = ({
           </div>
         </div>
       </MainContent>
+      <Footer />
     </>
   );
 };

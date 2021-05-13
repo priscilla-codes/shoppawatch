@@ -4,12 +4,11 @@ import axios from 'axios';
 import api from './api';
 
 // Components
-import Footer from './components/Footer';
 import MainWrapper from './components/MainWrapper';
-import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
+import SignupPage from './pages/SignupPage';
 
 function Main() {
   const [cart, setCart] = useState({});
@@ -62,7 +61,6 @@ function Main() {
   return (
     <BrowserRouter>
       <MainWrapper>
-        <Navbar cart={cart} />
         <Switch>
           <Route path="/" exact>
             <HomePage
@@ -70,6 +68,7 @@ function Main() {
               setQuantity={setQuantity}
               quantity={quantity}
               usCurrency={usCurrency}
+              cart={cart}
             />
           </Route>
           <Route path="/products/:id">
@@ -81,13 +80,16 @@ function Main() {
               setQauntity={setQuantity}
               quantity={quantity}
               usCurrency={usCurrency}
+              cart={cart}
             />
           </Route>
           <Route path="/cart">
             <CartPage cart={cart} setCart={setCart} usCurrency={usCurrency} />
           </Route>
+          <Route>
+            <SignupPage path="/signup"></SignupPage>
+          </Route>
         </Switch>
-        <Footer />
       </MainWrapper>
     </BrowserRouter>
   );

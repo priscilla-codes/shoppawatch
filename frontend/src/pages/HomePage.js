@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Product from '../components/Product';
 import MainContent from '../components/MainContent';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import axios from 'axios';
 import api from '../api';
 
-const HomePage = ({ addToCartHandler, setQuantity, usCurrency }) => {
+const HomePage = ({ addToCartHandler, setQuantity, usCurrency, cart }) => {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
@@ -20,6 +22,7 @@ const HomePage = ({ addToCartHandler, setQuantity, usCurrency }) => {
 
   return (
     <>
+      <Navbar cart={cart} />
       <MainContent>
         <div className="page-heading">
           <h2>Shop</h2>
@@ -35,6 +38,7 @@ const HomePage = ({ addToCartHandler, setQuantity, usCurrency }) => {
           ))}
         </div>
       </MainContent>
+      <Footer />
     </>
   );
 };
