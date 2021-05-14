@@ -1,12 +1,19 @@
 import MainWrapper from '../components/MainWrapper';
+import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
 import api from '../api';
 
-const SignupPage = () => {
+const SignupPage = ({ handleLogin }) => {
+  const history = useHistory();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const handleSuccessfulAuth = data => {
+    handleLogin(data);
+    history.push('/');
+  };
 
   const handleSubmit = e => {
     axios
@@ -23,6 +30,9 @@ const SignupPage = () => {
       )
       .then(response => {
         console.log('registration res', response);
+        if (response.data.status === 'created') {
+          handleSuccessfulAuth(response.data);
+        }
       })
       .catch(error => {
         console.log('registration error', error);

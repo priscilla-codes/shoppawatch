@@ -6,7 +6,13 @@ import Footer from '../components/Footer';
 import axios from 'axios';
 import api from '../api';
 
-const HomePage = ({ addToCartHandler, setQuantity, usCurrency, cart }) => {
+const HomePage = ({
+  addToCartHandler,
+  setQuantity,
+  usCurrency,
+  cart,
+  loggedInStatus
+}) => {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
@@ -25,7 +31,7 @@ const HomePage = ({ addToCartHandler, setQuantity, usCurrency, cart }) => {
       <Navbar cart={cart} />
       <MainContent>
         <div className="page-heading">
-          <h2>Shop</h2>
+          <h2>Shop: {loggedInStatus}</h2>
         </div>
         <div className="watches-container">
           {products.map(product => (

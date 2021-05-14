@@ -13,6 +13,8 @@ import SignupPage from './pages/SignupPage';
 function Main() {
   const [cart, setCart] = useState({});
   const [quantity, setQuantity] = useState(1);
+  const [loggedInStatus, setLoggedInStatus] = useState('NOT_LOGGED_IN');
+  const [user, setUser] = useState({});
 
   const addToCartHandler = async product => {
     if (quantity >= 1) {
@@ -49,6 +51,11 @@ function Main() {
     }
   };
 
+  const handleLogin = data => {
+    setLoggedInStatus('LOGGED_IN');
+    setUser(data.user);
+  };
+
   const usCurrency = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD'
@@ -69,6 +76,7 @@ function Main() {
               quantity={quantity}
               usCurrency={usCurrency}
               cart={cart}
+              loggedInStatus={loggedInStatus}
             />
           </Route>
           <Route path="/products/:id">
@@ -86,8 +94,8 @@ function Main() {
           <Route path="/cart">
             <CartPage cart={cart} setCart={setCart} usCurrency={usCurrency} />
           </Route>
-          <Route>
-            <SignupPage path="/signup"></SignupPage>
+          <Route path="/signup">
+            <SignupPage handleLogin={handleLogin}></SignupPage>
           </Route>
         </Switch>
       </MainWrapper>
