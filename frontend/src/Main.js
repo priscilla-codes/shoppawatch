@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import SignupPage from './pages/SignupPage';
+import SigninPage from './pages/SigninPage';
 
 function Main() {
   const [cart, setCart] = useState({});
@@ -96,6 +97,9 @@ function Main() {
           </Route>
           <Route path="/signup">
             <SignupPage handleLogin={handleLogin}></SignupPage>
+          </Route>
+          <Route path="/signin">
+            <SigninPage handleLogin={handleLogin}></SigninPage>
           </Route>
         </Switch>
       </MainWrapper>

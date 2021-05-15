@@ -7,6 +7,7 @@ const updateItem = 'api/v1/carts/update_item';
 const removeItem = 'api/v1/carts/remove_item';
 const cart = 'api/v1/carts/get_cart';
 const registrations = '/api/v1/registrations';
+const sessions = '/api/v1/sessions';
 
 axios.defaults.baseURL = baseUrl;
 
@@ -17,6 +18,7 @@ const api = {
   updateItem,
   removeItem,
   registrations,
+  sessions,
   cart
 };
 

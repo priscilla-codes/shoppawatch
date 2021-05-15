@@ -6,13 +6,12 @@ import api from '../api';
 
 const SignupPage = ({ handleLogin }) => {
   const history = useHistory();
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSuccessfulAuth = data => {
     handleLogin(data);
-    history.push('/');
+    history.goBack();
   };
 
   const handleSubmit = e => {
@@ -21,7 +20,6 @@ const SignupPage = ({ handleLogin }) => {
         `${api.sessions}`,
         {
           user: {
-            name: name,
             email: email,
             password: password
           }
@@ -29,39 +27,26 @@ const SignupPage = ({ handleLogin }) => {
         { withCredentials: true }
       )
       .then(response => {
-        console.log('registration res', response);
-        if (response.data.status === 'created') {
+        if (response.data.logged_in) {
           handleSuccessfulAuth(response.data);
         }
       })
       .catch(error => {
-        console.log('registration error', error);
+        console.log('login error', error);
       });
     e.preventDefault();
   };
 
   return (
     <div>
-      <MainWrapper page="sign-up-page">
-        <div className="sign-up-page-content">
+      <MainWrapper page="sign-in-page">
+        <div className="sign-in-page-content">
           <div className="brand">
             <span className="brand-name">ShoppAWatch</span>
             <span className="brand-end-period"></span>
           </div>
-          <h2>Sign up for an account</h2>
+          <h2>Sign in to your account</h2>
           <form onSubmit={e => handleSubmit(e)}>
-            <div className="input-container">
-              <i className="fal fa-user"></i>
-              <input
-                type="text"
-                name="name"
-                className="text-input"
-                placeholder="Name"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                required
-              />
-            </div>
             <div className="input-container">
               <i className="fal fa-envelope"></i>
               <input
@@ -86,7 +71,7 @@ const SignupPage = ({ handleLogin }) => {
                 required
               />
             </div>
-            <input type="submit" value="Sign up" className="sign-up-button" />
+            <input type="submit" value="Sign in" className="sign-in-button" />
           </form>
         </div>
       </MainWrapper>
