@@ -57,6 +57,23 @@ function Main() {
     setUser(data.user);
   };
 
+  const checkLoginStatus = () => {
+    axios
+      .get(`${api.loggedIn}`, { withCredentials: true })
+      .then(response => {
+        if (response.data.logged_in && loggedInStatus === 'NOT_LOGGED_IN') {
+          setLoggedInStatus('LOGGED_IN');
+          setUser(response.data.user);
+        } else if (!response.data.logged_in && loggedInStatus === 'LOGGED_IN') {
+          setLoggedInStatus('NOT_LOGGED_IN');
+          setUser({});
+        }
+      })
+      .catch(error => {
+        console.log('check login error', error);
+      });
+  };
+
   const usCurrency = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD'
@@ -64,6 +81,7 @@ function Main() {
 
   useEffect(() => {
     fetchCart();
+    checkLoginStatus();
   }, []);
 
   return (
