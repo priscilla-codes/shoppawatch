@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useRef, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import api from '../api';
 
 const Navbar = ({ cart, handleLogout }) => {
+  const history = useHistory();
   const [showDropdown, setShowDropdown] = useState(false);
   const node = useRef();
 
@@ -22,6 +24,7 @@ const Navbar = ({ cart, handleLogout }) => {
       .delete(`${api.logOut}`, { withCredentials: true })
       .then(response => {
         handleLogout();
+        history.push('/signin');
       })
       .catch(error => {
         console.log('logout error', error);
