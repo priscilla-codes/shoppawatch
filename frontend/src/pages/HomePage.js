@@ -11,6 +11,7 @@ const HomePage = ({
   setQuantity,
   usCurrency,
   cart,
+  handleLogout,
   loggedInStatus
 }) => {
   const [products, setProducts] = useState([]);
@@ -28,7 +29,7 @@ const HomePage = ({
 
   return (
     <>
-      <Navbar cart={cart} />
+      <Navbar cart={cart} handleLogout={handleLogout} />
       <MainContent>
         <div className="page-heading">
           <h2>Shop: {loggedInStatus}</h2>

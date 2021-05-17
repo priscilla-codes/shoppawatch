@@ -37,7 +37,7 @@ const SignupPage = ({ handleLogin }) => {
       .catch(error => {
         console.log('registration error', error);
       });
-    e.preventDefault();
+    e.prevent0Default();
   };
 
   return (

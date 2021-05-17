@@ -6,13 +6,13 @@ import Loader from 'react-loader-spinner';
 import { sortBy } from 'lodash';
 import SignupPage from './SignupPage';
 
-const CartPage = ({ cart, setCart, usCurrency }) => {
+const CartPage = ({ cart, setCart, usCurrency, handleLogout }) => {
   const cartItems = cart.cart_items;
   const orderedCartItems = sortBy(cartItems, item => item.created_at);
   if (!cartItems) {
     return (
       <>
-        <Navbar cart={cart} />
+        <Navbar cart={cart} handleLogout={handleLogout} />
         <MainContent>
           <div className="loader-spinner">
             <Loader
@@ -31,7 +31,7 @@ const CartPage = ({ cart, setCart, usCurrency }) => {
 
   return (
     <>
-      <Navbar cart={cart} />
+      <Navbar cart={cart} handleLogout={handleLogout} />
       <MainContent page="cart">
         <div className="cart-heading">
           <h2>Cart</h2>

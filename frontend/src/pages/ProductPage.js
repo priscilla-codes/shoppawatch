@@ -15,6 +15,7 @@ const ProductPage = ({
   decreaseQuantity,
   quantity,
   usCurrency,
+  handleLogout,
   cart
 }) => {
   const { id } = useParams();
@@ -33,7 +34,7 @@ const ProductPage = ({
   if (!product.description) {
     return (
       <>
-        <Navbar cart={cart} />
+        <Navbar cart={cart} handleLogout={handleLogout} />
         <MainContent>
           <div className="loader-spinner">
             <Loader
@@ -52,7 +53,7 @@ const ProductPage = ({
 
   return (
     <>
-      <Navbar cart={cart} />
+      <Navbar cart={cart} handleLogout={handleLogout} />
       <MainContent page="product-page">
         <div className="single-product-layout">
           <div className="top-watch-block__single">

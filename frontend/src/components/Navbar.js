@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
+import api from '../api';
 
-const Navbar = ({ cart }) => {
+const Navbar = ({ cart, handleLogout }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const node = useRef();
 
@@ -13,6 +15,17 @@ const Navbar = ({ cart }) => {
     if (node.current && !node.current.contains(e.target)) {
       setShowDropdown(false);
     }
+  };
+
+  const handleLogoutClick = () => {
+    axios
+      .delete(`${api.logOut}`, { withCredentials: true })
+      .then(response => {
+        handleLogout();
+      })
+      .catch(error => {
+        console.log('logout error', error);
+      });
   };
 
   useEffect(() => {
@@ -56,10 +69,13 @@ const Navbar = ({ cart }) => {
               </div>
               {showDropdown && (
                 <div className="dropdown-content">
-                  <Link to={'/signout'} className="dropdown-link">
+                  <div
+                    onClick={() => handleLogoutClick()}
+                    className="dropdown-link"
+                  >
                     <i class="fal fa-sign-out"></i>
                     <span>Signout</span>
-                  </Link>
+                  </div>
                 </div>
               )}
             </div>

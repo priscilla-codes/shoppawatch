@@ -57,6 +57,11 @@ function Main() {
     setUser(data.user);
   };
 
+  const handleLogout = data => {
+    setLoggedInStatus('NOT_LOGGED_IN');
+    setUser({});
+  };
+
   const checkLoginStatus = () => {
     axios
       .get(`${api.loggedIn}`, { withCredentials: true })
@@ -96,6 +101,7 @@ function Main() {
               usCurrency={usCurrency}
               cart={cart}
               loggedInStatus={loggedInStatus}
+              handleLogout={handleLogout}
             />
           </Route>
           <Route path="/products/:id">
@@ -107,11 +113,17 @@ function Main() {
               setQauntity={setQuantity}
               quantity={quantity}
               usCurrency={usCurrency}
+              handleLogout={handleLogout}
               cart={cart}
             />
           </Route>
           <Route path="/cart">
-            <CartPage cart={cart} setCart={setCart} usCurrency={usCurrency} />
+            <CartPage
+              cart={cart}
+              setCart={setCart}
+              usCurrency={usCurrency}
+              handleLogout={handleLogout}
+            />
           </Route>
           <Route path="/signup">
             <SignupPage handleLogin={handleLogin}></SignupPage>
