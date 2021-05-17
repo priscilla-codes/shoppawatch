@@ -1,6 +1,27 @@
 import { Link } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
 
 const Navbar = ({ cart }) => {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const node = useRef();
+
+  const handleShowDropdown = e => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleClickOutside = e => {
+    if (node.current && !node.current.contains(e.target)) {
+      setShowDropdown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <div>
       <div className="nav">
@@ -26,8 +47,21 @@ const Navbar = ({ cart }) => {
                 <i className="fal fa-shopping-cart"></i>
               </div>
             </Link>
-            <div className="username-icon">
-              <i className="fal fa-user-circle"></i>
+            <div className="dropdown" ref={node}>
+              <div
+                className="username-icon"
+                onClick={e => handleShowDropdown(e)}
+              >
+                <i className="fal fa-user-circle"></i>
+              </div>
+              {showDropdown && (
+                <div className="dropdown-content">
+                  <Link to={'/signout'} className="dropdown-link">
+                    <i class="fal fa-sign-out"></i>
+                    <span>Signout</span>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
