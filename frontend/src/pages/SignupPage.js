@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
 import api from '../api';
+import { Link } from 'react-router-dom';
 
 const SignupPage = ({ handleLogin }) => {
   const history = useHistory();
@@ -44,10 +45,10 @@ const SignupPage = ({ handleLogin }) => {
     <div>
       <MainWrapper page="sign-up-page">
         <div className="sign-up-page-content">
-          <div className="brand">
+          <Link to="/" className="brand">
             <span className="brand-name">ShoppAWatch</span>
             <span className="brand-end-period"></span>
-          </div>
+          </Link>
           <h2>Sign up for an account</h2>
           <form onSubmit={e => handleSubmit(e)}>
             <div className="input-container">
