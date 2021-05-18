@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import api from '../api';
 
-const Navbar = ({ cart, handleLogout }) => {
+const Navbar = ({ cart, handleLogout, setCart = { setCart } }) => {
   const history = useHistory();
   const [showDropdown, setShowDropdown] = useState(false);
   const node = useRef();
@@ -24,6 +24,8 @@ const Navbar = ({ cart, handleLogout }) => {
       .delete(`${api.logOut}`, { withCredentials: true })
       .then(response => {
         handleLogout();
+        setCart(response.data.cart);
+        console.log(response.data.cart);
         history.push('/signin');
       })
       .catch(error => {
@@ -59,7 +61,7 @@ const Navbar = ({ cart, handleLogout }) => {
           <div className="right-nav">
             <Link to={'/cart'}>
               <div className="cart-icon">
-                <span className="cart-icon-badge">{cart.total_items}</span>
+                <span className="cart-icon-badge">{cart.total_items || 0}</span>
                 <i className="fal fa-shopping-cart"></i>
               </div>
             </Link>

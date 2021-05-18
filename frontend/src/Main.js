@@ -102,6 +102,7 @@ function Main() {
               cart={cart}
               loggedInStatus={loggedInStatus}
               handleLogout={handleLogout}
+              setCart={setCart}
             />
           </Route>
           <Route path="/products/:id">
@@ -115,6 +116,8 @@ function Main() {
               usCurrency={usCurrency}
               handleLogout={handleLogout}
               cart={cart}
+              setCart={setCart}
+            />
             />
           </Route>
           <Route path="/cart">
@@ -123,6 +126,8 @@ function Main() {
               setCart={setCart}
               usCurrency={usCurrency}
               handleLogout={handleLogout}
+              setCart={setCart}
+            />
             />
           </Route>
           <Route path="/signup">

@@ -9,10 +9,26 @@ import SignupPage from './SignupPage';
 const CartPage = ({ cart, setCart, usCurrency, handleLogout }) => {
   const cartItems = cart.cart_items;
   const orderedCartItems = sortBy(cartItems, item => item.created_at);
-  if (!cartItems) {
+
+  if (cart && cartItems === undefined) {
     return (
       <>
-        <Navbar cart={cart} handleLogout={handleLogout} />
+        <Navbar cart={cart} handleLogout={handleLogout} setCart={setCart} />
+        <MainContent page="cart">
+          <div className="cart-heading">
+            <h2>Cart</h2>
+          </div>
+          <div className="empty-cart">
+            <p className="empty-cart-text">Your ShoppAWatch Cart is empty</p>
+          </div>
+        </MainContent>
+        <Footer />
+      </>
+    );
+  } else if (!cartItems) {
+    return (
+      <>
+        <Navbar cart={cart} handleLogout={handleLogout} setCart={setCart} />
         <MainContent>
           <div className="loader-spinner">
             <Loader
@@ -31,7 +47,7 @@ const CartPage = ({ cart, setCart, usCurrency, handleLogout }) => {
 
   return (
     <>
-      <Navbar cart={cart} handleLogout={handleLogout} />
+      <Navbar cart={cart} handleLogout={handleLogout} setCart={setCart} />
       <MainContent page="cart">
         <div className="cart-heading">
           <h2>Cart</h2>

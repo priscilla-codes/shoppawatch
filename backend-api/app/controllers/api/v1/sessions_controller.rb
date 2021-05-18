@@ -1,5 +1,6 @@
 class Api::V1::SessionsController < ApplicationController
   include CurrentUserConcern
+  include CurrentCart
 
   def create 
     user = User
@@ -33,6 +34,7 @@ class Api::V1::SessionsController < ApplicationController
 
   def logout
     reset_session
-    render json: { satatus: 200, logged_out: true }
+    set_cart
+    render json: { status: 200, logged_out: true, cart: @cart}
   end
 end

@@ -16,6 +16,7 @@ const ProductPage = ({
   quantity,
   usCurrency,
   handleLogout,
+  setCart,
   cart
 }) => {
   const { id } = useParams();
@@ -34,7 +35,7 @@ const ProductPage = ({
   if (!product.description) {
     return (
       <>
-        <Navbar cart={cart} handleLogout={handleLogout} />
+        <Navbar cart={cart} handleLogout={handleLogout} setCart={setCart} />
         <MainContent>
           <div className="loader-spinner">
             <Loader
@@ -53,7 +54,7 @@ const ProductPage = ({
 
   return (
     <>
-      <Navbar cart={cart} handleLogout={handleLogout} />
+      <Navbar cart={cart} handleLogout={handleLogout} setCart={setCart} />
       <MainContent page="product-page">
         <div className="single-product-layout">
           <div className="top-watch-block__single">
