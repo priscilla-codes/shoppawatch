@@ -30,10 +30,15 @@ const HomePage = ({
 
   return (
     <>
-      <Navbar setCart={setCart} cart={cart} handleLogout={handleLogout} />
+      <Navbar
+        setCart={setCart}
+        cart={cart}
+        handleLogout={handleLogout}
+        loggedInStatus={loggedInStatus}
+      />
       <MainContent>
         <div className="page-heading">
-          <h2>Shop: {loggedInStatus}</h2>
+          <h2>Shop</h2>
         </div>
         <div className="watches-container">
           {products.map(product => (

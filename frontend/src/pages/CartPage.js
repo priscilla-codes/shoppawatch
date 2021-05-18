@@ -6,14 +6,25 @@ import Loader from 'react-loader-spinner';
 import { sortBy } from 'lodash';
 import SignupPage from './SignupPage';
 
-const CartPage = ({ cart, setCart, usCurrency, handleLogout }) => {
+const CartPage = ({
+  cart,
+  setCart,
+  usCurrency,
+  handleLogout,
+  loggedInStatus
+}) => {
   const cartItems = cart.cart_items;
   const orderedCartItems = sortBy(cartItems, item => item.created_at);
 
   if (cart && cartItems === undefined) {
     return (
       <>
-        <Navbar cart={cart} handleLogout={handleLogout} setCart={setCart} />
+        <Navbar
+          cart={cart}
+          handleLogout={handleLogout}
+          setCart={setCart}
+          loggedInStatus={loggedInStatus}
+        />
         <MainContent page="cart">
           <div className="cart-heading">
             <h2>Cart</h2>
@@ -28,7 +39,12 @@ const CartPage = ({ cart, setCart, usCurrency, handleLogout }) => {
   } else if (!cartItems) {
     return (
       <>
-        <Navbar cart={cart} handleLogout={handleLogout} setCart={setCart} />
+        <Navbar
+          cart={cart}
+          handleLogout={handleLogout}
+          setCart={setCart}
+          loggedInStatus={loggedInStatus}
+        />
         <MainContent>
           <div className="loader-spinner">
             <Loader
@@ -47,7 +63,12 @@ const CartPage = ({ cart, setCart, usCurrency, handleLogout }) => {
 
   return (
     <>
-      <Navbar cart={cart} handleLogout={handleLogout} setCart={setCart} />
+      <Navbar
+        cart={cart}
+        handleLogout={handleLogout}
+        setCart={setCart}
+        loggedInStatus={loggedInStatus}
+      />
       <MainContent page="cart">
         <div className="cart-heading">
           <h2>Cart</h2>

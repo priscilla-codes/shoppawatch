@@ -16,6 +16,7 @@ const ProductPage = ({
   quantity,
   usCurrency,
   handleLogout,
+  loggedInStatus,
   setCart,
   cart
 }) => {
@@ -35,7 +36,12 @@ const ProductPage = ({
   if (!product.description) {
     return (
       <>
-        <Navbar cart={cart} handleLogout={handleLogout} setCart={setCart} />
+        <Navbar
+          cart={cart}
+          handleLogout={handleLogout}
+          setCart={setCart}
+          loggedInStatus={loggedInStatus}
+        />
         <MainContent>
           <div className="loader-spinner">
             <Loader
@@ -54,7 +60,12 @@ const ProductPage = ({
 
   return (
     <>
-      <Navbar cart={cart} handleLogout={handleLogout} setCart={setCart} />
+      <Navbar
+        cart={cart}
+        handleLogout={handleLogout}
+        setCart={setCart}
+        loggedInStatus={loggedInStatus}
+      />
       <MainContent page="product-page">
         <div className="single-product-layout">
           <div className="top-watch-block__single">

@@ -111,6 +111,7 @@ function Main() {
               getQuantity={getQuantity}
               increaseQuantity={increaseQuantity}
               decreaseQuantity={decreaseQuantity}
+              loggedInStatus={loggedInStatus}
               setQauntity={setQuantity}
               quantity={quantity}
               usCurrency={usCurrency}
@@ -126,6 +127,7 @@ function Main() {
               setCart={setCart}
               usCurrency={usCurrency}
               handleLogout={handleLogout}
+              loggedInStatus={loggedInStatus}
               setCart={setCart}
             />
             />
