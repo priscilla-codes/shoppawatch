@@ -4,16 +4,18 @@ import axios from 'axios';
 import api from './api';
 
 // Components
-import Footer from './components/Footer';
 import MainWrapper from './components/MainWrapper';
-import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
+import SignupPage from './pages/SignupPage';
+import SigninPage from './pages/SigninPage';
 
 function Main() {
   const [cart, setCart] = useState({});
   const [quantity, setQuantity] = useState(1);
+  const [loggedInStatus, setLoggedInStatus] = useState('NOT_LOGGED_IN');
+  const [user, setUser] = useState({});
 
   const addToCartHandler = async product => {
     if (quantity >= 1) {
@@ -50,6 +52,33 @@ function Main() {
     }
   };
 
+  const handleLogin = data => {
+    setLoggedInStatus('LOGGED_IN');
+    setUser(data.user);
+  };
+
+  const handleLogout = data => {
+    setLoggedInStatus('NOT_LOGGED_IN');
+    setUser({});
+  };
+
+  const checkLoginStatus = () => {
+    axios
+      .get(`${api.loggedIn}`, { withCredentials: true })
+      .then(response => {
+        if (response.data.logged_in && loggedInStatus === 'NOT_LOGGED_IN') {
+          setLoggedInStatus('LOGGED_IN');
+          setUser(response.data.user);
+        } else if (!response.data.logged_in && loggedInStatus === 'LOGGED_IN') {
+          setLoggedInStatus('NOT_LOGGED_IN');
+          setUser({});
+        }
+      })
+      .catch(error => {
+        console.log('check login error', error);
+      });
+  };
+
   const usCurrency = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD'
@@ -57,12 +86,12 @@ function Main() {
 
   useEffect(() => {
     fetchCart();
+    checkLoginStatus();
   }, []);
 
   return (
     <BrowserRouter>
       <MainWrapper>
-        <Navbar cart={cart} />
         <Switch>
           <Route path="/" exact>
             <HomePage
@@ -70,6 +99,10 @@ function Main() {
               setQuantity={setQuantity}
               quantity={quantity}
               usCurrency={usCurrency}
+              cart={cart}
+              loggedInStatus={loggedInStatus}
+              handleLogout={handleLogout}
+              setCart={setCart}
             />
           </Route>
           <Route path="/products/:id">
@@ -78,16 +111,34 @@ function Main() {
               getQuantity={getQuantity}
               increaseQuantity={increaseQuantity}
               decreaseQuantity={decreaseQuantity}
+              loggedInStatus={loggedInStatus}
               setQauntity={setQuantity}
               quantity={quantity}
               usCurrency={usCurrency}
+              handleLogout={handleLogout}
+              cart={cart}
+              setCart={setCart}
+            />
             />
           </Route>
           <Route path="/cart">
-            <CartPage cart={cart} setCart={setCart} usCurrency={usCurrency} />
+            <CartPage
+              cart={cart}
+              setCart={setCart}
+              usCurrency={usCurrency}
+              handleLogout={handleLogout}
+              loggedInStatus={loggedInStatus}
+              setCart={setCart}
+            />
+            />
+          </Route>
+          <Route path="/signup">
+            <SignupPage handleLogin={handleLogin}></SignupPage>
+          </Route>
+          <Route path="/signin">
+            <SigninPage handleLogin={handleLogin}></SigninPage>
           </Route>
         </Switch>
-        <Footer />
       </MainWrapper>
     </BrowserRouter>
   );

@@ -1,29 +1,74 @@
 import CartItem from '../components/CartItem';
 import MainContent from '../components/MainContent';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import Loader from 'react-loader-spinner';
 import { sortBy } from 'lodash';
+import SignupPage from './SignupPage';
 
-const CartPage = ({ cart, setCart, usCurrency }) => {
+const CartPage = ({
+  cart,
+  setCart,
+  usCurrency,
+  handleLogout,
+  loggedInStatus
+}) => {
   const cartItems = cart.cart_items;
   const orderedCartItems = sortBy(cartItems, item => item.created_at);
-  if (!cartItems) {
+
+  if (cart && cartItems === undefined) {
     return (
-      <MainContent>
-        <div className="loader-spinner">
-          <Loader
-            type="TailSpin"
-            color="Gray"
-            height={100}
-            width={100}
-            timeout={3000}
-          />
-        </div>
-      </MainContent>
+      <>
+        <Navbar
+          cart={cart}
+          handleLogout={handleLogout}
+          setCart={setCart}
+          loggedInStatus={loggedInStatus}
+        />
+        <MainContent page="cart">
+          <div className="cart-heading">
+            <h2>Cart</h2>
+          </div>
+          <div className="empty-cart">
+            <p className="empty-cart-text">Your ShoppAWatch Cart is empty</p>
+          </div>
+        </MainContent>
+        <Footer />
+      </>
+    );
+  } else if (!cartItems) {
+    return (
+      <>
+        <Navbar
+          cart={cart}
+          handleLogout={handleLogout}
+          setCart={setCart}
+          loggedInStatus={loggedInStatus}
+        />
+        <MainContent>
+          <div className="loader-spinner">
+            <Loader
+              type="TailSpin"
+              color="Gray"
+              height={100}
+              width={100}
+              timeout={3000}
+            />
+          </div>
+        </MainContent>
+        <Footer />
+      </>
     );
   }
 
   return (
     <>
+      <Navbar
+        cart={cart}
+        handleLogout={handleLogout}
+        setCart={setCart}
+        loggedInStatus={loggedInStatus}
+      />
       <MainContent page="cart">
         <div className="cart-heading">
           <h2>Cart</h2>
@@ -70,6 +115,7 @@ const CartPage = ({ cart, setCart, usCurrency }) => {
           </>
         )}
       </MainContent>
+      <Footer />
     </>
   );
 };
