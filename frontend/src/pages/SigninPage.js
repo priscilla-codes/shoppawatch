@@ -74,6 +74,11 @@ const SignupPage = ({ handleLogin }) => {
             </div>
             <input type="submit" value="Sign in" className="sign-in-button" />
           </form>
+          <div class="auth-link">
+            <p>
+              New to ShoppAWatch? <Link to={'/signup'}>Sign up</Link>
+            </p>
+          </div>
         </div>
       </MainWrapper>
     </div>

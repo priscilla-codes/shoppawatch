@@ -89,6 +89,11 @@ const SignupPage = ({ handleLogin }) => {
             </div>
             <input type="submit" value="Sign up" className="sign-up-button" />
           </form>
+          <div class="auth-link">
+            <p>
+              Already have an account? <Link to={'/signin'}>Sign in</Link>
+            </p>
+          </div>
         </div>
       </MainWrapper>
     </div>

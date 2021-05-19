@@ -43,6 +43,17 @@
         }
       }
 
+      .auth-link {
+        margin-top: 6rem;
+        font-weight: 400;
+        font-size: 0.9rem;
+        a {
+          font-weight: 500;
+          text-decoration: none;
+          color: #ff2d3b;
+        }
+      }
+
       form {
         display: flex;
         flex-direction: column;
