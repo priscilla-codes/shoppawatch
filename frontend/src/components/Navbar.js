@@ -25,7 +25,6 @@ const Navbar = ({ cart, handleLogout, setCart, loggedInStatus }) => {
       .then(response => {
         handleLogout();
         setCart(response.data.cart);
-        console.log(response.data.cart);
         history.push('/signin');
       })
       .catch(error => {
