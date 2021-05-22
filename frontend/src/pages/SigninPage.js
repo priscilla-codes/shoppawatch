@@ -5,7 +5,7 @@ import axios from 'axios';
 import api from '../api';
 import { Link } from 'react-router-dom';
 
-const SignupPage = ({ handleLogin }) => {
+const SigninPage = ({ handleLogin }) => {
   const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -85,4 +85,4 @@ const SignupPage = ({ handleLogin }) => {
   );
 };
 
-export default SignupPage;
+export default SigninPage;
