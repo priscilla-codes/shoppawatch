@@ -19,7 +19,7 @@ const SignupPage = ({ handleLogin }) => {
   const handleSubmit = e => {
     axios
       .post(
-        `${api.sessions}`,
+        `${api.registrations}`,
         {
           user: {
             name: name,
