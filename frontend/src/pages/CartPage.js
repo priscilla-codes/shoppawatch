@@ -16,27 +16,7 @@ const CartPage = ({
   const cartItems = cart.cart_items;
   const orderedCartItems = sortBy(cartItems, item => item.created_at);
 
-  if (cart && cartItems === undefined) {
-    return (
-      <>
-        <Navbar
-          cart={cart}
-          handleLogout={handleLogout}
-          setCart={setCart}
-          loggedInStatus={loggedInStatus}
-        />
-        <MainContent page="cart">
-          <div className="cart-heading">
-            <h2>Cart</h2>
-          </div>
-          <div className="empty-cart">
-            <p className="empty-cart-text">Your ShoppAWatch Cart is empty</p>
-          </div>
-        </MainContent>
-        <Footer />
-      </>
-    );
-  } else if (!cartItems) {
+  if (!cartItems) {
     return (
       <>
         <Navbar

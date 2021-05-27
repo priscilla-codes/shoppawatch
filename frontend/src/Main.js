@@ -119,7 +119,6 @@ function Main() {
               cart={cart}
               setCart={setCart}
             />
-            />
           </Route>
           <Route path="/cart">
             <CartPage
@@ -129,7 +128,6 @@ function Main() {
               handleLogout={handleLogout}
               loggedInStatus={loggedInStatus}
               setCart={setCart}
-            />
             />
           </Route>
           <Route path="/signup">

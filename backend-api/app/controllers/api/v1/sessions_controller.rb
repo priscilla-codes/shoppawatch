@@ -35,6 +35,6 @@ class Api::V1::SessionsController < ApplicationController
   def logout
     reset_session
     set_cart
-    render json: { status: 200, logged_out: true, cart: @cart}
+    render json: { status: 200, logged_out: true, cart: CartSerializer.new(@cart) }
   end
 end

@@ -19,7 +19,7 @@ const SignupPage = ({ handleLogin }) => {
   const handleSubmit = e => {
     axios
       .post(
-        `${api.sessions}`,
+        `${api.registrations}`,
         {
           user: {
             name: name,
@@ -38,7 +38,7 @@ const SignupPage = ({ handleLogin }) => {
       .catch(error => {
         console.log('registration error', error);
       });
-    e.prevent0Default();
+    e.preventDefault();
   };
 
   return (
