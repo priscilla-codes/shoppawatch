@@ -55,6 +55,7 @@ function Main() {
   const handleLogin = data => {
     setLoggedInStatus('LOGGED_IN');
     setUser(data.user);
+    setCart(data.user_cart);
   };
 
   const handleLogout = data => {

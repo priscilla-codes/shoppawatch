@@ -1,8 +1,9 @@
 class Cart < ApplicationRecord
   has_many  :cart_items
+  belongs_to :user, optional: true
 
-  def add_product(product, quantity)
-    current_item = cart_items.find_by(product_id: product.id)
+  def add_product(product_id, quantity)
+    current_item = cart_items.find_by(product_id: product_id)
     if current_item
       if quantity > 1
         current_item.quantity += quantity
@@ -10,7 +11,7 @@ class Cart < ApplicationRecord
         current_item.quantity += 1
       end
     else 
-      current_item = cart_items.build(product_id: product.id, quantity: quantity)
+      current_item = cart_items.build(product_id: product_id, quantity: quantity)
     end
     current_item
   end
