@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import api from './api';
@@ -132,10 +132,16 @@ function Main() {
             />
           </Route>
           <Route path="/signup">
-            <SignupPage handleLogin={handleLogin}></SignupPage>
+            {loggedInStatus === 'LOGGED_IN' && <Redirect to="/" />}
+            {loggedInStatus === 'NOT_LOGGED_IN' && (
+              <SignupPage handleLogin={handleLogin}></SignupPage>
+            )}
           </Route>
           <Route path="/signin">
-            <SigninPage handleLogin={handleLogin}></SigninPage>
+            {loggedInStatus === 'LOGGED_IN' && <Redirect to="/" />}
+            {loggedInStatus === 'NOT_LOGGED_IN' && (
+              <SigninPage handleLogin={handleLogin}></SigninPage>
+            )}
           </Route>
         </Switch>
       </MainWrapper>
