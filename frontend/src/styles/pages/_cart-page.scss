@@ -229,6 +229,10 @@
   justify-content: center;
   margin-top: 3rem;
 
+  a {
+    text-decoration: none;
+  }
+
   .delivery-amount {
     border-bottom: 2px solid lighten(#e6e7e8, 1%);
     padding: 1rem 0;

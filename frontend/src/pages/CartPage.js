@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Loader from 'react-loader-spinner';
 import { sortBy } from 'lodash';
-import SignupPage from './SignupPage';
+import { Link } from 'react-router-dom';
 
 const CartPage = ({
   cart,
@@ -87,9 +87,11 @@ const CartPage = ({
                     {usCurrency.format(cart.total_price)}
                   </span>
                 </div>
-                <div className="checkout-button">
-                  <span>Checkout</span>
-                </div>
+                <Link to="/checkout">
+                  <div className="checkout-button">
+                    <span>Checkout</span>
+                  </div>
+                </Link>
               </div>
             </div>
           </>

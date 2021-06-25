@@ -10,6 +10,7 @@ import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import SignupPage from './pages/SignupPage';
 import SigninPage from './pages/SigninPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 function Main() {
   const [cart, setCart] = useState({});
@@ -130,6 +131,9 @@ function Main() {
               loggedInStatus={loggedInStatus}
               setCart={setCart}
             />
+          </Route>
+          <Route path="/checkout">
+            <CheckoutPage cart={cart} usCurrency={usCurrency} />
           </Route>
           <Route path="/signup">
             {loggedInStatus === 'LOGGED_IN' && <Redirect to="/" />}
