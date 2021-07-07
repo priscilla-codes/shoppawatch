@@ -133,7 +133,10 @@ function Main() {
             />
           </Route>
           <Route path="/checkout">
-            <CheckoutPage cart={cart} usCurrency={usCurrency} />
+            {loggedInStatus === 'LOGGED_IN' && (
+              <CheckoutPage cart={cart} usCurrency={usCurrency} />
+            )}
+            {loggedInStatus === 'NOT_LOGGED_IN' && <Redirect to="/signin" />}
           </Route>
           <Route path="/signup">
             {loggedInStatus === 'LOGGED_IN' && <Redirect to="/" />}
