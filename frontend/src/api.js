@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:8000';
 const products = 'api/v1/products/';
 const addItem = 'api/v1/carts/add_item';
 const updateItem = 'api/v1/carts/update_item';
@@ -11,10 +10,12 @@ const sessions = '/api/v1/sessions';
 const loggedIn = '/api/v1/logged_in';
 const logOut = '/api/v1/logout';
 
-axios.defaults.baseURL = baseUrl;
+axios.defaults.baseURL =
+  process.env.NODE_ENV !== 'production'
+    ? 'http://localhost:8000'
+    : 'https://shoppawatch-backend-api.herokuapp.com/';
 
 const api = {
-  baseUrl,
   products,
   addItem,
   updateItem,
