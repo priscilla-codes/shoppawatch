@@ -35,5 +35,8 @@ module BackendApi
     config.api_only = true
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
+
+    # Whitelist domain
+    config.hosts << "https://shoppawatch-frontend.herokuapp.com/"
   end
 end
