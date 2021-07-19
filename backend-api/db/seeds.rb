@@ -255,30 +255,26 @@ Product.create!(
 
 # Add images to products
 
-file_contents = {
-  "fossil4.jpg": "../frontend/public/images/fossil4.jpg",
-  "timex.jpg": "../frontend/public/images/timex.jpg",
-  "fossil2.jpg": "../frontend/public/images/fossil2.jpg",
-  "nine-west.jpg": "../frontend/public/images/nine-west.jpg",
-  "michael-kors.jpg": "../frontend/public/images/michael-kors.jpg",
-  "michael-kors2.jpg": "../frontend/public/images/michael-kors2.jpg", 
-  "fossil7.jpg": "../frontend/public/images/fossil7.jpg", 
-  "amazon-essentials.jpg": "../frontend/public/images/amazon-essentials.jpg", 
-  "apple.jpg": "../frontend/public/images/apple.jpg",
-  "fossil5.jpg": "../frontend/public/images/fossil5.jpg",
-  "casio_g-shock.jpg": "../frontend/public/images/casio_g-shock.jpg",
-  "fossil6.jpg": "../frontend/public/images/fossil6.jpg"
-}
-
-file_names = file_contents.keys
-file_paths = file_contents.values
-
+file_names = [
+  "fossil4.jpg", 
+  "timex.jpg",
+  "fossil2.jpg",
+  "nine-west.jpg",
+  "michael-kors.jpg",
+  "michael-kors2.jpg",
+  "fossil7.jpg",
+  "amazon-essentials.jpg",
+  "apple.jpg",
+  "fossil5.jpg",
+  "casio_g-shock.jpg",
+  "fossil6.jpg"
+ ]
 
 file_counter = 0
 
-Product.all.each do |prod|
-  unless file_counter > file_paths.count
-    prod.main_image.attach(io: File.open("#{file_paths[file_counter]}"), filename: "#{file_names[file_counter]}", content_type: "image/jpg")
+Product.all.each do |product|
+  unless file_counter >= file_names.count
+    product.main_image.attach(io: File.open(Rails.root.join('public', 'images', "#{file_names[file_counter]}")), filename: "#{file_names[file_counter]}", content_type: "image/jpg")
   end
 
   file_counter += 1
