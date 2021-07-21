@@ -38,5 +38,6 @@ module BackendApi
 
     # Whitelist domain
     config.hosts << "shoppawatch-backend-api.herokuapp.com"
+    config.hosts << "api.shoppawatch.com"
   end
 end
