@@ -13,7 +13,7 @@ const logOut = '/api/v1/logout';
 axios.defaults.baseURL =
   process.env.NODE_ENV !== 'production'
     ? 'http://localhost:8000'
-    : 'https://shoppawatch-backend-api.herokuapp.com/';
+    : 'https://api.shoppawatch.com';
 
 const api = {
   products,
