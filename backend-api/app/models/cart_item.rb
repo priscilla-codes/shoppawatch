@@ -18,6 +18,6 @@ class CartItem < ApplicationRecord
   end
 
   def main_image
-    rails_blob_path(product.main_image, only_path: true)
+    product.main_image.url
   end
 end
