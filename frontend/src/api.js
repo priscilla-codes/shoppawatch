@@ -10,6 +10,10 @@ const sessions = '/api/v1/sessions';
 const loggedIn = '/api/v1/logged_in';
 const logOut = '/api/v1/logout';
 
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.xsrfCookieName = 'CSRF-TOKEN';
+axios.defaults.xsrfHeaderName = 'X-CSRF-Token';
+axios.defaults.withCredentials = true;
 axios.defaults.baseURL =
   process.env.NODE_ENV !== 'production'
     ? 'http://localhost:8000'
