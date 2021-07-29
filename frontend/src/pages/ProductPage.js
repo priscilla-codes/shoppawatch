@@ -33,6 +33,10 @@ const ProductPage = ({
     fetchProduct();
   }, [id]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (!product.description) {
     return (
       <>
