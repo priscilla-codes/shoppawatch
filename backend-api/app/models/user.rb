@@ -3,8 +3,11 @@ class User < ApplicationRecord
   has_one :cart
   has_secure_password
 
-  validates_presence_of :email
-  validates_uniqueness_of :email
+  validates :name, presence: true
+  validates :email, 
+            :presence => true,
+            :uniqueness => true,
+            :format => { with: URI::MailTo::EMAIL_REGEXP } 
 
   after_create :create_cart
 end
