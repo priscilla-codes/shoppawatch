@@ -2,7 +2,7 @@
 
 ShoppAWatch is an ecommerce application built with a Ruby on Rails backend and a React frontend.
 
-![screenshot](https://github.com/cilla-codes/shoppawatch/blob/main/uploads/shoppawatch_ss.png)
+![shoppawatch_ss](https://user-images.githubusercontent.com/10909592/144969354-0c8e3924-759b-4af1-96fd-f22e573b6edc.png)
 
 ### Features
 
