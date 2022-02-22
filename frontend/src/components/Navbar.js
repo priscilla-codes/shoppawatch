@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import api from '../api';
+import SearchBox from './SearchBox';
 
 const Navbar = ({ cart, handleLogout, setCart, loggedInStatus }) => {
   const history = useHistory();
@@ -51,12 +52,7 @@ const Navbar = ({ cart, handleLogout, setCart, loggedInStatus }) => {
               </div>
             </Link>
           </div>
-          <div className="search">
-            <input type="text" placeholder="Search" />
-            <span>
-              <i className="fal fa-search"></i>
-            </span>
-          </div>
+          <SearchBox />
           <div className="right-nav">
             <div className="cart-icon">
               <Link to={'/cart'}>
