@@ -11,6 +11,7 @@ import CartPage from './pages/CartPage';
 import SignupPage from './pages/SignupPage';
 import SigninPage from './pages/SigninPage';
 import CheckoutPage from './pages/CheckoutPage';
+import SearchPage from './pages/SearchPage';
 
 function Main() {
   const [cart, setCart] = useState({});
@@ -97,6 +98,18 @@ function Main() {
         <Switch>
           <Route path="/" exact>
             <HomePage
+              addToCartHandler={addToCartHandler}
+              setQuantity={setQuantity}
+              quantity={quantity}
+              usCurrency={usCurrency}
+              cart={cart}
+              loggedInStatus={loggedInStatus}
+              handleLogout={handleLogout}
+              setCart={setCart}
+            />
+          </Route>
+          <Route path="/search/:keyword" exact>
+            <SearchPage
               addToCartHandler={addToCartHandler}
               setQuantity={setQuantity}
               quantity={quantity}
