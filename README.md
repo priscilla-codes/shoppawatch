@@ -14,7 +14,7 @@ ShoppAWatch is an ecommerce application built with a Ruby on Rails backend and a
 
 ### Working on
 
-- Search
+- ~~Search~~
 - Product Pagination
 
 ## Getting started
@@ -80,6 +80,6 @@ ShoppAWatch is an ecommerce application built with a Ruby on Rails backend and a
 - https://shoppawatch.com
 - User credentials
   ```
-   username: testuser
+   email: testuser@shoppawatch.com
    password: shoppawatch
   ```
