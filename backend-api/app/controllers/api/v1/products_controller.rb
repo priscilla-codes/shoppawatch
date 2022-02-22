@@ -10,4 +10,10 @@ class Api::V1::ProductsController < ApplicationController
 
     render json: @product 
   end
+
+  def search
+    @products = Product.search_by_term(params[:query])
+
+    render json: @products
+  end
 end

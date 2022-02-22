@@ -8,15 +8,26 @@
   background-color: #fff;
 
   .search {
-    border-radius: 3rem;
-    border: 2px solid #edeff3;
     display: flex;
     justify-content: space-between;
-    padding: 0.6rem 1.5rem;
+
+    button {
+      background: none;
+      color: inherit;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      cursor: pointer;
+      outline: inherit;
+      border: 2px solid #edeff3;
+      border-left: 0;
+      border-top-right-radius: 3rem;
+      border-bottom-right-radius: 3rem;
+    }
 
     .fal {
       color: #858585;
       font-weight: 500;
+      font-size: 1.1rem;
     }
 
     &::placeholder {
@@ -38,7 +49,11 @@
     color: lighten(#000, 5%);
     width: 30rem;
     outline: none;
-    border: 0;
+    padding: 0.6rem 1.5rem;
+    border: 2px solid #edeff3;
+    border-right: 0;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
 
     @include respond(901-983px) {
       width: 28rem;

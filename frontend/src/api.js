@@ -9,6 +9,7 @@ const registrations = '/api/v1/registrations';
 const sessions = '/api/v1/sessions';
 const loggedIn = '/api/v1/logged_in';
 const logOut = '/api/v1/logout';
+const search = '/api/v1/products/search';
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.xsrfCookieName = 'CSRF-TOKEN';
@@ -28,7 +29,8 @@ const api = {
   sessions,
   loggedIn,
   logOut,
-  cart
+  cart,
+  search
 };
 
 export default api;
