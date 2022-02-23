@@ -4,6 +4,7 @@ class Api::V1::RegistrationsController < ApplicationController
   
   def create 
     user = User.create!(
+      name: params['user']['name'],
       email: params['user']['email'],
       password: params['user']['password']
     )
