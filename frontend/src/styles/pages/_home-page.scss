@@ -3,19 +3,21 @@
   width: 84rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   background-color: rgb(249, 249, 249);
   margin-bottom: 6rem;
 
   @include respond(hybrid-1400) {
+    justify-content: space-between;
     width: 100%;
     padding: 0 2rem;
   }
   @include respond(tab-port) {
+    justify-content: space-between;
     width: 100%;
     padding: 0 1.9rem;
   }
   @include respond(phone) {
+    justify-content: space-between;
     width: 100%;
   }
 }
