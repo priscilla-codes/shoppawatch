@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  include PgSearch 
+  include PgSearch::Model
 
   has_many :cart_items
   has_many :order_items

@@ -4,7 +4,7 @@
   padding: 1rem;
   font-family: 'Montserrat', sans-serif;
   flex-direction: column;
-  width: 320px;
+  width: 23%;
   align-items: center;
   margin-bottom: 1rem;
   background-color: #fff;
@@ -15,10 +15,11 @@
     text-decoration: none;
   }
 
-  @include respond(hybrid-1400) {
-    width: 32%;
+  @media (min-width: 87.5rem) {
+    margin-right: 1.6rem;
   }
-  @include respond(tab-port) {
+
+  @media (min-width: 37.5625em) and (max-width: 87.5rem) {
     width: 48%;
   }
   @include respond(phone) {
