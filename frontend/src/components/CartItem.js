@@ -36,58 +36,56 @@ const CartItem = ({ item, setCart, usCurrency }) => {
   }, [newQuantity]);
 
   return (
-    <>
-      <div className="watch-block__cart">
-        <div className="watch-details-left">
-          <img src={item.main_image} alt="" />
+    <div className="watch-block__cart">
+      <div className="watch-details-left">
+        <img src={item.main_image} alt="" />
+        <div className="name__cart">
+          <span className="watch-name__cart">{item.name}</span>
+        </div>
+      </div>
+      <div className="watch-details-right">
+        <div className="watch-details mobile">
           <div className="name__cart">
             <span className="watch-name__cart">{item.name}</span>
           </div>
-        </div>
-        <div className="watch-details-right">
-          <div className="watch-details mobile">
-            <div className="name__cart">
-              <span className="watch-name__cart">{item.name}</span>
-            </div>
-            <div className="price__cart">
-              <span className="watch-price__cart">${item.total_price}</span>
-            </div>
-          </div>
-          <div className="quantity__cart">
-            <span
-              className="decrement"
-              onClick={() => updateItemQty(decreaseQuantity(newQuantity))}
-            >
-              <i className="far fa-minus"></i>
-            </span>
-            <input
-              type="number"
-              className="quantity-count-input"
-              value={newQuantity}
-              size="4"
-              min="1"
-              onChange={e => setNewQuantity(e.target.value)}
-            />
-            <span
-              className="increment"
-              onClick={() => updateItemQty(increaseQuantity(newQuantity))}
-            >
-              <i className="far fa-plus"></i>
-            </span>
-          </div>
-          <div className="bigger-screen price__cart">
-            <span className="watch-price__cart">
-              {usCurrency.format(item.total_price)}
-            </span>
+          <div className="price__cart">
+            <span className="watch-price__cart">${item.total_price}</span>
           </div>
         </div>
-        <div className="delete-watch" onClick={() => removeItem()}>
-          <span>
-            <i className="fal fa-times mobile"></i>
+        <div className="quantity__cart">
+          <span
+            className="decrement"
+            onClick={() => updateItemQty(decreaseQuantity(newQuantity))}
+          >
+            <i className="far fa-minus"></i>
+          </span>
+          <input
+            type="number"
+            className="quantity-count-input"
+            value={newQuantity}
+            size="4"
+            min="1"
+            onChange={e => setNewQuantity(e.target.value)}
+          />
+          <span
+            className="increment"
+            onClick={() => updateItemQty(increaseQuantity(newQuantity))}
+          >
+            <i className="far fa-plus"></i>
+          </span>
+        </div>
+        <div className="bigger-screen price__cart">
+          <span className="watch-price__cart">
+            {usCurrency.format(item.total_price)}
           </span>
         </div>
       </div>
-    </>
+      <div className="delete-watch" onClick={() => removeItem()}>
+        <span>
+          <i className="fal fa-times mobile"></i>
+        </span>
+      </div>
+    </div>
   );
 };
 
