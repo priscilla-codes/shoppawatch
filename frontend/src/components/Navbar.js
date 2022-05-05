@@ -41,51 +41,49 @@ const Navbar = ({ cart, handleLogout, setCart, loggedInStatus }) => {
   }, []);
 
   return (
-    <div>
-      <div className="nav">
-        <div className="centered-nav">
-          <div className="left-nav">
-            <Link to="/">
-              <div className="brand">
-                <span className="brand-name">ShoppAWatch</span>
-                <span className="brand-end-period"></span>
-              </div>
+    <div className="nav">
+      <div className="centered-nav">
+        <div className="left-nav">
+          <Link to="/">
+            <div className="brand">
+              <span className="brand-name">ShoppAWatch</span>
+              <span className="brand-end-period"></span>
+            </div>
+          </Link>
+        </div>
+        <SearchBox />
+        <div className="right-nav">
+          <div className="cart-icon">
+            <Link to={'/cart'}>
+              <span className="cart-icon-badge">{cart.total_items || 0}</span>
+              <i className="fal fa-shopping-cart"></i>
             </Link>
           </div>
-          <SearchBox />
-          <div className="right-nav">
-            <div className="cart-icon">
-              <Link to={'/cart'}>
-                <span className="cart-icon-badge">{cart.total_items || 0}</span>
-                <i className="fal fa-shopping-cart"></i>
-              </Link>
+          {loggedInStatus === 'NOT_LOGGED_IN' ? (
+            <div class="signin-text">
+              <Link to={'/signin'}>Sign in</Link>
             </div>
-            {loggedInStatus === 'NOT_LOGGED_IN' ? (
-              <div class="signin-text">
-                <Link to={'/signin'}>Sign in</Link>
+          ) : (
+            <div className="dropdown" ref={node}>
+              <div
+                className="username-icon"
+                onClick={e => handleShowDropdown(e)}
+              >
+                <i className="fal fa-user-circle"></i>
               </div>
-            ) : (
-              <div className="dropdown" ref={node}>
-                <div
-                  className="username-icon"
-                  onClick={e => handleShowDropdown(e)}
-                >
-                  <i className="fal fa-user-circle"></i>
-                </div>
-                {showDropdown && (
-                  <div className="dropdown-content">
-                    <div
-                      onClick={() => handleLogoutClick()}
-                      className="dropdown-link"
-                    >
-                      <i class="fal fa-sign-out"></i>
-                      <span>Signout</span>
-                    </div>
+              {showDropdown && (
+                <div className="dropdown-content">
+                  <div
+                    onClick={() => handleLogoutClick()}
+                    className="dropdown-link"
+                  >
+                    <i class="fal fa-sign-out"></i>
+                    <span>Signout</span>
                   </div>
-                )}
-              </div>
-            )}
-          </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
