@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
+import { addToCartHandlerAsync } from '../cartSlice';
+import { useDispatch } from 'react-redux';
 
-const Product = ({ product, addToCartHandler, usCurrency }) => {
+const Product = ({ product, usCurrency }) => {
   const truncateText = text =>
     text.length > 29 ? `${text.substring(0, 29)}...` : text;
+  const dispatch = useDispatch();
 
   return (
     <div className="watch-block">
@@ -28,7 +31,10 @@ const Product = ({ product, addToCartHandler, usCurrency }) => {
           </div>
         </Link>
       </div>
-      <div className="add-to-cart" onClick={() => addToCartHandler(product)}>
+      <div
+        className="add-to-cart"
+        onClick={() => dispatch(addToCartHandlerAsync(product))}
+      >
         Add to cart
       </div>
     </div>
