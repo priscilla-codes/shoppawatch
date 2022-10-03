@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+import { selectCart } from '../cartSlice';
 import CartItem from '../components/CartItem';
 import MainContent from '../components/MainContent';
 import Navbar from '../components/Navbar';
@@ -6,25 +8,15 @@ import Loader from 'react-loader-spinner';
 import { sortBy } from 'lodash';
 import { Link } from 'react-router-dom';
 
-const CartPage = ({
-  cart,
-  setCart,
-  usCurrency,
-  handleLogout,
-  loggedInStatus
-}) => {
+const CartPage = ({ usCurrency, handleLogout, loggedInStatus }) => {
+  const cart = useSelector(selectCart);
   const cartItems = cart.cart_items;
   const orderedCartItems = sortBy(cartItems, item => item.created_at);
 
   if (!cartItems) {
     return (
       <>
-        <Navbar
-          cart={cart}
-          handleLogout={handleLogout}
-          setCart={setCart}
-          loggedInStatus={loggedInStatus}
-        />
+        <Navbar handleLogout={handleLogout} loggedInStatus={loggedInStatus} />
         <MainContent>
           <div className="loader-spinner">
             <Loader
@@ -43,12 +35,7 @@ const CartPage = ({
 
   return (
     <>
-      <Navbar
-        cart={cart}
-        handleLogout={handleLogout}
-        setCart={setCart}
-        loggedInStatus={loggedInStatus}
-      />
+      <Navbar handleLogout={handleLogout} loggedInStatus={loggedInStatus} />
       <MainContent page="cart">
         <div className="cart-heading">
           <h2>Cart</h2>
@@ -63,7 +50,6 @@ const CartPage = ({
               {orderedCartItems.map(item => (
                 <CartItem
                   item={item}
-                  setCart={setCart}
                   key={item.id}
                   usCurrency={usCurrency}
                 ></CartItem>

@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setCart } from '../cartSlice';
 import axios from 'axios';
 import api from '../api';
 import _, { debounce } from 'lodash';
 
-const CartItem = ({ item, setCart, usCurrency }) => {
+const CartItem = ({ item, usCurrency }) => {
   const [newQuantity, setNewQuantity] = useState(item.quantity);
+  const dispatch = useDispatch();
+
   const updateItemQty = debounce(async itemQuantity => {
     const response = await axios.put(`${api.updateItem}`, {
       cart_item_id: item.id,
       new_quantity: itemQuantity
     });
 
-    setCart(response.data);
+    dispatch(setCart(response.data));
   }, 10);
 
   const removeItem = async () => {
     const response = await axios.delete(`${api.removeItem}`, {
       data: { cart_item_id: item.id }
     });
-    setCart(response.data);
+    dispatch(setCart(response.data));
   };
 
   const increaseQuantity = quantity => {
