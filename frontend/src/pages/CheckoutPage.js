@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectCart } from '../cartSlice';
 import MainContent from '../components/MainContent';
 import Footer from '../components/Footer';
 import { sortBy } from 'lodash';
 import CheckoutItem from '../components/CheckoutItem';
 import Loader from 'react-loader-spinner';
 
-const CheckoutPage = ({ cart, usCurrency }) => {
+const CheckoutPage = ({ usCurrency }) => {
+  const cart = useSelector(selectCart);
   const cartItems = cart.cart_items;
   const orderedCartItems = sortBy(cartItems, item => item.created_at);
 
