@@ -14,7 +14,7 @@ import ProductDescription from '../components/ProductDescription';
 import Loader from 'react-loader-spinner';
 import api from '../api';
 
-const ProductPage = ({ usCurrency, handleLogout, loggedInStatus }) => {
+const ProductPage = ({ usCurrency }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const quantity = useSelector(selectQuantity);
@@ -55,7 +55,7 @@ const ProductPage = ({ usCurrency, handleLogout, loggedInStatus }) => {
   if (!product.description) {
     return (
       <>
-        <Navbar handleLogout={handleLogout} loggedInStatus={loggedInStatus} />
+        <Navbar />
         <MainContent>
           <div className="loader-spinner">
             <Loader
@@ -74,7 +74,7 @@ const ProductPage = ({ usCurrency, handleLogout, loggedInStatus }) => {
 
   return (
     <>
-      <Navbar handleLogout={handleLogout} loggedInStatus={loggedInStatus} />
+      <Navbar />
       <MainContent page="product-page">
         <div className="single-product-layout">
           <div className="top-watch-block__single">
