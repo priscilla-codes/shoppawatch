@@ -8,7 +8,7 @@ import Loader from 'react-loader-spinner';
 import { sortBy } from 'lodash';
 import { Link } from 'react-router-dom';
 
-const CartPage = ({ usCurrency, handleLogout, loggedInStatus }) => {
+const CartPage = ({ usCurrency }) => {
   const cart = useSelector(selectCart);
   const cartItems = cart.cart_items;
   const orderedCartItems = sortBy(cartItems, item => item.created_at);
@@ -16,7 +16,7 @@ const CartPage = ({ usCurrency, handleLogout, loggedInStatus }) => {
   if (!cartItems) {
     return (
       <>
-        <Navbar handleLogout={handleLogout} loggedInStatus={loggedInStatus} />
+        <Navbar />
         <MainContent>
           <div className="loader-spinner">
             <Loader
@@ -35,7 +35,7 @@ const CartPage = ({ usCurrency, handleLogout, loggedInStatus }) => {
 
   return (
     <>
-      <Navbar handleLogout={handleLogout} loggedInStatus={loggedInStatus} />
+      <Navbar />
       <MainContent page="cart">
         <div className="cart-heading">
           <h2>Cart</h2>

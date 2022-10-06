@@ -63,9 +63,9 @@ const CheckoutPage = ({ cart, usCurrency }) => {
         </div>
       </div>
       <MainContent page="checkout-page">
-        <div class="checkout-card">
+        <div className="checkout-card">
           <h1>Checkout</h1>
-          <div class="order-summary">
+          <div className="order-summary">
             <h2>Order summary</h2>
             {orderedCartItems.map(item => (
               <CheckoutItem
@@ -75,25 +75,25 @@ const CheckoutPage = ({ cart, usCurrency }) => {
               ></CheckoutItem>
             ))}
             <div class="total-amount__checkout">
-              <span class="total-text__checkout">Total</span>
-              <span class="total-price__checkout">
+              <span className="total-text__checkout">Total</span>
+              <span className="total-price__checkout">
                 {usCurrency.format(cart.total_price)}
               </span>
             </div>
             <hr />
-            <div class="checkout-card-bottom">
+            <div className="checkout-card-bottom">
               <h2>Payment method</h2>
-              <div class="payment-method">
+              <div className="payment-method">
                 <span>Method: PayPal</span>
               </div>
             </div>
-            <div class="checkout-actions">
+            <div className="checkout-actions">
               <Link to="/cart">
-                <div class="back-button">
+                <div className="back-button">
                   <span>Back</span>
                 </div>
               </Link>
-              <div class="pay-button">
+              <div className="pay-button">
                 <span>Pay {usCurrency.format(cart.total_price)}</span>
               </div>
             </div>

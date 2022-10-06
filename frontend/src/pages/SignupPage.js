@@ -1,45 +1,28 @@
 import MainWrapper from '../components/MainWrapper';
-import { useHistory } from 'react-router-dom';
-import React, { useState } from 'react';
-import axios from 'axios';
-import api from '../api';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { signupAsync, selectLoggedInStatus, LOGGED_IN } from '../authSlice';
+import { useHistory } from 'react-router-dom';
 
-const SignupPage = ({ handleLogin }) => {
-  const history = useHistory();
+const SignupPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleSuccessfulAuth = data => {
-    handleLogin(data);
-    history.push('/');
-  };
+  const dispatch = useDispatch();
+  const loggedInStatus = useSelector(selectLoggedInStatus);
+  const history = useHistory();
 
   const handleSubmit = e => {
-    axios
-      .post(
-        `${api.registrations}`,
-        {
-          user: {
-            name: name,
-            email: email,
-            password: password
-          }
-        },
-        { withCredentials: true }
-      )
-      .then(response => {
-        console.log('registration res', response);
-        if (response.data.status === 'created') {
-          handleSuccessfulAuth(response.data);
-        }
-      })
-      .catch(error => {
-        console.log('registration error', error);
-      });
     e.preventDefault();
+    dispatch(signupAsync({ name, email, password }));
   };
+
+  useEffect(() => {
+    if (loggedInStatus === LOGGED_IN) {
+      history.push('/');
+    }
+  }, [loggedInStatus]);
 
   return (
     <MainWrapper page="sign-up-page">
@@ -88,7 +71,7 @@ const SignupPage = ({ handleLogin }) => {
           </div>
           <input type="submit" value="Sign up" className="sign-up-button" />
         </form>
-        <div class="auth-link">
+        <div className="auth-link">
           <p>
             Already have an account? <Link to={'/signin'}>Sign in</Link>
           </p>

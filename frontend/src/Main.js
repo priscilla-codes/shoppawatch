@@ -1,7 +1,14 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { setCart, fetchCartAsync } from './cartSlice';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCartAsync } from './cartSlice';
+import {
+  selectLoggedInStatus,
+  setLoggedInStatus,
+  LOGGED_IN,
+  NOT_LOGGED_IN,
+  setUser
+} from './authSlice';
 import axios from 'axios';
 import api from './api';
 
@@ -16,30 +23,18 @@ import CheckoutPage from './pages/CheckoutPage';
 import SearchPage from './pages/SearchPage';
 
 function Main() {
-  const [loggedInStatus, setLoggedInStatus] = useState('NOT_LOGGED_IN');
-  const [user, setUser] = useState({});
+  const loggedInStatus = useSelector(selectLoggedInStatus);
   const dispatch = useDispatch();
-
-  const handleLogin = data => {
-    setLoggedInStatus('LOGGED_IN');
-    setUser(data.user);
-    dispatch(setCart(data.user_cart));
-  };
-
-  const handleLogout = data => {
-    setLoggedInStatus('NOT_LOGGED_IN');
-    setUser({});
-  };
 
   const checkLoginStatus = () => {
     axios
       .get(`${api.loggedIn}`, { withCredentials: true })
       .then(response => {
-        if (response.data.logged_in && loggedInStatus === 'NOT_LOGGED_IN') {
-          setLoggedInStatus('LOGGED_IN');
+        if (response.data.logged_in && loggedInStatus === NOT_LOGGED_IN) {
+          setLoggedInStatus(LOGGED_IN);
           setUser(response.data.user);
-        } else if (!response.data.logged_in && loggedInStatus === 'LOGGED_IN') {
-          setLoggedInStatus('NOT_LOGGED_IN');
+        } else if (!response.data.logged_in && loggedInStatus === LOGGED_IN) {
+          setLoggedInStatus(NOT_LOGGED_IN);
           setUser({});
         }
       })
@@ -63,50 +58,30 @@ function Main() {
       <MainWrapper>
         <Switch>
           <Route path="/" exact>
-            <HomePage
-              usCurrency={usCurrency}
-              loggedInStatus={loggedInStatus}
-              handleLogout={handleLogout}
-            />
+            <HomePage usCurrency={usCurrency} />
           </Route>
           <Route path="/search/:keyword" exact>
-            <SearchPage
-              usCurrency={usCurrency}
-              loggedInStatus={loggedInStatus}
-              handleLogout={handleLogout}
-            />
+            <SearchPage usCurrency={usCurrency} />
           </Route>
           <Route path="/products/:id">
-            <ProductPage
-              loggedInStatus={loggedInStatus}
-              usCurrency={usCurrency}
-              handleLogout={handleLogout}
-            />
+            <ProductPage usCurrency={usCurrency} />
           </Route>
           <Route path="/cart">
-            <CartPage
-              usCurrency={usCurrency}
-              handleLogout={handleLogout}
-              loggedInStatus={loggedInStatus}
-            />
+            <CartPage usCurrency={usCurrency} />
           </Route>
           <Route path="/checkout">
-            {loggedInStatus === 'LOGGED_IN' && (
+            {loggedInStatus === LOGGED_IN && (
               <CheckoutPage usCurrency={usCurrency} />
             )}
-            {loggedInStatus === 'NOT_LOGGED_IN' && <Redirect to="/signin" />}
+            {loggedInStatus === NOT_LOGGED_IN && <Redirect to="/signin" />}
           </Route>
           <Route path="/signup">
-            {loggedInStatus === 'LOGGED_IN' && <Redirect to="/" />}
-            {loggedInStatus === 'NOT_LOGGED_IN' && (
-              <SignupPage handleLogin={handleLogin}></SignupPage>
-            )}
+            {loggedInStatus === LOGGED_IN && <Redirect to="/" />}
+            {loggedInStatus === NOT_LOGGED_IN && <SignupPage></SignupPage>}
           </Route>
           <Route path="/signin">
-            {loggedInStatus === 'LOGGED_IN' && <Redirect to="/" />}
-            {loggedInStatus === 'NOT_LOGGED_IN' && (
-              <SigninPage handleLogin={handleLogin}></SigninPage>
-            )}
+            {loggedInStatus === LOGGED_IN && <Redirect to="/" />}
+            {loggedInStatus === NOT_LOGGED_IN && <SigninPage></SigninPage>}
           </Route>
         </Switch>
       </MainWrapper>

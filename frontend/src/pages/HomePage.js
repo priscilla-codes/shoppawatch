@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Product from '../components/Product';
 import MainContent from '../components/MainContent';
 import Navbar from '../components/Navbar';
@@ -8,7 +8,7 @@ import axios from 'axios';
 import api from '../api';
 import { setQuantity } from '../cartSlice';
 
-const HomePage = ({ usCurrency, handleLogout, loggedInStatus }) => {
+const HomePage = ({ usCurrency }) => {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ const HomePage = ({ usCurrency, handleLogout, loggedInStatus }) => {
 
   return (
     <>
-      <Navbar handleLogout={handleLogout} loggedInStatus={loggedInStatus} />
+      <Navbar />
       <MainContent>
         <div className="page-heading">
           <h2>Shop</h2>
