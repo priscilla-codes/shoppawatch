@@ -7,14 +7,7 @@ import Footer from '../components/Footer';
 import axios from 'axios';
 import api from '../api';
 
-const SearchPage = ({
-  addToCartHandler,
-  usCurrency,
-  cart,
-  handleLogout,
-  setCart,
-  loggedInStatus
-}) => {
+const SearchPage = ({ usCurrency }) => {
   const { keyword } = useParams();
   const [products, setProducts] = useState([]);
 
@@ -32,12 +25,7 @@ const SearchPage = ({
 
   return (
     <>
-      <Navbar
-        setCart={setCart}
-        cart={cart}
-        handleLogout={handleLogout}
-        loggedInStatus={loggedInStatus}
-      />
+      <Navbar />
       <MainContent>
         <div className="page-heading">
           <h2>Shop</h2>
@@ -47,7 +35,6 @@ const SearchPage = ({
             <Product
               key={product.id}
               product={product}
-              addToCartHandler={addToCartHandler}
               usCurrency={usCurrency}
             />
           ))}

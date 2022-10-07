@@ -1,14 +1,20 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useRef, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCart, selectCart } from '../cartSlice';
+import { handleLogout, selectLoggedInStatus } from '../authSlice';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import api from '../api';
 import SearchBox from './SearchBox';
 
-const Navbar = ({ cart, handleLogout, setCart, loggedInStatus }) => {
+const Navbar = () => {
   const history = useHistory();
   const [showDropdown, setShowDropdown] = useState(false);
   const node = useRef();
+  const dispatch = useDispatch();
+  const cart = useSelector(selectCart);
+  const loggedInStatus = useSelector(selectLoggedInStatus);
 
   const handleShowDropdown = e => {
     setShowDropdown(!showDropdown);
@@ -24,8 +30,8 @@ const Navbar = ({ cart, handleLogout, setCart, loggedInStatus }) => {
     axios
       .delete(`${api.logOut}`, { withCredentials: true })
       .then(response => {
-        handleLogout();
-        setCart(response.data.cart);
+        dispatch(handleLogout());
+        dispatch(setCart(response.data.cart));
         history.push('/signin');
       })
       .catch(error => {

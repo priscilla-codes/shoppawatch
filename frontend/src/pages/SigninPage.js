@@ -1,42 +1,27 @@
 import MainWrapper from '../components/MainWrapper';
-import { useHistory } from 'react-router-dom';
-import React, { useState } from 'react';
-import axios from 'axios';
-import api from '../api';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { signinAsync, selectLoggedInStatus, LOGGED_IN } from '../authSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-const SigninPage = ({ handleLogin }) => {
-  const history = useHistory();
+const SigninPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleSuccessfulAuth = data => {
-    handleLogin(data);
-    history.goBack();
-  };
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const loggedInStatus = useSelector(selectLoggedInStatus);
 
   const handleSubmit = e => {
-    axios
-      .post(
-        `${api.sessions}`,
-        {
-          user: {
-            email: email,
-            password: password
-          }
-        },
-        { withCredentials: true }
-      )
-      .then(response => {
-        if (response.data.logged_in) {
-          handleSuccessfulAuth(response.data);
-        }
-      })
-      .catch(error => {
-        console.log('login error', error);
-      });
     e.preventDefault();
+    dispatch(signinAsync({ email, password }));
   };
+
+  useEffect(() => {
+    if (loggedInStatus === LOGGED_IN) {
+      history.goBack();
+    }
+  }, [loggedInStatus]);
 
   return (
     <MainWrapper page="sign-in-page">
@@ -73,7 +58,7 @@ const SigninPage = ({ handleLogin }) => {
           </div>
           <input type="submit" value="Sign in" className="sign-in-button" />
         </form>
-        <div class="auth-link">
+        <div className="auth-link">
           <p>
             New to ShoppAWatch? <Link to={'/signup'}>Sign up</Link>
           </p>

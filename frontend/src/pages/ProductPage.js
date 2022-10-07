@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  addToCartHandlerAsync,
+  selectQuantity,
+  setQuantity
+} from '../cartSlice';
 import MainContent from '../components/MainContent';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -8,20 +14,29 @@ import ProductDescription from '../components/ProductDescription';
 import Loader from 'react-loader-spinner';
 import api from '../api';
 
-const ProductPage = ({
-  addToCartHandler,
-  getQuantity,
-  increaseQuantity,
-  decreaseQuantity,
-  quantity,
-  usCurrency,
-  handleLogout,
-  loggedInStatus,
-  setCart,
-  cart
-}) => {
+const ProductPage = ({ usCurrency }) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const quantity = useSelector(selectQuantity);
+  const dispatch = useDispatch();
+
+  const getQuantity = e => {
+    setQuantity(e.target.valueAsNumber || e.target.value);
+  };
+
+  const increaseQuantity = () => {
+    if (quantity >= 1) {
+      setQuantity(quantity + 1);
+    } else if (typeof quantity === 'string') {
+      setQuantity(1);
+    }
+  };
+
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -40,12 +55,7 @@ const ProductPage = ({
   if (!product.description) {
     return (
       <>
-        <Navbar
-          cart={cart}
-          handleLogout={handleLogout}
-          setCart={setCart}
-          loggedInStatus={loggedInStatus}
-        />
+        <Navbar />
         <MainContent>
           <div className="loader-spinner">
             <Loader
@@ -64,12 +74,7 @@ const ProductPage = ({
 
   return (
     <>
-      <Navbar
-        cart={cart}
-        handleLogout={handleLogout}
-        setCart={setCart}
-        loggedInStatus={loggedInStatus}
-      />
+      <Navbar />
       <MainContent page="product-page">
         <div className="single-product-layout">
           <div className="top-watch-block__single">
@@ -118,7 +123,7 @@ const ProductPage = ({
                 <div
                   className="add-to-cart-button"
                   onClick={() => {
-                    addToCartHandler(product);
+                    dispatch(addToCartHandlerAsync(product));
                   }}
                 >
                   <span>Add To Cart</span>
