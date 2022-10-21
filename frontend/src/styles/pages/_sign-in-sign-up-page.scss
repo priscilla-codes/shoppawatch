@@ -129,6 +129,18 @@
           padding-right: 1rem;
         }
       }
+
+      .error {
+        display: flex;
+        justify-content: center;
+        padding: 1.3rem;
+        width: 26.8rem;
+        background-color: #fff1f1;
+        margin-bottom: 1rem;
+        border: 2px solid #fab3b9;
+        border-radius: 0.3rem;
+      }
+
       @include respond(max-599px) {
         width: 100%;
       }

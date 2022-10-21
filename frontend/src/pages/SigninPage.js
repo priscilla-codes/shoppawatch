@@ -1,7 +1,13 @@
 import MainWrapper from '../components/MainWrapper';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { signinAsync, selectLoggedInStatus, LOGGED_IN } from '../authSlice';
+import {
+  selectErrorMessage,
+  setErrorMessage,
+  signinAsync,
+  selectLoggedInStatus,
+  LOGGED_IN
+} from '../authSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -11,10 +17,12 @@ const SigninPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const loggedInStatus = useSelector(selectLoggedInStatus);
+  const errorMessage = useSelector(selectErrorMessage);
 
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(signinAsync({ email, password }));
+    dispatch(setErrorMessage(''));
   };
 
   useEffect(() => {
@@ -22,6 +30,10 @@ const SigninPage = () => {
       history.goBack();
     }
   }, [loggedInStatus]);
+
+  useEffect(() => {
+    dispatch(setErrorMessage(''));
+  }, []);
 
   return (
     <MainWrapper page="sign-in-page">
@@ -31,6 +43,7 @@ const SigninPage = () => {
           <span className="brand-end-period"></span>
         </Link>
         <h2>Sign in to your account</h2>
+        {errorMessage !== '' && <p class="error">{errorMessage}</p>}
         <form onSubmit={e => handleSubmit(e)}>
           <div className="input-container">
             <i className="fal fa-envelope"></i>

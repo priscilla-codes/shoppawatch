@@ -2,20 +2,28 @@ import MainWrapper from '../components/MainWrapper';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { signupAsync, selectLoggedInStatus, LOGGED_IN } from '../authSlice';
+import {
+  selectErrorMessage,
+  setErrorMessage,
+  signupAsync,
+  selectLoggedInStatus,
+  LOGGED_IN
+} from '../authSlice';
 import { useHistory } from 'react-router-dom';
 
 const SignupPage = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const dispatch = useDispatch();
   const loggedInStatus = useSelector(selectLoggedInStatus);
-  const history = useHistory();
+  const errorMessage = useSelector(selectErrorMessage);
 
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(signupAsync({ name, email, password }));
+    dispatch(setErrorMessage(''));
   };
 
   useEffect(() => {
@@ -23,6 +31,10 @@ const SignupPage = () => {
       history.push('/');
     }
   }, [loggedInStatus]);
+
+  useEffect(() => {
+    dispatch(setErrorMessage(''));
+  }, []);
 
   return (
     <MainWrapper page="sign-up-page">
@@ -32,6 +44,7 @@ const SignupPage = () => {
           <span className="brand-end-period"></span>
         </Link>
         <h2>Sign up for an account</h2>
+        {errorMessage !== '' && <p class="error">{errorMessage}</p>}
         <form onSubmit={e => handleSubmit(e)}>
           <div className="input-container">
             <i className="fal fa-user"></i>
