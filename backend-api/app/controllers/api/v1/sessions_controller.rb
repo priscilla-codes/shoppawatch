@@ -19,7 +19,7 @@ class Api::V1::SessionsController < ApplicationController
         user_cart: CartSerializer.new(user.cart)
       }
     else 
-      render json: { status: 401 }
+      render json: { status: 401, message: "Invalid password or email." }
     end
   end
   

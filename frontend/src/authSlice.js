@@ -8,7 +8,8 @@ export const NOT_LOGGED_IN = 'NOT_LOGGED_IN';
 
 const initialState = {
   user: {},
-  loggedInStatus: NOT_LOGGED_IN
+  loggedInStatus: NOT_LOGGED_IN,
+  errorMessage: ''
 };
 
 export const signinAsync = createAsyncThunk(
@@ -31,6 +32,7 @@ export const signinAsync = createAsyncThunk(
       dispatch(setUser(response.data));
       dispatch(setCart(response.data.user_cart));
     }
+    return response.data;
   }
 );
 
@@ -38,8 +40,6 @@ export const signupAsync = createAsyncThunk(
   'auth/signup',
   async (signupInfo, thunkAPI) => {
     const dispatch = thunkAPI.dispatch;
-
-    console.log('signupInfo');
 
     const response = await axios.post(
       `${api.registrations}`,
@@ -56,6 +56,7 @@ export const signupAsync = createAsyncThunk(
       dispatch(handleLogin(response.data));
       dispatch(setUser(response.data));
     }
+    return response.data;
   }
 );
 
@@ -76,13 +77,37 @@ export const authSlice = createSlice({
     },
     selectLoggedInStatus: (state, action) => {
       state.loggedInStatus = action.payload;
+    },
+    setErrorMessage: (state, action) => {
+      state.errorMessage = action.payload;
     }
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(signinAsync.fulfilled, (state, action) => {
+        if (action.payload.status === 401) {
+          state.errorMessage = action.payload.message;
+        }
+      })
+      .addCase(signupAsync.fulfilled, (state, action) => {
+        if (action.payload.status === 422) {
+          state.errorMessage = action.payload.message;
+        }
+      });
   }
 });
 
-export const { handleLogin, handleLogout, setLoggedInStatus, setUser } =
-  authSlice.actions;
+export const {
+  handleLogin,
+  handleLogout,
+  setLoggedInStatus,
+  setUser,
+  setErrorMessage
+} = authSlice.actions;
 export const selectLoggedInStatus = state => {
   return state.auth.loggedInStatus;
+};
+export const selectErrorMessage = state => {
+  return state.auth.errorMessage;
 };
 export default authSlice.reducer;
