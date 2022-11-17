@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Product from '../components/Product';
 import MainContent from '../components/MainContent';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import axios from 'axios';
 import api from '../api';
-import { setQuantity } from '../cartSlice';
+import { selectQuantity } from '../cartSlice';
 
 const HomePage = ({ usCurrency }) => {
   const [products, setProducts] = useState([]);
-  const dispatch = useDispatch();
+  const quantity = useSelector(selectQuantity);
 
   const fetchProducts = async () => {
     const { data } = await axios.get(api.products);
@@ -20,7 +20,6 @@ const HomePage = ({ usCurrency }) => {
 
   useEffect(() => {
     fetchProducts();
-    dispatch(setQuantity());
   }, []);
 
   return (

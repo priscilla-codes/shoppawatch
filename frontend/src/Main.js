@@ -1,7 +1,6 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchCartAsync } from './cartSlice';
 import {
   selectLoggedInStatus,
   setLoggedInStatus,
@@ -9,6 +8,7 @@ import {
   NOT_LOGGED_IN,
   setUser
 } from './authSlice';
+import { setQuantity, fetchCartAsync } from './cartSlice';
 import axios from 'axios';
 import api from './api';
 
@@ -50,6 +50,7 @@ function Main() {
 
   useEffect(() => {
     dispatch(fetchCartAsync());
+    dispatch(setQuantity(1));
     checkLoginStatus();
   }, []);
 

@@ -21,20 +21,20 @@ const ProductPage = ({ usCurrency }) => {
   const dispatch = useDispatch();
 
   const getQuantity = e => {
-    setQuantity(e.target.valueAsNumber || e.target.value);
+    dispatch(setQuantity(e.target.valueAsNumber || e.target.value));
   };
 
   const increaseQuantity = () => {
     if (quantity >= 1) {
-      setQuantity(quantity + 1);
+      dispatch(setQuantity(quantity + 1));
     } else if (typeof quantity === 'string') {
-      setQuantity(1);
+      dispatch(setQuantity(1));
     }
   };
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      dispatch(setQuantity(quantity - 1));
     }
   };
 
@@ -49,6 +49,7 @@ const ProductPage = ({ usCurrency }) => {
   }, [id]);
 
   useEffect(() => {
+    dispatch(setQuantity(1));
     window.scrollTo(0, 0);
   }, []);
 
