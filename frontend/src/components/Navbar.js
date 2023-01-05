@@ -3,13 +3,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCart, selectCart } from '../cartSlice';
 import { handleLogout, selectLoggedInStatus } from '../authSlice';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import axios from 'axios';
 import api from '../api';
 import SearchBox from './SearchBox';
 
 const Navbar = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const node = useRef();
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const Navbar = () => {
       .then(response => {
         dispatch(handleLogout());
         dispatch(setCart(response.data.cart));
-        history.push('/signin');
+        navigate('/signin');
       })
       .catch(error => {
         console.log('logout error', error);

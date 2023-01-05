@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -57,34 +57,35 @@ function Main() {
   return (
     <BrowserRouter>
       <MainWrapper>
-        <Switch>
-          <Route path="/" exact>
-            <HomePage usCurrency={usCurrency} />
-          </Route>
-          <Route path="/search/:keyword" exact>
-            <SearchPage usCurrency={usCurrency} />
-          </Route>
-          <Route path="/products/:id">
-            <ProductPage usCurrency={usCurrency} />
-          </Route>
-          <Route path="/cart">
-            <CartPage usCurrency={usCurrency} />
-          </Route>
-          <Route path="/checkout">
-            {loggedInStatus === LOGGED_IN && (
-              <CheckoutPage usCurrency={usCurrency} />
-            )}
-            {loggedInStatus === NOT_LOGGED_IN && <Redirect to="/signin" />}
-          </Route>
-          <Route path="/signup">
-            {loggedInStatus === LOGGED_IN && <Redirect to="/" />}
-            {loggedInStatus === NOT_LOGGED_IN && <SignupPage></SignupPage>}
-          </Route>
-          <Route path="/signin">
-            {loggedInStatus === LOGGED_IN && <Redirect to="/" />}
-            {loggedInStatus === NOT_LOGGED_IN && <SigninPage></SigninPage>}
-          </Route>
-        </Switch>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={<HomePage usCurrency={usCurrency} />}
+          />
+          <Route
+            exact
+            path="/search/:keyword"
+            element={<SearchPage usCurrency={usCurrency} />}
+          />
+          <Route
+            path="/products/:id"
+            element={<ProductPage usCurrency={usCurrency} />}
+          />
+          <Route path="/cart" element={<CartPage usCurrency={usCurrency} />} />
+          <Route
+            path="/checkout"
+            element={
+              loggedInStatus === LOGGED_IN ? (
+                <CheckoutPage usCurrency={usCurrency} />
+              ) : (
+                <Navigate to="/signin" />
+              )
+            }
+          />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/signin" element={<SigninPage />} />
+        </Routes>
       </MainWrapper>
     </BrowserRouter>
   );
