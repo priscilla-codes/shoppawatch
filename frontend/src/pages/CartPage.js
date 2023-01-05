@@ -7,9 +7,11 @@ import Footer from '../components/Footer';
 import Loader from 'react-loader-spinner';
 import { sortBy } from 'lodash';
 import { Link } from 'react-router-dom';
+import { LOGGED_IN, selectLoggedInStatus } from '../authSlice';
 
 const CartPage = ({ usCurrency }) => {
   const cart = useSelector(selectCart);
+  const loggedInStatus = useSelector(selectLoggedInStatus);
   const cartItems = cart.cart_items;
   const orderedCartItems = sortBy(cartItems, item => item.created_at);
 
@@ -73,11 +75,19 @@ const CartPage = ({ usCurrency }) => {
                     {usCurrency.format(cart.total_price)}
                   </span>
                 </div>
-                <Link to="/checkout">
-                  <div className="checkout-button">
-                    <span>Checkout</span>
-                  </div>
-                </Link>
+                {loggedInStatus === LOGGED_IN ? (
+                  <Link to="/checkout">
+                    <div className="checkout-button">
+                      <span>Checkout</span>
+                    </div>
+                  </Link>
+                ) : (
+                  <Link to="/signin">
+                    <div className="checkout-button">
+                      <span>Checkout</span>
+                    </div>
+                  </Link>
+                )}
               </div>
             </div>
           </>

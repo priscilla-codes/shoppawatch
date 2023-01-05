@@ -1,7 +1,7 @@
 import MainWrapper from '../components/MainWrapper';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   selectErrorMessage,
   setErrorMessage,
@@ -9,11 +9,10 @@ import {
   selectLoggedInStatus,
   LOGGED_IN
 } from '../authSlice';
-import { useHistory } from 'react-router-dom';
 
 const SignupPage = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,7 +27,7 @@ const SignupPage = () => {
 
   useEffect(() => {
     if (loggedInStatus === LOGGED_IN) {
-      history.push('/');
+      navigate('/');
     }
   }, [loggedInStatus]);
 

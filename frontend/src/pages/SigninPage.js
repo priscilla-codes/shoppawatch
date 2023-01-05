@@ -9,13 +9,13 @@ import {
   LOGGED_IN
 } from '../authSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SigninPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const loggedInStatus = useSelector(selectLoggedInStatus);
   const errorMessage = useSelector(selectErrorMessage);
 
@@ -27,7 +27,7 @@ const SigninPage = () => {
 
   useEffect(() => {
     if (loggedInStatus === LOGGED_IN) {
-      history.goBack();
+      navigate(-1);
     }
   }, [loggedInStatus]);
 

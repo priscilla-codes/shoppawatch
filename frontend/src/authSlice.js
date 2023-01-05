@@ -75,7 +75,7 @@ export const authSlice = createSlice({
     setUser: (state, action) => {
       state.user = action.payload.user;
     },
-    selectLoggedInStatus: (state, action) => {
+    setLoggedInStatus: (state, action) => {
       state.loggedInStatus = action.payload;
     },
     setErrorMessage: (state, action) => {
