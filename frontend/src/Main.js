@@ -31,11 +31,11 @@ function Main() {
       .get(`${api.loggedIn}`, { withCredentials: true })
       .then(response => {
         if (response.data.logged_in && loggedInStatus === NOT_LOGGED_IN) {
-          setLoggedInStatus(LOGGED_IN);
-          setUser(response.data.user);
+          dispatch(setLoggedInStatus(LOGGED_IN));
+          dispatch(setUser(response.data.user));
         } else if (!response.data.logged_in && loggedInStatus === LOGGED_IN) {
-          setLoggedInStatus(NOT_LOGGED_IN);
-          setUser({});
+          dispatch(setLoggedInStatus(NOT_LOGGED_IN));
+          dispatch(setUser({}));
         }
       })
       .catch(error => {
