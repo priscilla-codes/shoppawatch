@@ -1,6 +1,5 @@
 {
   "name": "frontend",
-  "proxy": "http://127.0.0.1:5000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,7 +23,7 @@
   },
   "scripts": {
     "start": "PORT=8000 react-scripts start",
-    "build": "react-scripts build",
+    "build": "BUILD_PATH='../backend-api/public' react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
