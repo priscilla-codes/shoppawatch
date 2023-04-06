@@ -20,7 +20,7 @@ ShoppAWatch is an ecommerce application built with a Ruby on Rails backend and a
 ## Getting started
 
     # Clone repository
-    $ git clone https://github.com/cilla-codes/shoppawatch.git
+    $ git clone https://github.com/priscilla-codes/shoppawatch.git
 
     # Change directories
     $ cd shoppawatch
