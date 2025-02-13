@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  root to: "static_files#index"
-  get '/signin', to: "static_files#index"
-  get '/signup', to: "static_files#index"
-  get '/products/*path', to: "static_files#index"
-  get '/cart', to: "static_files#index"
-  get '/checkout', to: "static_files#index"
-  
   namespace :api do
     namespace :v1 do
       resources :sessions, only: [:create]
