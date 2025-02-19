@@ -1,33 +1,43 @@
 # ShoppAWatch
 
-ShoppAWatch is an ecommerce application built with a Ruby on Rails backend and a React frontend.
+A full-stack e-commerce watch store built with Ruby on Rails API and React.
 
 ![Screen Shot 2022-02-24 at 1 31 45 AM](https://user-images.githubusercontent.com/10909592/155478583-83dd8acd-282f-4a99-b4ad-fc4937d4d698.png)
 
-### Features
+Features secure user authentication, real-time shopping cart management, and AWS S3 integration for product images. The platform supports both guest and authenticated user shopping experiences, with persistent cart functionality and product search capabilities.
 
-- Authenticate users
-- Add items to cart
-- Increase/decrease quantity
-- Store images with AWS S3
-- Seed database with sample data (products)
+## Features
 
-### Working on
+- User authentication and authorization
+- Shopping cart functionality
+- Product quantity management
+- AWS S3 image storage
+- Sample product database seeding
+- Product search
 
-- ~~Search~~
-- Product Pagination
-
-## Getting started
-
-    # Clone repository
-    $ git clone https://github.com/priscilla-codes/shoppawatch.git
-
-    # Change directories
-    $ cd shoppawatch
+## Tech Stack
 
 ### Backend
+- Ruby 3.1.2
+- Rails 6.1.7
+- PostgreSQL (pg 1.1.4)
+- AWS S3 for image storage
+- Active Model Serializers 0.10.12
+- PG Search 2.3.5
+- Rack CORS
+- BCrypt 3.1.16
+- Puma 5.1.1
 
-#### Models
+### Frontend
+- React 18.2.0
+- Redux
+- SCSS
+
+## API Documentation
+
+The API documentation can be found in [API_DOCUMENTATION.md](API_DOCUMENTATION.md).
+
+## Models
 
 - Product
 - Cart
@@ -36,33 +46,65 @@ ShoppAWatch is an ecommerce application built with a Ruby on Rails backend and a
 - Order
 - OrderItem
 
-#### Requirements:
+## Getting Started
 
-      Ruby 2.4+
-      Rails 6
-      Postgres 13.3 or above
+### Prerequisites
 
-#### Run
+Ensure you have the following installed:
+- Node.js 
+- npm
+- PostgreSQL
 
-    # Change directories
-    $ cd backend-api
+### Installation
 
-    # Install the needed gems
-    $ bundle install
+1. Clone the repository
+    ```bash
+    git clone https://github.com/priscilla-codes/shoppawatch.git
+    cd shoppawatch
+    ```
 
-    # Create the database
-    $ rails db:create
+2. Backend Setup
+    ```bash
+    cd backend-api
+    bundle install
+    rails db:create
+    rails db:migrate
+    rails db:seed
+    rails s -p 5000
+    ```
+    The backend will run on port 5000.
 
-    # Migrate the database
-    $ rails db:migrate
+3. Frontend Setup
+    ```bash
+    cd frontend
+    npm install
+    npm start
+    ```
+    The frontend will run on port 8000.
 
-    # Seed the database with sample data
-    $ rails db:seed
+## Working on
+- Product Pagination
 
-    # Start the server
-    $ rails s -p 5000
+## Environment Variables
 
-### Frontend
+Create a `.env` file in the backend directory with the following variables:
+```
+DATABASE_URL=your_postgres_url
+AWS_ACCESS_KEY_ID=your_aws_access_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+AWS_REGION=your_aws_region
+S3_BUCKET=your_bucket_name
+```
+
+## Live Demo
+
+Visit the live application at [https://shoppawatch.com](https://shoppawatch.com)
+
+### Demo Credentials
+    ```
+    Email: testuser@shoppawatch.com
+    Password: shoppawatch
+    ```
 
 #### Run
 
@@ -74,12 +116,3 @@ ShoppAWatch is an ecommerce application built with a Ruby on Rails backend and a
 
     # Start the server
     npm start - will run on port 8000
-
-## Live Demo
-
-- https://shoppawatch.com
-- User credentials
-  ```
-   email: testuser@shoppawatch.com
-   password: shoppawatch
-  ```
