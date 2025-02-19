@@ -1,8 +1,10 @@
 # ShoppAWatch
 
-A full-stack e-commerce platform specializing in watches, built with Ruby on Rails API and React. The application features secure user authentication, real-time shopping cart management, and AWS S3 integration for product images. The platform supports both guest and authenticated user shopping experiences, with persistent cart functionality and product search capabilities.
+A full-stack e-commerce watch store built with Ruby on Rails API and React.
 
 ![Screen Shot 2022-02-24 at 1 31 45 AM](https://user-images.githubusercontent.com/10909592/155478583-83dd8acd-282f-4a99-b4ad-fc4937d4d698.png)
+
+Features secure user authentication, real-time shopping cart management, and AWS S3 integration for product images. The platform supports both guest and authenticated user shopping experiences, with persistent cart functionality and product search capabilities.
 
 ## Features
 
