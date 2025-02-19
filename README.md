@@ -86,13 +86,13 @@ Ensure you have the following installed:
 ## Environment Variables
 
 Create a `.env` file in the backend directory with the following variables:
-    ```
-    DATABASE_URL=your_postgres_url
-    AWS_ACCESS_KEY_ID=your_aws_access_key
-    AWS_SECRET_ACCESS_KEY=your_aws_secret_key
-    AWS_REGION=your_aws_region
-    S3_BUCKET=your_bucket_name
-    ```
+```
+DATABASE_URL=your_postgres_url
+AWS_ACCESS_KEY_ID=your_aws_access_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+AWS_REGION=your_aws_region
+S3_BUCKET=your_bucket_name
+```
 
 ## Live Demo
 
