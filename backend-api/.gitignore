@@ -43,5 +43,13 @@ config/database.yml
 #VS Code files
 .vscode
 
+# Ignore RSpec state
+spec/examples.txt
+spec/fixtures/files/*
+!spec/fixtures/files/.keep
+
 # Ignore db test files.
 db/test.*
+
+# Ignore RSpec state
+spec/examples.txt
