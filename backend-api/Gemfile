@@ -8,7 +8,6 @@ gem 'puma',      '5.1.1'
 gem 'bootsnap',  '1.15.0', require: false
 gem 'rack-cors'
 gem 'pg',        '1.1.4'
-gem 'faker',     '2.15.1'
 gem 'active_model_serializers', '0.10.12'
 gem 'bcrypt', '3.1.16'
 gem "rails_same_site_cookie", '0.1.8'
@@ -17,6 +16,11 @@ gem "pg_search",  '2.3.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'mini_magick'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker',     '2.15.1'
+  gem 'shoulda-matchers'
 end
 
 group :development do

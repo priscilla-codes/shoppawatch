@@ -7,7 +7,8 @@ class Product < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :main_image, presence: true
 
   pg_search_scope :search_by_term, against: [:name],
     using: {
