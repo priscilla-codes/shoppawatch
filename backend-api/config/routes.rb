@@ -14,8 +14,10 @@ Rails.application.routes.draw do
           post "add_item"
           put "update_item"
           delete "remove_item"
+          delete "destroy" 
         end
       end
+      post 'create_payment_intent', to: 'payments#create_payment_intent'
     end
   end
 end

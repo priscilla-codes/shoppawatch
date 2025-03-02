@@ -218,6 +218,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    stripe (13.4.1)
     thor (1.2.1)
     timeout (0.3.1)
     tzinfo (2.0.5)
@@ -252,6 +253,7 @@ DEPENDENCIES
   shoulda-matchers
   spring
   spring-watcher-listen (= 2.0.1)
+  stripe
 
 RUBY VERSION
    ruby 3.1.2p20

@@ -117,6 +117,26 @@
         font-size: 0.9rem;
         padding: 0.8rem;
         font-weight: 600;
+        transition: background-color 0.2s;
+        
+        &.processing {
+          background-color: #999;
+          cursor: not-allowed;
+        }
+        
+        .spinner {
+          width: 16px;
+          height: 16px;
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          border-top-color: #fff;
+          animation: spin 1s ease-in-out infinite;
+          margin-right: 8px;
+        }
+        
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
 
         @include respond(phone) {
           margin-left: 0.6rem;
