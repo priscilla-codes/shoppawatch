@@ -184,12 +184,6 @@ const CheckoutPage = ({ usCurrency }) => {
         <div className="checkout-card">
           <h1>Checkout</h1>
           
-          {paymentError && (
-            <div className="payment-error-message">
-              {paymentError}
-            </div>
-          )}
-          
           <div className="order-summary">
             <h2>Order summary</h2>
             {orderedCartItems.map(item => (
@@ -211,6 +205,9 @@ const CheckoutPage = ({ usCurrency }) => {
               <div className="payment-method">
                 <span>Method: Credit Card</span>
               </div>
+              {paymentError && <div className="payment-error-message">
+                {paymentError}
+              </div>}
               {clientSecret && (
                 <Elements stripe={stripePromise} options={options}>
                   <PaymentForm 
