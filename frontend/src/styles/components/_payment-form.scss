@@ -1,0 +1,82 @@
+.payment-form {
+  margin-top: 1.3rem;
+
+  .demo-notice {
+    background-color: #f8f9fa;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 0.3rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: darken(#e3e3e3, 35%);
+    line-height: 1.4;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  .card-fields {
+    margin-bottom: 1rem;
+  }
+
+  .card-field {
+    margin-bottom: 1rem;
+    
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: #424770;
+    }
+  }
+
+  .card-row {
+    display: flex;
+    gap: 1rem;
+    
+    .expiry {
+      flex: 1;
+    }
+    
+    .cvc {
+      flex: 1;
+    }
+  }
+
+  .card-element {
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    padding: 1rem;
+    border-radius: 0.3rem;
+    background-color: white;
+  }
+
+  .field-error {
+    color: #ff3c49;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+  }
+
+  .error-message {
+    color: #ff3c49;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background-color: rgba(255, 60, 73, 0.1);
+    border-radius: 0.3rem;
+  }
+
+  .card-status {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    
+    .card-complete {
+      color: #4caf50;
+    }
+    
+    .card-incomplete {
+      color: #9e9e9e;
+    }
+  }
+} 

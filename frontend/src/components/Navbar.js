@@ -16,6 +16,10 @@ const Navbar = () => {
   const cart = useSelector(selectCart);
   const loggedInStatus = useSelector(selectLoggedInStatus);
 
+  const totalQuantity = cart && cart.cart_items 
+    ? cart.cart_items.reduce((total, item) => total + (item.quantity || 1), 0)
+    : 0;
+
   const handleShowDropdown = e => {
     setShowDropdown(!showDropdown);
   };
@@ -61,12 +65,12 @@ const Navbar = () => {
         <div className="right-nav">
           <div className="cart-icon">
             <Link to={'/cart'}>
-              <span className="cart-icon-badge">{cart.total_items || 0}</span>
+              <span className="cart-icon-badge">{totalQuantity}</span>
               <i className="fal fa-shopping-cart"></i>
             </Link>
           </div>
           {loggedInStatus === 'NOT_LOGGED_IN' ? (
-            <div class="signin-text">
+            <div className="signin-text">
               <Link to={'/signin'}>Sign in</Link>
             </div>
           ) : (
@@ -83,7 +87,7 @@ const Navbar = () => {
                     onClick={() => handleLogoutClick()}
                     className="dropdown-link"
                   >
-                    <i class="fal fa-sign-out"></i>
+                    <i className="fal fa-sign-out"></i>
                     <span>Signout</span>
                   </div>
                 </div>

@@ -21,6 +21,7 @@ import SignupPage from './pages/SignupPage';
 import SigninPage from './pages/SigninPage';
 import CheckoutPage from './pages/CheckoutPage';
 import SearchPage from './pages/SearchPage';
+import PaymentSuccessPage from './pages/PaymentSuccessPage';
 
 function Main() {
   const loggedInStatus = useSelector(selectLoggedInStatus);
@@ -39,7 +40,7 @@ function Main() {
         }
       })
       .catch(error => {
-        console.log('check login error', error);
+        console.error('Check login error:', error);
       });
   };
 
@@ -49,7 +50,9 @@ function Main() {
   });
 
   useEffect(() => {
-    dispatch(fetchCartAsync());
+    if (window.location.pathname !== '/payment-success') {
+      dispatch(fetchCartAsync());
+    }
     dispatch(setQuantity(1));
     checkLoginStatus();
   }, []);
@@ -83,6 +86,7 @@ function Main() {
               )
             }
           />
+          <Route path="/payment-success" element={<PaymentSuccessPage usCurrency={usCurrency} />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/signin" element={<SigninPage />} />
         </Routes>

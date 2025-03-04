@@ -1,11 +1,20 @@
 import { Link } from 'react-router-dom';
-import { addToCartHandlerAsync } from '../cartSlice';
+import { addToCartHandlerAsync, fetchCartAsync } from '../cartSlice';
 import { useDispatch } from 'react-redux';
 
 const Product = ({ product, usCurrency }) => {
   const truncateText = text =>
     text.length > 29 ? `${text.substring(0, 29)}...` : text;
   const dispatch = useDispatch();
+  
+  const handleAddToCart = async (product) => {
+    try {
+      await dispatch(addToCartHandlerAsync(product)).unwrap();
+      await dispatch(fetchCartAsync()).unwrap();
+    } catch (error) {
+      console.error('Failed to add to cart:', error);
+    }
+  };
 
   return (
     <div className="watch-block">
@@ -33,7 +42,7 @@ const Product = ({ product, usCurrency }) => {
       </div>
       <div
         className="add-to-cart"
-        onClick={() => dispatch(addToCartHandlerAsync(product))}
+        onClick={() => handleAddToCart(product)}
       >
         Add to cart
       </div>

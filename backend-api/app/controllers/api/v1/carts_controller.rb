@@ -53,4 +53,11 @@ class Api::V1::CartsController < ApplicationController
       render json: @cart
     end
   end
+
+  def destroy
+    @cart.cart_items.destroy_all
+    @cart.update(total_price: 0)
+    
+    render json: @cart
+  end
 end
