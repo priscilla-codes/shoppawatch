@@ -170,3 +170,13 @@
     }
   }
 }
+
+.payment-error-message {
+  background-color: rgba(255, 60, 73, 0.1);
+  color: #ff3c49;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+}

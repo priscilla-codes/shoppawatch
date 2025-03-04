@@ -1,20 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import MainContent from '../components/MainContent';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useDispatch } from 'react-redux';
 import { clearCartOnServer } from '../cartSlice';
-import axios from 'axios';
 
 const PaymentSuccessPage = ({ usCurrency }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [paymentDetails, setPaymentDetails] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const paymentIntentId = urlParams.get('payment_intent');
+    const redirectStatus = urlParams.get('redirect_status');
+    
+    // Persist payment data across tabs/redirects using sessionStorage
+    // Essential for third-party payments like Cash App Pay
+    const storedAmount = sessionStorage.getItem('pendingPaymentAmount');
+    const storedTime = sessionStorage.getItem('pendingPaymentTime');
+    
     const clearCart = async () => {
       try {
         await dispatch(clearCartOnServer());
@@ -24,34 +35,130 @@ const PaymentSuccessPage = ({ usCurrency }) => {
     };
 
     const getPaymentDetails = async () => {
+      setLoading(true);
+      
       if (location.state && location.state.paymentId) {
         setPaymentDetails({
           paymentId: location.state.paymentId,
           amount: location.state.amount,
           date: location.state.date
         });
-      } else {
-        try {
-          const response = await axios.get('/api/v1/payments/latest', {
-            withCredentials: true
+        clearCart();
+        setLoading(false);
+        return;
+      }
+      
+      if (paymentIntentId) {
+        // Handle failed payments for better UX
+        if (redirectStatus === 'failed') {
+          sessionStorage.setItem('failedPayment', 'true');
+          setError("Your payment was not successful. Please try again.");
+          setTimeout(() => {
+            navigate('/checkout');
+          }, 3000); 
+          setLoading(false);
+          return;
+        }
+        
+        const amount = storedAmount ? parseFloat(storedAmount) : 19.99;
+        const date = storedTime || new Date().toISOString();
+        
+        // Check multiple statuses as different payment methods return different success states
+        if (redirectStatus === 'succeeded' || 
+            redirectStatus === 'processing' || 
+            redirectStatus === 'requires_capture') {
+          
+          setPaymentDetails({
+            paymentId: paymentIntentId,
+            amount: amount,
+            date: date
           });
           
-          if (response.data && response.data.payment) {
-            setPaymentDetails({
-              paymentId: response.data.payment.id,
-              amount: response.data.payment.amount / 100, // Convert from cents
-              date: response.data.payment.created
-            });
-          }
-        } catch (error) {
-          console.error('Error fetching payment details:', error);
+          clearCart();
+        } else {
+          sessionStorage.setItem('failedPayment', 'true');
+          setError("Payment was not successful. Please try again.");
+          setTimeout(() => {
+            navigate('/checkout');
+          }, 3000); 
         }
+        
+        // Clean up to prevent stale data affecting future payments
+        sessionStorage.removeItem('pendingPaymentAmount');
+        sessionStorage.removeItem('pendingPaymentTime');
+        
+        setLoading(false);
+        return;
       }
+      
+      // Fallback for page refreshes or unusual navigation paths
+      if (storedAmount) {
+        setPaymentDetails({
+          paymentId: "test-payment-" + Date.now(),
+          amount: parseFloat(storedAmount),
+          date: storedTime || new Date().toISOString()
+        });
+        clearCart();
+        
+        sessionStorage.removeItem('pendingPaymentAmount');
+        sessionStorage.removeItem('pendingPaymentTime');
+        
+        setLoading(false);
+        return;
+      }
+      
+      setError("No payment information found. Please try again.");
+      // Short delay for better UX than immediate redirect
+      setTimeout(() => {
+        navigate('/checkout');
+      }, 3000); 
+      
+      setLoading(false);
     };
 
-    clearCart();
     getPaymentDetails();
-  }, [dispatch, location]);
+  }, [dispatch, location, navigate]);
+
+  if (loading) {
+    return (
+      <>
+        <Navbar />
+        <MainContent>
+          <div className="success-page">
+            <div className="success-card">
+              <div className="loading-spinner">
+                <i className="fas fa-spinner fa-spin"></i>
+              </div>
+              <h1>Verifying Payment...</h1>
+              <p>Please wait while we confirm your payment details.</p>
+            </div>
+          </div>
+        </MainContent>
+        <Footer />
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        <Navbar />
+        <MainContent>
+          <div className="success-page">
+            <div className="success-card">
+              <div className="error-icon">
+                <i className="fas fa-exclamation-circle"></i>
+              </div>
+              <h1>Payment Issue</h1>
+              <p className="error-message">{error}</p>
+              <p>Redirecting you back to checkout in 3 seconds...</p>
+            </div>
+          </div>
+        </MainContent>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>

@@ -17,6 +17,15 @@ const PaymentForm = forwardRef(({ amount, onProcessingChange }, ref) => {
     setPaymentError(null);
   }, [amount]);
 
+  // Stores payment amount in sessionStorage before potential redirects
+  // Ensures the amount can be recovered after returning from third-party payment flows
+  useEffect(() => {
+    if (amount) {
+      sessionStorage.setItem('pendingPaymentAmount', amount.toString());
+      sessionStorage.setItem('pendingPaymentTime', new Date().toISOString());
+    }
+  }, [amount]);
+
   const handlePayment = async () => {
     if (isProcessing) {
       return;
@@ -38,7 +47,7 @@ const PaymentForm = forwardRef(({ amount, onProcessingChange }, ref) => {
       const { error, paymentIntent } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: window.location.origin + '/payment-success',
+          return_url: `${window.location.origin}/payment-success`,
         },
         redirect: 'if_required',
       });
@@ -58,8 +67,10 @@ const PaymentForm = forwardRef(({ amount, onProcessingChange }, ref) => {
             date: new Date().toISOString()
           } 
         });
+      } else if (paymentIntent && paymentIntent.next_action && paymentIntent.next_action.type === 'redirect_to_url') {
+        // For Cash App Pay and other redirect-based payment methods
+        window.location.href = paymentIntent.next_action.redirect_to_url.url;
       } else if (paymentIntent && paymentIntent.status === 'requires_payment_method') {
-        // This happens when the user clicks "Fail Test Payment"
         setPaymentError("The payment was declined. Please try again with a different payment method.");
       } else {
         console.error("Unexpected payment status:", paymentIntent?.status);
@@ -74,6 +85,7 @@ const PaymentForm = forwardRef(({ amount, onProcessingChange }, ref) => {
     }
   };
 
+  // Expose handlePayment method to parent component
   useImperativeHandle(ref, () => ({
     handlePayment
   }), [stripe, elements, amount, isProcessing, navigate]);
@@ -86,19 +98,22 @@ const PaymentForm = forwardRef(({ amount, onProcessingChange }, ref) => {
         • Expiry: Any future date (MM/YY)<br />
         • CVC: Any 3 digits
       </div>
-      
+
       <PaymentElement 
         onReady={() => setIsReady(true)}
         options={{
           layout: {
             type: 'tabs',
             defaultCollapsed: false,
+          },
+          cashapp: {
+            presentationMode: 'iframe'
           }
         }}
       />
-      
+
       {paymentError && <div className="error-message">{paymentError}</div>}
-      
+
       <div className="card-status">
         {isReady ? 
           <div className="card-complete">✓ Payment form ready</div> : 
