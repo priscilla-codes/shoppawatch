@@ -53,6 +53,17 @@
       font-weight: 500;
       font-size: 0.975rem;
       padding-right: 1rem;
+      
+      .product-link {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.2s;
+        
+        &:hover {
+          color: #ff3c49;
+          text-decoration: underline;
+        }
+      }
     }
 
     .total-amount__checkout {
@@ -167,6 +178,18 @@
         margin-top: 1.5rem;
         margin-bottom: 1.3rem;
       }
+    }
+
+    .watch-image__checkout {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-right: 1rem;
+    }
+
+    .watch-order-details-left {
+      display: flex;
+      align-items: center;
     }
   }
 }
