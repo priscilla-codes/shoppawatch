@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { setCart } from '../cartSlice';
 import axios from 'axios';
 import api from '../api';
@@ -42,15 +43,21 @@ const CartItem = ({ item, usCurrency }) => {
   return (
     <div className="watch-block__cart">
       <div className="watch-details-left">
-        <img src={item.main_image} alt="" />
+        <Link to={`/products/${item.product_id}`}>
+          <img src={item.main_image} alt={item.name} />
+        </Link>
         <div className="name__cart">
-          <span className="watch-name__cart">{item.name}</span>
+          <Link to={`/products/${item.product_id}`} className="product-link">
+            <span className="watch-name__cart">{item.name}</span>
+          </Link>
         </div>
       </div>
       <div className="watch-details-right">
         <div className="watch-details mobile">
           <div className="name__cart">
-            <span className="watch-name__cart">{item.name}</span>
+            <Link to={`/products/${item.product_id}`} className="product-link">
+              <span className="watch-name__cart">{item.name}</span>
+            </Link>
           </div>
           <div className="price__cart">
             <span className="watch-price__cart">${item.total_price}</span>

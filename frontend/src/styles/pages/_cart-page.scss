@@ -60,6 +60,16 @@
         @include respond(phone) {
           display: none;
         }
+        .product-link {
+          color: inherit;
+          text-decoration: none;
+          transition: color 0.2s;
+          
+          &:hover {
+            color: #ff3c49;
+            text-decoration: underline;
+          }
+        }
       }
 
       @include respond(phone) {
