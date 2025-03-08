@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::API
-  include ActionController::Cookies
   include ActionController::RequestForgeryProtection
-  
-  before_action :set_csrf_cookie
+  include ActionController::Cookies
 
   private
 
